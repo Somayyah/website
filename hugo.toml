@@ -1,0 +1,85 @@
+baseURL = "http://localhost:1313/"
+defaultContentLanguage = "en"
+languageCode = "en"
+
+title = "Spiderweb unraveled"
+
+theme = "gokarna"
+
+# Automatically generate robots.txt
+enableRobotsTXT = true
+
+[params]
+  # URL for the avatar on homepage
+  avatarURL = "https://avatars.githubusercontent.com/u/55834191?v=4"
+  enableEmoji = true
+
+  # Choose one of size-xs, size-s, size-m, size-l & size-xl. (Default: size-m)
+  avatarSize = "size-xs"
+  dateFormat = "2 January, 2006"
+  
+  # Description to display on homepage
+  description = "One thread at the time"
+    
+  # Accent color is displayed when you hover over <a> tags
+  accentColor = "#FF4D4D"
+
+  # Display "back to top" button on posts
+  ShowBackToTopButton = true
+
+  # You can use this to inject any HTML in the <head> tag.
+  # Ideal usecase for this is to import custom js/css or add your analytics snippet
+  customHeadHTML = ""
+
+  socialIcons = [
+    {name = "twitter", url = "https://twitter.com/mohd_somayyah"},
+    {name = "linkedin", url = "https://www.linkedin.com/in/somayyah-mohammed-630a1a177/"},
+    {name = "stackoverflow", url = "https://stackoverflow.com/users/11586574/somayyah-mohammed"},
+    {name = "youtube", url = "https://www.youtube.com/channel/UCV91hFH6IHsl6-sxbLmMtfA"},
+    {name = "email", url = "mailto:watari@untangling-the-spiders-web.com"}
+  ]
+
+  # Keywords relevant for SEO
+  metaKeywords = ["blog", "gokarna", "hugo"]
+
+  # If you want to display posts on the homepage, the options are
+  # "popular" (order posts by weight), "recent" (order posts by date)
+  # or "" (do not display, default option)
+  showPostsOnHomePage = "popular"
+
+  # Footer text
+  footer = "watari@untangling-the-spiders-web.com"
+
+[menu]
+  [[menu.main]]
+    # Unique identifier for a menu item
+    identifier = "posts"
+    url = "/posts/"
+
+    # Display name
+    name = "Posts"
+
+    # Weights are used to determine the ordering
+    weight = 1
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+
+  [[menu.main]]
+      identifier = "projects"
+      url = "/projects/"
+      weight = 3
+      
+      # We use feather-icons: https://feathericons.com/
+      pre = "<span data-feather='archive'></span>"
+
+  [[menu.main]]
+    identifier = "github"
+    url = "https://github.com/Somayyah"
+    weight = 4
+    
+    # We use feather-icons: https://feathericons.com/
+    pre = "<span data-feather='github'></span>"
