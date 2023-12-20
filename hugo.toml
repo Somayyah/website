@@ -3,7 +3,7 @@ languageCode = "en"
 
 title = "Spiderweb unraveled"
 
-theme = "gokarna"
+#theme = "gokarna"
 
 # Automatically generate robots.txt
 enableRobotsTXT = true
