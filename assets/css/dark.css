@@ -12,11 +12,11 @@ html {
 }
 
 .header {
-  background-color: rgba(var(--dark-primary-color), 0.95);
+  background-color: var(--dark-primary-color);
 }
 
 .nav-hamburger-list {
-  background: rgba(var(--dark-primary-color), 1);
+  background: var(--dark-primary-color);
 }
 
 .nav-links .nav-icons-divider {

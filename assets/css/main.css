@@ -73,6 +73,12 @@ main#content > .container {
   width: 24%;
 }
 
+.flex-container {
+  display: flex;
+  align-items: start; /* Aligns items to the start of the container */
+  justify-content: space-between; /* Adjusts the spacing between items */
+}
+
 #toc {
   position: fixed;
   top: 80px;
@@ -307,10 +313,28 @@ pre {
   padding: 20px;
 }
 
+.creds a {
+  display: block;
+  margin-bottom: 10px; /* Adjusts space between images */
+}
+
+
 code {
   box-decoration-break: clone;
   word-wrap: break-word;
   font-size: 0.8em;
+}
+#Badgesandcreds{
+  font-size: 1rem;
+  margin: 0;
+  color: var(--accent-color);
+}
+
+#find-me-at {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--accent-color);
+  text-align: center;
 }
 
 :not(pre) > code {
@@ -356,9 +380,21 @@ table td {
   border-bottom: 1px solid var(--light-secondary-color);
 }
 
+@media (max-width: 768px) {
+  .flex-container {
+      flex-direction: column;
+  }
+
+  .home-about, .social-icons {
+      flex: none; /* Reset flex sizing on smaller screens */
+  }
+}
+
 /* HOME PAGE */
 .home-about {
   text-align: center;
+  flex: 4; /* home-about will take up more space */
+  padding: 15px;
 }
 
 .home-about .avatar img {
@@ -399,6 +435,15 @@ table td {
 
 .social-icons {
   text-align: center;
+  flex: 1; /* social-icons will take up less space */
+  padding: 15px;
+  color: #272822;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.social-icons p{
+  text-align: center;
 }
 
 .social-icons .social-icons-list {
@@ -411,10 +456,10 @@ table td {
 .social-icons-list .social-icon {
   box-sizing: border-box;
   display: inline-block;
-  fill: var(--light-text-color);
-  height: 24px;
+  fill: black;
+  height: 20px;
   margin: 0 6px;
-  width: 24px;
+  width: 20px;
 }
 
 .social-icon a svg path {
@@ -537,6 +582,12 @@ table td {
 @media only screen and (max-width: 1120px) {
   main#content {
     width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+      flex-direction: column;
   }
 }
 
