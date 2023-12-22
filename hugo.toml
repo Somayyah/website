@@ -47,7 +47,7 @@ enableRobotsTXT = true
   showPostsOnHomePage = "popular"
 
   # Footer text
-  footer = "watari@untangling-the-spiders-web.com"
+  footer = "watari@techwebunraveled.xyz"
 
 [menu]
   [[menu.main]]
