@@ -121,7 +121,7 @@ a:hover  {
 }
 
 .header-shadow {
-  box-shadow: rgb(33, 38, 45) 0px -1px 0px 0px inset;
+  box-shadow: var(--accent-color-dark) 0px -1px 0px 0px inset;
 }
 
 .arrow-logo { 

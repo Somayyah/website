@@ -287,7 +287,7 @@ a:hover .feather-sun {
 }
 
 .header-shadow {
-  box-shadow: rgb(220, 220, 220) 0px 1px 5px;
+  box-shadow: #ad192d50 0px -1px 0px 0px inset;
 }
 
 /* TAGS */
@@ -342,14 +342,14 @@ code {
 #Badgesandcreds{
   font-size: 1rem;
   margin: 0;
-  color: #ad192c;
+  color: white;
   font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 #find-me-at {
   font-size: 3rem;
   margin: 10px;
-  color: #ad192c;
+  color: white;
   text-align: center;
   font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
@@ -464,6 +464,7 @@ table td {
   padding-top: 35px;
   padding-left: 35px;
   padding-right: 35px;
+  background-color: #ad192d50;
 }
 
 .social-icons p{
