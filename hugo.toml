@@ -10,7 +10,7 @@ enableRobotsTXT = true
 
 [params]
   # URL for the avatar on homepage
-  avatarURL = "https://avatars.githubusercontent.com/u/55834191?v=4"
+  avatarURL = "/images/logo.webp"
   enableEmoji = true
 
   # Choose one of size-xs, size-s, size-m, size-l & size-xl. (Default: size-m)
@@ -23,7 +23,7 @@ enableRobotsTXT = true
   # Accent color is displayed when you hover over <a> tags
   accentColor = "#FF4D4D"
   accentColorDark = "#007FFF"
-  
+
   # Display "back to top" button on posts
   ShowBackToTopButton = true
 

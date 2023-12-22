@@ -157,13 +157,11 @@ img {
 }
 
 .header-nav .avatar {
-  border-radius: 18px;
   float: left;
   height: 100%;
   margin-left: 15px;
 }
 .header-nav .avatar img {
-  border-radius: 100%;
   display: block;
   height: 38px;
   margin-top: 5px;
@@ -419,7 +417,6 @@ table td {
 }
 
 .home-about .avatar img {
-  border-radius: 50%;
   height: auto;
   object-fit: cover;
 }
