@@ -1,5 +1,5 @@
 ---
-title: "Unlocking Visual Creativity in 2023 with ChatGPT: Exploring the New DALL-E Feature in ChatGPT"
+title: "Unlocking Visual Creativity in 2023 with ChatGPT \s Exploring the New DALL-E Feature in ChatGPT"
 date: 2023-22-12
 description: "Unlock your visual creativity in 2023 with ChatGPT! Discover the power of DALL-E 3, the AI system that generates stunning images from text."
 type: "post"
