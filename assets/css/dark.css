@@ -41,10 +41,6 @@ a:hover .feather-moon {
   color: white;
 }
 
-.social-icons{
-  background-color: #64646451;
-}
-
 .social-icons-list .social-icon,
 .social-icons-list .social-icon a:visited  {
   fill: var(--dark-text-color);
