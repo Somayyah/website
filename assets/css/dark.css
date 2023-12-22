@@ -5,6 +5,10 @@
   --dark-text-color: white;
 }
 
+a:hover{
+  color: var(--accent-color-dark);
+}
+
 #find-me-at {
   color: var(--accent-color-dark);
 }
