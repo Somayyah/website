@@ -5,6 +5,14 @@
   --dark-text-color: white;
 }
 
+#find-me-at {
+  color: var(--accent-color-dark);
+}
+
+#Badgesandcreds{
+  color: var(--accent-color-dark);
+}
+
 h1, h2, h3, h4, h5, h6{
   font-family: 'IBM Plex Sans Condensed', sans-serif;
   color: var(--accent-color-dark);
@@ -94,6 +102,10 @@ pre {
 :not(pre) > code {
   background-color: var(--dark-tertiary-color) !important;
   color: var(--dark-text-color);
+}
+
+a:hover  {
+  color: var(--accent-color-dark);
 }
 
 .nav-title a {
