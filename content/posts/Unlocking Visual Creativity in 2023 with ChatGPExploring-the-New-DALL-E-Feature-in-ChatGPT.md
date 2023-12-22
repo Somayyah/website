@@ -8,6 +8,8 @@ tags: ["technology", "artificial intelligence", "how-to", "AI", "chatgpt", "open
 
 # What is DALL-E 3 and how can I use DALL-E 3 in ChatGPT?
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rueHwmpUijE?si=dr_JFfmj5NaroUPn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 DALL-E 3, developed by OpenAI, is a groundbreaking AI system capable of generating realistic images and art from natural language descriptions. In my latest video, I experimented with the same DALL-E 3 prompts featured in a recent blog post to evaluate its integration with ChatGPT.
 
 ## Accessing DALL-E 3 in ChatGPT
