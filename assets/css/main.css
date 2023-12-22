@@ -279,6 +279,10 @@ a:hover .feather-sun {
   visibility: hidden;
 }
 
+.tech {
+  color: #ad192c;
+}
+
 .header-shadow {
   box-shadow: rgb(220, 220, 220) 0px 1px 5px;
 }
@@ -335,14 +339,14 @@ code {
 #Badgesandcreds{
   font-size: 1rem;
   margin: 0;
-  color: var(#ad192c);
+  color: #ad192c;
   font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 #find-me-at {
   font-size: 3rem;
   margin: 10px;
-  color: var(#ad192c);
+  color: #ad192c;
   text-align: center;
   font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
