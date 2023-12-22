@@ -8,22 +8,27 @@
   --light-text-color: black;
 }
 
+
 @font-face {
-  font-family: Lato;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
-  src: url("/fonts/Lato-Regular.ttf");
+  src: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 }
 
 @font-face {
-  font-family: Lato;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
   font-weight: 700;
-  src: url("/fonts/Lato-Bold.ttf");
+  src: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@700&display=swap');
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 html {
   background-color: rgb(var(--light-primary-color));
   color: var(--light-text-color);
-  font-family: "Lato", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 17.5px;
   min-height: 100%;
   position: relative;
@@ -138,6 +143,7 @@ img {
   transition: box-shadow 0.3s ease-in-out;
   width: 100%;
   z-index: 5;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 .header a {
@@ -328,6 +334,7 @@ code {
   font-size: 1rem;
   margin: 0;
   color: var(#ad192c);
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 #find-me-at {
@@ -335,6 +342,11 @@ code {
   margin: 10px;
   color: var(#ad192c);
   text-align: center;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+
+p {
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 :not(pre) > code {
