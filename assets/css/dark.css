@@ -28,6 +28,10 @@ a:hover .feather-moon {
   color: white;
 }
 
+.social-icons{
+  background-color: var(--dark-text-color);
+}
+
 .social-icons-list .social-icon,
 .social-icons-list .social-icon a:visited  {
   fill: var(--dark-text-color);
@@ -35,6 +39,10 @@ a:hover .feather-moon {
 
 .social-icons-list .social-icon a:hover {
   fill: var(--accent-color);
+}
+
+.social-icons .social-icons-list .social-icon a {
+  fill: var(--dark-tertiary-color);
 }
 
 .post-tags .post-tag:hover {

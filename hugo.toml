@@ -35,6 +35,7 @@ enableRobotsTXT = true
     {name = "linkedin", url = "https://www.linkedin.com/in/somayyah-mohammed-630a1a177/"},
     {name = "stackoverflow", url = "https://stackoverflow.com/users/11586574/somayyah-mohammed"},
     {name = "youtube", url = "https://www.youtube.com/channel/UCV91hFH6IHsl6-sxbLmMtfA"},
+    {name = "discord", url = "https://discord.gg/6N8yxV27"},
     {name = "email", url = "mailto:watari@untangling-the-spiders-web.com"}
   ]
 
@@ -78,7 +79,6 @@ enableRobotsTXT = true
       identifier = "portal"
       url = "/portal/"
       weight = 4
-      
       # We use feather-icons: https://feathericons.com/
       pre = "<span data-feather='key'></span>"
   [[menu.main]]

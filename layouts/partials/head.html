@@ -55,7 +55,7 @@
     <!-- SEO canonicals: helps Google understand your site better when using marketing campaign tagging etc -->
     <link rel="canonical" href="{{ .Permalink }}" />
 
-    {{ $cssNormalize := resources.Get "css/normalize.min.css" }}
+    {{ $cssNormalize := resources.Get "css/normalize.min.css" | minify}}
     <link rel="stylesheet" type="text/css" href="{{ $cssNormalize.RelPermalink }}" media="print">
 
     {{ $cssMain := resources.Get "css/main.css" | minify }}

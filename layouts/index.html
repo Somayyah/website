@@ -22,7 +22,7 @@
     {{ if isset .Site.Params "socialicons" }}
     
     <section class="social-icons">
-        <p id="find-me-at">Find me at<br></p>
+        <p id="find-me-at">Find me at</p>
         <ul class="social-icons-list">
             {{ range .Site.Params.SocialIcons }}
             <li class="social-icon">
@@ -33,13 +33,12 @@
             {{ end }}
         </ul>
         <br>
-        <br><p id="Badgesandcreds">Badges and Certificates</p>
+        <strong><p id="Badgesandcreds">Badges and Certificates</p></strong>
         <br><img src="https://tryhackme-badges.s3.amazonaws.com/waturiuiuiuizifa.png" width="150" alt="TryHackMe badge">
-        <br><br><div class="creds">
+        <br><div class="creds">
             <a href="https://www.credly.com/badges/6e3a6399-268d-4614-9c13-c2eef14fed7c/public_url"><img alt="Cisco Security professional Certificate Badge" src="images/cisco-certified-network-professional-security-ccnp-security.webp"></a>
-            <a href="https://www.credly.com/badges/3b743fae-d78a-45dd-854b-9a7312751300/public_url"><img alt="Cisco Security Core Certificate Badge" src="images/cisco-certified-specialist-security-core.webp"></a>
             <a href="https://www.credly.com/badges/8037ce47-c2cd-422d-b385-48d6b4edcf2b/public_url"><img alt="Cisco SISE Certificate Badge" src="images/cisco-certified-specialist-security-identity-management-implementation-_1_.webp"></a>
-        </div><br>
+        </div>
     </section>
     {{ end }}
 </div>

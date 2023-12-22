@@ -327,13 +327,13 @@ code {
 #Badgesandcreds{
   font-size: 1rem;
   margin: 0;
-  color: var(--accent-color);
+  color: var(#ad192c);
 }
 
 #find-me-at {
-  font-size: 2rem;
-  margin: 0;
-  color: var(--accent-color);
+  font-size: 3rem;
+  margin: 10px;
+  color: var(#ad192c);
   text-align: center;
 }
 
@@ -439,7 +439,10 @@ table td {
   padding: 15px;
   color: #272822;
   border-radius: 15px;
-  margin: 10px;
+  margin: 20px;
+  padding-top: 35px;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
 .social-icons p{
