@@ -31,6 +31,7 @@ enableRobotsTXT = true
   customHeadHTML = ""
 
   socialIcons = [
+    {name = "twitter", url = "https://twitter.com/mohd_somayyah"},
     {name = "linkedin", url = "https://www.linkedin.com/in/somayyah-mohammed-630a1a177/"},
     {name = "stackoverflow", url = "https://stackoverflow.com/users/11586574/somayyah-mohammed"},
     {name = "youtube", url = "https://www.youtube.com/channel/UCV91hFH6IHsl6-sxbLmMtfA"},
