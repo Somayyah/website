@@ -96,6 +96,14 @@ pre {
   color: var(--dark-text-color);
 }
 
+.nav-title a {
+  color: var(--accent-color-dark);
+}
+
+.tech {
+  color: var(--accent-color-dark);
+}
+
 .header-shadow {
   box-shadow: rgb(33, 38, 45) 0px -1px 0px 0px inset;
 }
