@@ -143,8 +143,9 @@ img {
   transition: box-shadow 0.3s ease-in-out;
   width: 100%;
   z-index: 5;
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
+
+
 
 .header a {
   text-decoration: none;
@@ -176,6 +177,7 @@ img {
 }
 .nav-title a {
   height: 50px;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 .header-nav .nav-links {
   float: right;
