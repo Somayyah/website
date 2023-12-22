@@ -22,7 +22,8 @@ enableRobotsTXT = true
     
   # Accent color is displayed when you hover over <a> tags
   accentColor = "#FF4D4D"
-
+  accentColorDark = "#007FFF"
+  
   # Display "back to top" button on posts
   ShowBackToTopButton = true
 

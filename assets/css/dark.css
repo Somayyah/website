@@ -5,6 +5,11 @@
   --dark-text-color: white;
 }
 
+h1, h2, h3, h4, h5, h6{
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  color: var(--accent-color-dark);
+}
+
 html {
   background-color: var(--dark-primary-color);
   color: var(--dark-text-color);
