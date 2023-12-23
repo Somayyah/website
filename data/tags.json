@@ -1,7 +1,19 @@
 {
-    "techonlogy" : {
+    "technology" : {
         "title" : "Top Technology Blog Tags | Techweb Unraveled",
         "description" : "Stay up to date with the latest tech trends! Explore our blog tags page for insightful articles on technology, curated for IT consultants and more." 
+    },
+    "chatgpt" : {
+        "title" : "chatgpt | Techweb Unraveled",
+        "description" : "chatgpt"
+    },
+    "dall-e" : {
+        "title" : " dall-e | Techweb Unraveled",
+        "description" : "dall-e"
+    },
+    "prompt-engineering" : {
+        "title" : " prompt-engineering | Techweb Unraveled",
+        "description" : "prompt-engineering"
     },
     "how-to" : {
         "title": "How-to | Techweb Unraveled",
