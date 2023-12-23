@@ -2,11 +2,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/images/logo.webp">
+
+    <!-- Inline Critical CSS here -->
     <style>
-        :root {
-            --accent-color: {{ .Site.Params.AccentColor | default "#FF4D4D" }};
-            --accent-color-dark: {{ .Site.Params.AccentColorDark | default "#007FFF" }};
-        }
+        /* Inline critical CSS */
     </style>
 
     {{ $paginator := .Paginate (where .Site.RegularPages ".Params.post" "!=" false) }}
@@ -56,17 +55,24 @@
     <!-- SEO canonicals -->
     <link rel="canonical" href="{{ .Permalink }}" />
 
-    {{ $cssNormalize := resources.Get "css/normalize.min.css" | minify}}
-    <link rel="stylesheet" type="text/css" href="{{ $cssNormalize.RelPermalink }}" media="print">
-
+    <!-- Define and Load CSS -->
+    {{ $cssNormalize := resources.Get "css/normalize.min.css" | minify }}
     {{ $cssMain := resources.Get "css/main.css" | minify }}
-    <link rel="stylesheet" type="text/css" href="{{ $cssMain.RelPermalink }}">
-
     {{ $cssDark := resources.Get "css/dark.css" | minify }}
-    <link id="dark-theme" rel="stylesheet" href="{{ $cssDark.RelPermalink }}">
+
+    <!-- Defer Non-Critical CSS -->
+    <link rel="preload" href="{{ $cssNormalize.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ $cssNormalize.RelPermalink }}"></noscript>
+
+    <link rel="preload" href="{{ $cssMain.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ $cssMain.RelPermalink }}"></noscript>
+
+    <link rel="preload" href="{{ $cssDark.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" id="dark-theme">
+    <noscript><link rel="stylesheet" href="{{ $cssDark.RelPermalink }}"></noscript>
     
+    <!-- JavaScript bundle with defer attribute -->
     {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | minify | resources.Fingerprint "sha256" }}
-    <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}"></script>
+    <script src="{{ $jsBundle.RelPermalink }}" defer integrity="{{ $jsBundle.Data.Integrity }}"></script>
 
     <!-- Option for user to inject custom html -->
     {{ if .Site.Params.CustomHeadHTML }}

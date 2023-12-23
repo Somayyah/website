@@ -4,7 +4,7 @@
         {{ if isset .Site.Params "avatarurl" }}
         <div class="avatar">
             <a href="{{ .Site.BaseURL }}">
-                <img src='{{ .Scratch.Get "avatarImgSrc" }}' alt="{{ .Site.Params.AvatarAltText|default "avatar" }}" />
+                <img width="38" height="38" src='{{ .Scratch.Get "avatarImgSrc" }}' alt="{{ .Site.Params.AvatarAltText|default "avatar" }}" />
             </a>
         </div>
         {{ end }}

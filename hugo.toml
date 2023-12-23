@@ -8,6 +8,9 @@ title = "Techweb unraveled"
 # Automatically generate robots.txt
 enableRobotsTXT = true
 
+[build]
+  writeStats = true
+
 [params]
   # URL for the avatar on homepage
   avatarURL = "/images/logo.webp"
