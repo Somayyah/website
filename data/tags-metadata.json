@@ -1,0 +1,115 @@
+{
+    "techonlogy" : {
+        "title" : "Top Technology Blog Tags | Techweb Unraveled",
+        "description" : "Stay up to date with the latest tech trends! Explore our blog tags page for insightful articles on technology, curated for IT consultants and more." 
+    },
+    "how-to" : {
+        "title": "How-to | Techweb Unraveled",
+        "description": "Guides and tutorials for configuration, explanations and information about different topics"
+    },
+    "artificial intelligence" : {
+        "title": "artificial intelligence | Techweb Unraveled",
+        "description": "artificial intelligence, AI, machine learning"
+    },
+    "explain-like-i'm-five" : {
+        "title": "explain-like-im-five | Techweb Unraveled",
+        "description": "No fluff or jargon, just answers"
+    },
+    "midjourney" : {
+        "title": "midjourney | Techweb Unraveled",
+        "description": "Embark on an extraordinary journey with Midjourney AI, an advanced artificial intelligence model for realistic image generation. Explore the wonders of this cutting-edge technology, from its unique features to practical applications. Learn how to harness Midjourney's capabilities for stunning visual art, content creation, and more"
+    },
+    "cisco ISE" : {
+        "title": "Cisco ISE | Techweb Unraveled",
+        "description": "Everything relates to Cisco ISE , identity services engine"
+    },
+    "cisco" : {
+        "title": "cisco | Techweb Unraveled",
+        "description": "Articles related to Cisco products and technologies"
+    },
+    "AI" : {
+        "title": "AI | Techweb Unraveled",
+        "description": ""
+    },
+    "posture" : {
+        "title": "posture | Techweb Unraveled",
+        "description": "Endpoint posture with Cisco ISE"
+    },
+    "radius" : {
+        "title": "RADIUS | Techweb Unraveled",
+        "description": ""
+    },
+    "hacks" : {
+        "title": "hacks | Techweb Unraveled",
+        "description": "hacks"
+    },
+    "tacacs" : {
+        "title": "TACACS | Techweb Unraveled",
+        "description": ""
+    },
+    "openai" : {
+        "title": "openAI | Techweb Unraveled",
+        "description": ""
+    },
+    "bing" : {
+        "title": "bing | Techweb Unraveled",
+        "description": ""
+    },
+    "generative art" : {
+        "title": "generative art | Techweb Unraveled",
+        "description": ""
+    },
+    "rust" : {
+        "title": "rust | Techweb Unraveled",
+        "description": ""
+    },
+    "memory safety" : {
+        "title": "",
+        "description": ""
+    },
+    "operating system" : {
+        "title": "",
+        "description": ""
+    },
+    "linux" : {
+        "title": "",
+        "description": ""
+    },
+
+    "programming" : {
+        "title": "programming | Techweb Unraveled",
+        "description": ""
+    },
+    "endpoint profiling" : {
+        "title": "endpoints profiling | Techweb Unraveled",
+        "description": ""
+    },
+    "VPN" : {
+        "title": "VPN | Techweb Unraveled",
+        "description": "VPN - virtual Private networks"
+    },
+    "opinions" : {
+        "title": "opinions | Techweb Unraveled",
+        "description": "opinions related to culture war, feminism, movies, art, technologies and philosophy"
+    },
+    "OSINT" : {
+        "title": "OSINT | Techweb Unraveled",
+        "description": "Meta Description for a Blog Tag about OSINT (SEO-friendly): Unlock the potential of OSINT - Open Source Intelligence, a cutting-edge tool harnessing publicly available data for powerful insights and improved cybersecurity. Stay ahead with the latest OSINT techniques and best practices to elevate your online investigations."
+    },
+    "azure" : {
+        "title": "azure | Techweb Unraveled",
+        "description": "Dive into insightful articles and tutorials on Azure, Microsoft's leading cloud platform. From getting started guides to advanced configurations, explore the latest trends and best practices in Azure cloud solutions. Maximize your cloud potential and stay updated with our curated Azure-focused content"
+    },
+    "azure AI" : {
+        "title": "azure ai | Techweb Unraveled",
+        "description": ""
+    },
+    "cognitive services" : {
+        "title": "cognitive services | Techweb Unraveled",
+        "description": ""
+    }, 
+    "Cyber security": {
+        "title" : "Cyber security | Techweb Unraveled", 
+        "description": ""
+    }
+}

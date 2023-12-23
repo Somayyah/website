@@ -5,6 +5,14 @@
   --dark-text-color: white;
 }
 
+.social-icon a svg path {
+  fill: var(--dark-tertiary-color)
+}
+
+.social-icon a svg path:hover {
+  fill: var(--accent-color-dark);
+}
+
 a:hover{
   color: var(--accent-color-dark);
 }
