@@ -20,11 +20,11 @@ a:hover{
 }
 
 #find-me-at {
-  color: var(--accent-color-dark);
+  color: var(--dark-primary-color);
 }
 
 #Badgesandcreds{
-  color: var(--accent-color-dark);
+  color: var(--dark-primary-color);
 }
 
 h1, h2, h3, h4, h5, h6{
