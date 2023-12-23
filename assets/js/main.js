@@ -1,72 +1,85 @@
-document.addEventListener('DOMContentLoaded', ready, false);
+document.addEventListener('DOMContentLoaded', ready);
 
 const THEME_PREF_STORAGE_KEY = "theme-preference";
 const THEME_TO_ICON_CLASS = {
     'dark': 'feather-moon',
-    'light':'feather-sun'
+    'light': 'feather-sun'
 };
 const THEME_TO_ICON_TEXT_CLASS = {
     'dark': 'Dark mode',
-    'light':'Light mode'
+    'light': 'Light mode'
 };
-let toggleIcon = '';
-let darkThemeCss = '';
-
 const HEADING_TO_TOC_CLASS = {
     'H1': 'level-1',
     'H2': 'level-2',
     'H3': 'level-3',
     'H4': 'level-4'
-}
+};
 
 function ready() {
     feather.replace({ 'stroke-width': 1, width: 20, height: 20 });
     setThemeByUserPref();
+    handlePostContent();
+    handleSVGInjection();
+    handleHamburgerMenuToggle();
+}
 
-    if (document.querySelector('main#content > .container') !== null &&
-            document.querySelector('main#content > .container').classList.contains('post')) {
-        if (document.getElementById('TableOfContents') !== null) {
+function handlePostContent() {
+    const contentContainer = document.querySelector('main#content > .container');
+    if (contentContainer && contentContainer.classList.contains('post')) {
+        const tocElement = document.getElementById('TableOfContents');
+        if (tocElement) {
             fixTocItemsIndent();
             addSmoothScroll();
             createScrollSpy();
         } else {
-            document.querySelector('main#content > .container.post').style.display = "block";
+            contentContainer.style.display = "block";
         }
     }
-
-    // Elements to inject
-    const svgsToInject = document.querySelectorAll('img.svg-inject');
-    // Do the injection
-    SVGInjector(svgsToInject);
-
-    document.getElementById('hamburger-menu-toggle').addEventListener('click', () => {
-        const hamburgerMenu = document.getElementsByClassName('nav-hamburger-list')[0]
-        if (hamburgerMenu.classList.contains('visibility-hidden')) {
-            hamburgerMenu.classList.remove('visibility-hidden');
-        } else {
-            hamburgerMenu.classList.add('visibility-hidden');
-        }
-    })
 }
 
-window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 820) {
-        // For smaller screen, show shadow earlier
-        toggleHeaderShadow(50);
-    } else {
-        toggleHeaderShadow(100);
-    }
-});
+function handleSVGInjection() {
+    const svgsToInject = document.querySelectorAll('img.svg-inject');
+    SVGInjector(svgsToInject);
+}
+
+function handleHamburgerMenuToggle() {
+    const hamburgerMenuToggle = document.getElementById('hamburger-menu-toggle');
+    hamburgerMenuToggle.addEventListener('click', () => {
+        const hamburgerMenu = document.querySelector('.nav-hamburger-list');
+        hamburgerMenu.classList.toggle('visibility-hidden');
+    });
+}
+
+window.addEventListener('scroll', debounce(() => {
+    const scrollYThreshold = window.innerWidth <= 820 ? 50 : 100;
+    toggleHeaderShadow(scrollYThreshold);
+}, 100));
+
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
 
 function fixTocItemsIndent() {
     document.querySelectorAll('#TableOfContents a').forEach($tocItem => {
-      const itemId = $tocItem.getAttribute("href").substring(1)
+      const itemId = $tocItem.getAttribute("href").substring(1);
       $tocItem.classList.add(HEADING_TO_TOC_CLASS[document.getElementById(itemId).tagName]);
     });
 }
 
 function addSmoothScroll() {
-    document.querySelectorAll('#toc a').forEach($anchor => {
+    document.querySelectorAll('#TableOfContents a').forEach($anchor => {
         $anchor.addEventListener('click', function (e) {
             e.preventDefault();
             document.getElementById(this.getAttribute('href').substring(1)).scrollIntoView({
@@ -78,7 +91,7 @@ function addSmoothScroll() {
 }
 
 function createScrollSpy() {
-    var elements = document.querySelectorAll('#toc a');
+    var elements = document.querySelectorAll('#TableOfContents a');
     document.addEventListener('scroll', function () {
         elements.forEach(function (element) {
           const boundingRect = document.getElementById(element.getAttribute('href').substring(1)).getBoundingClientRect();
@@ -93,19 +106,18 @@ function createScrollSpy() {
 }
 
 function toggleHeaderShadow(scrollY) {
-    if (window.scrollY > scrollY) {
-        document.querySelectorAll('.header').forEach(function(item) {
-            item.classList.add('header-shadow')
-        })
-    } else {
-        document.querySelectorAll('.header').forEach(function(item) {
-            item.classList.remove('header-shadow')
-        })
-    }
+    const headerElements = document.querySelectorAll('.header');
+    headerElements.forEach(function(item) {
+        if (window.scrollY > scrollY) {
+            item.classList.add('header-shadow');
+        } else {
+            item.classList.remove('header-shadow');
+        }
+    });
 }
 
 function setThemeByUserPref() {
-    darkThemeCss = document.getElementById("dark-theme");
+    let darkThemeCss = document.getElementById("dark-theme");
     const savedTheme = localStorage.getItem(THEME_PREF_STORAGE_KEY) ||
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark': 'light');
     const darkThemeToggles = document.querySelectorAll('.dark-theme-toggle');
@@ -114,19 +126,20 @@ function setThemeByUserPref() {
 }
 
 function toggleTheme(event) {
-    toggleIcon = event.currentTarget.querySelector("a svg.feather");
-    if (toggleIcon.classList[1] === THEME_TO_ICON_CLASS.dark) {
+    let toggleIcon = event.currentTarget.querySelector("a svg.feather");
+    if (toggleIcon.classList.contains(THEME_TO_ICON_CLASS.dark)) {
         setTheme('light', [event.currentTarget]);
-    } else if (toggleIcon.classList[1] === THEME_TO_ICON_CLASS.light) {
+    } else if (toggleIcon.classList.contains(THEME_TO_ICON_CLASS.light)) {
         setTheme('dark', [event.currentTarget]);
     }
 }
 
 function setTheme(themeToSet, targets) {
     localStorage.setItem(THEME_PREF_STORAGE_KEY, themeToSet);
+    let darkThemeCss = document.getElementById("dark-theme");
     darkThemeCss.disabled = themeToSet === 'light';
     targets.forEach((target) => {
         target.querySelector('a').innerHTML = feather.icons[THEME_TO_ICON_CLASS[themeToSet].split('-')[1]].toSvg();
-        target.querySelector("#dark-theme-toggle-screen-reader-target").textContent = [THEME_TO_ICON_TEXT_CLASS[themeToSet]];
+        target.querySelector("#dark-theme-toggle-screen-reader-target").textContent = THEME_TO_ICON_TEXT_CLASS[themeToSet];
     });
 }

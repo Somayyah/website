@@ -5,7 +5,7 @@
     <section class="home-about">
         <div class="avatar">
             {{ if isset .Site.Params "avatarurl" }}
-            <img class={{ .Site.Params.AvatarSize | default "size-m" }} src='{{ .Scratch.Get "avatarImgSrc" }}' alt="{{ .Site.Params.AvatarAltText|default "avatar" }}" />
+            <img width= "122.5" height="122.5" class={{ .Site.Params.AvatarSize | default "size-m" }} src='{{ .Scratch.Get "avatarImgSrc" }}' alt="{{ .Site.Params.AvatarAltText|default "avatar" }}" />
             {{ end }}
         </div>
     
