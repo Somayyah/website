@@ -3,6 +3,8 @@
   --dark-secondary-color: #2d333b;
   --dark-tertiary-color: #646464;
   --dark-text-color: white;
+  --accent-color-dark: #007FFF;
+
 }
 
 .social-icon a svg path {
