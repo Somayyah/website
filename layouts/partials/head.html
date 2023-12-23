@@ -20,7 +20,7 @@
     <!-- Determine if the current page is the homepage or a tag page -->
     {{ $isHomepage := eq .RelPermalink "/" }}
     {{ $urlPath := split .RelPermalink "/" }}
-    {{ $isTagPage := and (eq (len $urlPath) 4) (eq (index $urlPath 1) "tags") }} <!-- Adjust based on your URL structure -->
+    {{ $isTagPage := and (eq (len $urlPath) 4) (eq (index $urlPath 1) "tags") }}
     {{ $tag := "" }}
     {{ if $isTagPage }}
         {{ $tag = index $urlPath 2 }}
@@ -28,7 +28,15 @@
         {{ if $tagData }}
             {{ $title = $tagData.title }}
             {{ $description = $tagData.description }}
+        {{ else }}
+            {{ $description = printf "Explore posts tagged as '%s' on Techweb Unraveled." $tag }}
         {{ end }}
+    {{ else if eq .Type "posts" }}
+        {{ $description = "Discover a collection of insightful articles on Linux, Blockchain, AI, and more on Techweb Unraveled." }}
+    {{ else if eq .Type "projects" }}
+        {{ $description = "Dive into my projects ranging from software development to ethical hacking." }}
+    {{ else if eq .Type "portal" }}
+        {{ $description = "Access exclusive content and resources in the Techweb Unraveled portal." }}
     {{ end }}
 
     <title>{{ $title }}</title>
