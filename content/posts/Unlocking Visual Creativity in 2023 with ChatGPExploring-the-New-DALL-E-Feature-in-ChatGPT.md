@@ -3,7 +3,7 @@ title: "Unlocking Visual Creativity in 2023 with ChatGPT : Exploring the New DAL
 date: 2023-12-22
 description: "Unlock your visual creativity in 2023 with ChatGPT! Discover the power of DALL-E 3, the AI system that generates stunning images from text."
 type: "post"
-tags: ["technology", "artificial intelligence", "how-to", "AI", "chatgpt", "openai", "dall e", "prompt engineering", "midjourney"]
+tags: ["technology", "artificial intelligence", "how-to", "ai", "chatgpt", "openai", "dall e", "prompt engineering", "midjourney"]
 ---
 
 # What is DALL-E 3 and how can I use DALL-E 3 in ChatGPT?

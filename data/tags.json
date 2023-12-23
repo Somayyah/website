@@ -27,9 +27,9 @@
         "title": "cisco | Techweb Unraveled",
         "description": "Articles related to Cisco products and technologies"
     },
-    "AI" : {
+    "ai" : {
         "title": "AI | Techweb Unraveled",
-        "description": ""
+        "description": "Discover the world of AI on Techweb Unraveled. Dive into a range of articles covering artificial intelligence trends, innovations, and practical applications. Stay ahead in the evolving landscape of AI technology."
     },
     "posture" : {
         "title": "posture | Techweb Unraveled",
@@ -37,52 +37,52 @@
     },
     "radius" : {
         "title": "RADIUS | Techweb Unraveled",
-        "description": ""
+        "description": "Explore the intricacies of RADIUS (Remote Authentication Dial-In User Service) with our comprehensive articles. Understand how RADIUS enhances network security and user authentication in various IT environments"
     },
     "hacks" : {
         "title": "hacks | Techweb Unraveled",
-        "description": "hacks"
+        "description": "Delve into creative hacks and clever solutions on Techweb Unraveled. Our hacks tag offers ingenious tips, tricks, and shortcuts for tech enthusiasts looking to optimize their digital life."
     },
     "tacacs" : {
         "title": "TACACS | Techweb Unraveled",
-        "description": ""
+        "description": "Unravel the complexities of TACACS (Terminal Access Controller Access-Control System) with our expert articles. Learn about this advanced protocol for remote authentication and its role in network security."
     },
     "openai" : {
         "title": "openAI | Techweb Unraveled",
-        "description": ""
+        "description": "Immerse yourself in the world of OpenAI. Our tag offers insights into the latest developments, research breakthroughs, and applications of OpenAI’s innovative AI technologies and models."
     },
     "bing" : {
         "title": "bing | Techweb Unraveled",
-        "description": ""
+        "description": "Discover insights and tips on leveraging Bing, Microsoft's search engine. Explore articles on Bing's features, search optimization strategies, and how it compares with other search engines."
     },
     "generative art" : {
         "title": "generative art | Techweb Unraveled",
-        "description": ""
+        "description": "Explore the fascinating intersection of technology and creativity with our Generative Art tag. Dive into articles on how algorithms and AI are used to create unique and captivating artworks."
     },
     "rust" : {
         "title": "rust | Techweb Unraveled",
-        "description": ""
+        "description": "Join us in exploring Rust, a game-changing programming language known for its safety and performance. Learn about Rust's features, best practices, and how it's reshaping software development."
     },
     "memory safety" : {
-        "title": "",
-        "description": ""
+        "title": "Memory Safety | Techweb Unraveled",
+        "description": "Dive into the crucial topic of memory safety in programming. Our articles cover best practices, techniques, and tools to prevent common memory-related errors and enhance software reliability."
     },
-    "operating system" : {
-        "title": "",
-        "description": ""
+    "operating systems" : {
+        "title": "Operating systems | Techweb Unraveled",
+        "description": "Explore the foundations and latest developments in operating systems. Our tag covers a range of topics from OS design and architecture to tips and tricks for various operating systems."
     },
     "linux" : {
-        "title": "",
-        "description": ""
+        "title": "Linux | Techweb Unraveled",
+        "description": "Linux demystified: Browse our Linux tag for everything from beginner guides to advanced tips. Discover the power, flexibility, and freedom of this popular open-source operating system."
     },
 
     "programming" : {
         "title": "programming | Techweb Unraveled",
-        "description": ""
+        "description": "Programming uncovered: Our tag offers a treasure trove of resources for both novice and seasoned programmers. Stay updated with the latest programming languages, trends, and techniques."
     },
     "endpoint profiling" : {
         "title": "endpoints profiling | Techweb Unraveled",
-        "description": ""
+        "description": "Discover the art of endpoint profiling in network security. Learn how to identify and manage devices on a network, enhancing security and efficiency in your IT infrastructure."
     },
     "VPN" : {
         "title": "VPN | Techweb Unraveled",
@@ -102,14 +102,14 @@
     },
     "azure AI" : {
         "title": "azure ai | Techweb Unraveled",
-        "description": ""
+        "description": "Delve into Azure AI and discover how Microsoft's artificial intelligence services are transforming businesses. Explore the latest trends, case studies, and tutorials on Azure AI."
     },
     "cognitive services" : {
         "title": "cognitive services | Techweb Unraveled",
-        "description": ""
+        "description": "Explore the realm of Microsoft's Cognitive Services on Techweb Unraveled. Learn about these AI services that enable apps to see, hear, speak, understand, and interpret user needs."
     }, 
     "Cyber security": {
         "title" : "Cyber security | Techweb Unraveled", 
-        "description": ""
+        "description": "Navigate the complex world of cybersecurity with our insightful articles. Stay informed about the latest threats, trends, and best practices to protect your digital assets and information."
     }
 }

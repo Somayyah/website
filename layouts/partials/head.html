@@ -10,33 +10,33 @@
     </style>
 
     {{ $paginator := .Paginate (where .Site.RegularPages ".Params.post" "!=" false) }}
-
-    {{ if .IsHome }}
-        {{ if eq $paginator.PageNumber 1 }}
-            <title>{{ .Title }}</title>
-            <meta name="description" content="{{ .Site.Params.description }}" />
-        {{ else }}
-            <title>{{ .Title }} | Page {{ $paginator.PageNumber }}</title>
-            <meta name="description" content="This is page {{ $paginator.PageNumber }} of our content." />
-        {{ end }}
-    {{ else }}
-        {{ if .Params.seoTitle }}
-            <title>{{ .Params.seoTitle }}</title>
-        {{ else }}
-            <title>{{ .Title }}</title>
-        {{ end }}
-        <meta name="description" content="{{ .Description }}" />
-    {{ end}}
+    {{ $defaultImage := "/path/to/default/image.jpg" }} <!-- Replace with your default image path -->
+    {{ $image := .Params.image | default $defaultImage }}
     {{ $title := .Title | default .Site.Title }}
     {{ $description := .Description | default .Site.Params.Description }}
-    {{ $image := .Params.image | default (.Scratch.Get "avatarImgSrc") }}
+
+    <!-- Determine if the current page is the homepage or a tag page -->
+    {{ $isHomepage := eq .RelPermalink "/" }}
+    {{ $urlPath := split .RelPermalink "/" }}
+    {{ $isTagPage := and (eq (len $urlPath) 4) (eq (index $urlPath 1) "tags") }} <!-- Adjust based on your URL structure -->
+    {{ $tag := "" }}
+    {{ if $isTagPage }}
+        {{ $tag = index $urlPath 2 }}
+        {{ $tagData := index .Site.Data.tags $tag }}
+        {{ if $tagData }}
+            {{ $title = $tagData.title }}
+            {{ $description = $tagData.description }}
+        {{ end }}
+    {{ end }}
+
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+
     {{ $siteKeywords := .Site.Params.MetaKeywords | default (slice) }}
     {{ $postKeywords := .Params.tags | default (slice) }}
     {{ $keywords := union $siteKeywords $postKeywords }}
 
     <!-- SEO titles & descriptions -->
-    <title>{{ $title }}</title>
-    <meta name="description" content="{{ $description }}">
     <meta name="keywords" content='{{ delimit $keywords ", "}}'>
 
     <meta property="og:url" content="{{ .Permalink }}">
@@ -53,7 +53,7 @@
     <meta property="twitter:url" content="{{ .Permalink }}">
     <meta name="twitter:image" content="{{ absURL $image }}">
 
-    <!-- SEO canonicals: helps Google understand your site better when using marketing campaign tagging etc -->
+    <!-- SEO canonicals -->
     <link rel="canonical" href="{{ .Permalink }}" />
 
     {{ $cssNormalize := resources.Get "css/normalize.min.css" | minify}}
@@ -66,8 +66,9 @@
     <link id="dark-theme" rel="stylesheet" href="{{ $cssDark.RelPermalink }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=IBM+Plex+Sans+Condensed:wght@700&display=swap" rel="stylesheet">    {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | minify | resources.Fingerprint "sha256" }}
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=IBM+Plex+Sans+Condensed:wght@700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=IBM+Plex+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+    
+    {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | minify | resources.Fingerprint "sha256" }}
     <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}"></script>
 
     <!-- Option for user to inject custom html -->
