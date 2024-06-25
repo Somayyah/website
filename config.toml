@@ -1,5 +1,4 @@
 
-#baseURL = "http://localhost:1313/"
 enableEmoji = true
 
 # Choose one of emacs, trac or perldoc
