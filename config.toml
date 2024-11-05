@@ -4,8 +4,6 @@ enableEmoji = true
 # Choose one of emacs, trac or perldoc
 #pygmentsStyle = "monokai"
 
-baseURL = "http://localhost:1313/"
-
 defaultContentLanguage = "en"
 languageCode = "en"
 
