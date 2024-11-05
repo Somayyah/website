@@ -123,5 +123,9 @@
     "Cyber security": {
         "title" : "Cyber security | Techweb Unraveled", 
         "description": "Navigate the complex world of cybersecurity with our insightful articles. Stay informed about the latest threats, trends, and best practices to protect your digital assets and information."
+    },
+    "self-improvement": {
+        "title" : "self-improvement", 
+        "description": "Articles about how I navigate self improvement and my experiments"
     }
 }

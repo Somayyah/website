@@ -1,52 +1,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/images/logo.webp">
-    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
-    
-    <!-- Inline Critical CSS here -->
+
     <style>
+        :root {
+            --accent-color: {{ .Site.Params.AccentColor | default "#FF4D4D" }};
+        }
     </style>
 
-    {{ $paginator := .Paginate (where .Site.RegularPages ".Params.post" "!=" false) }}
-    {{ $defaultImage := "/path/to/default/image.jpg" }} <!-- Replace with your default image path -->
-    {{ $image := .Params.image | default $defaultImage }}
     {{ $title := .Title | default .Site.Title }}
-    {{ $description := .Description | default .Site.Params.Description }}
-
-    <!-- Determine if the current page is the homepage or a tag page -->
-    {{ $isHomepage := eq .RelPermalink "/" }}
-    {{ $urlPath := split .RelPermalink "/" }}
-    {{ $isTagPage := and (eq (len $urlPath) 4) (eq (index $urlPath 1) "tags") }}
-    {{ $tag := "" }}
-    {{ if $isTagPage }}
-        {{ $tag = index $urlPath 2 }}
-        {{ $tagData := index .Site.Data.tags $tag }}
-        {{ if $tagData }}
-            {{ $title = $tagData.title }}
-            {{ $description = $tagData.description }}
-        {{ else }}
-            {{ $description = printf "Explore posts tagged as '%s' on Techweb Unraveled." $tag }}
-        {{ end }}
-    {{ else if eq .Type "posts" }}
-        {{ $description = "Discover a collection of insightful articles on Linux, Blockchain, AI, and more on Techweb Unraveled." }}
-    {{ else if eq .Type "projects" }}
-        {{ $description = "Dive into my projects ranging from software development to ethical hacking." }}
-    {{ else if eq .Type "portal" }}
-        {{ $description = "Access exclusive content and resources in the Techweb Unraveled portal." }}
-    {{ end }}
-
-    <title>{{ $title }}</title>
-    <meta name="description" content="{{ $description }}">
-
+    {{ $description := ((.Description | default (.Summary | default .Content) | default .Site.Params.Description) | plainify | truncate 160) }}
+    {{ $image := .Params.image | default (.Scratch.Get "avatarImgSrc") }}
     {{ $siteKeywords := .Site.Params.MetaKeywords | default (slice) }}
     {{ $postKeywords := .Params.tags | default (slice) }}
     {{ $keywords := union $siteKeywords $postKeywords }}
 
     <!-- SEO titles & descriptions -->
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
     <meta name="keywords" content='{{ delimit $keywords ", "}}'>
 
     <meta property="og:url" content="{{ .Permalink }}">
@@ -63,27 +34,20 @@
     <meta property="twitter:url" content="{{ .Permalink }}">
     <meta name="twitter:image" content="{{ absURL $image }}">
 
-    <!-- SEO canonicals -->
-    <link rel="canonical" href="{{ .Permalink }}" />
+    <!-- SEO canonicals: helps Google understand your site better when using marketing campaign tagging etc -->
+    <link rel="canonical" href="{{ .Permalink }}">
 
-    <!-- Define and Load CSS -->
-    {{ $cssNormalize := resources.Get "css/normalize.min.css" | minify }}
+    {{ $cssNormalize := resources.Get "css/normalize.min.css" }}
+    <link rel="stylesheet" type="text/css" href="{{ $cssNormalize.RelPermalink }}" media="print">
+
     {{ $cssMain := resources.Get "css/main.css" | minify }}
+    <link rel="stylesheet" type="text/css" href="{{ $cssMain.RelPermalink }}">
+
     {{ $cssDark := resources.Get "css/dark.css" | minify }}
+    <link id="dark-theme" rel="stylesheet" href="{{ $cssDark.RelPermalink }}">
 
-    <!-- Defer Non-Critical CSS -->
-    <link rel="preload" href="{{ $cssNormalize.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ $cssNormalize.RelPermalink }}"></noscript>
-
-    <link rel="preload" href="{{ $cssMain.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ $cssMain.RelPermalink }}"></noscript>
-
-    <link rel="preload" href="{{ $cssDark.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" id="dark-theme">
-    <noscript><link rel="stylesheet" href="{{ $cssDark.RelPermalink }}"></noscript>
-    
-    <!-- JavaScript bundle with defer attribute -->
     {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | minify | resources.Fingerprint "sha256" }}
-    <script src="{{ $jsBundle.RelPermalink }}" defer integrity="{{ $jsBundle.Data.Integrity }}"></script>
+    <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}"></script>
 
     <!-- Option for user to inject custom html -->
     {{ if .Site.Params.CustomHeadHTML }}
