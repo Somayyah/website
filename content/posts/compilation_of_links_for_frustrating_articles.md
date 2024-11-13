@@ -1,5 +1,5 @@
 ---
-title: "Re-reading excercise articles compilation"
+title: "Re-reading exercise articles compilation"
 date: 2024-11-13
 description: “A collection of articles aimed at frustrating the reader and to be hard to read on purpose”
 type: "post"
