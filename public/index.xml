@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Techweb unraveled</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on Techweb unraveled</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Re-reading excercise articles compilation</title>
+      <link>//localhost:1313/posts/compilation_of_links_for_frustrating_articles/</link>
+      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/compilation_of_links_for_frustrating_articles/</guid>
+      <description>&lt;p&gt;In this post, I&amp;rsquo;ve compiled a list of articles I use for my re-reading exercise—articles intentionally difficult to read, often filled with jargon, HR-related topics, and dense regulations. The goal is to &lt;a href=&#34;https://techwebunraveled.xyz/posts/snap-out-of-it-how-i-m-learning-to-thrive-in-boredom-instead-of-scratching-it-away/#more-reps&#34;&gt;build focus and patience by revisiting these challenging reads&lt;/a&gt;. Here are some examples:&lt;/p&gt;&#xA;&lt;h3 id=&#34;single-page-articles&#34;&gt;Single page articles&lt;/h3&gt;&#xA;&lt;p&gt;1 -&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Snap Out of It! How I’m Learning to Thrive in Boredom Instead of Scratching It Away</title>
+      <link>//localhost:1313/posts/snap-out-of-it-how-i-m-learning-to-thrive-in-boredom-instead-of-scratching-it-away/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/snap-out-of-it-how-i-m-learning-to-thrive-in-boredom-instead-of-scratching-it-away/</guid>
+      <description>&lt;h2 id=&#34;the-pit&#34;&gt;The Pit&lt;/h2&gt;&#xA;&lt;p&gt;Books unread, movies unwatched, and abandoned projects—why? When did I become so easily distracted? When did enjoyable activities and hobbies become a chore? And when did we become pawns, so easily influenced and signed over our attention and focus, letting corporations make money off it for free?&lt;/p&gt;&#xA;&lt;p&gt;Attention is a highly valued asset, so no wonder the marketing industry is valued at &lt;a href=&#34;https://www.statista.com/markets/479/topic/680/marketing/#:~:text=Marketing%20services%20are%20a%20billion-dollar%20industry%2C%20showing%20positive,segment%20growing%20exceptionally%20well%20is%2C%20unsurprisingly%2C%20digital%20marketing.&#34;&gt;$481 billion&lt;/a&gt;. From influencers sharing referral links for lip gloss in shades identical to countless others, to politicians dividing people with inflammatory comments, and then there’s a cute kitten hopping into a box—all within a minute of scrolling through Instagram. It’s no surprise we feel our attention slipping away.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unlocking Visual Creativity in 2023 with ChatGPT : Exploring the New DALL-E Feature in ChatGPT</title>
+      <link>//localhost:1313/posts/unlocking-visual-creativity-in-2023-with-chatgpexploring-the-new-dall-e-feature-in-chatgpt/</link>
+      <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/unlocking-visual-creativity-in-2023-with-chatgpexploring-the-new-dall-e-feature-in-chatgpt/</guid>
+      <description>&lt;h1 id=&#34;what-is-dall-e-3-and-how-can-i-use-dall-e-3-in-chatgpt&#34;&gt;What is DALL-E 3 and how can I use DALL-E 3 in ChatGPT?&lt;/h1&gt;&#xA;&lt;div style=&#34;display: flex; justify-content: center; align-items: center&#34;&gt;&#xA;    &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/rueHwmpUijE?si=dr_JFfmj5NaroUPn&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;DALL-E 3, developed by OpenAI, is a groundbreaking AI system capable of generating realistic images and art from natural language descriptions. In my latest video, I experimented with the same DALL-E 3 prompts featured in a recent blog post to evaluate its integration with ChatGPT.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello, world!</title>
+      <link>//localhost:1313/posts/hello-world/</link>
+      <pubDate>Thu, 21 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/hello-world/</guid>
+      <description>&lt;h1 id=&#34;hello-world&#34;&gt;Hello World!&lt;/h1&gt;&#xA;&lt;p&gt;This is my blog.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

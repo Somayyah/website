@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dall-E on Techweb unraveled</title>
+    <link>//localhost:1313/tags/dall-e/</link>
+    <description>Recent content in Dall-E on Techweb unraveled</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 22 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/dall-e/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unlocking Visual Creativity in 2023 with ChatGPT : Exploring the New DALL-E Feature in ChatGPT</title>
+      <link>//localhost:1313/posts/unlocking-visual-creativity-in-2023-with-chatgpexploring-the-new-dall-e-feature-in-chatgpt/</link>
+      <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/unlocking-visual-creativity-in-2023-with-chatgpexploring-the-new-dall-e-feature-in-chatgpt/</guid>
+      <description>&lt;h1 id=&#34;what-is-dall-e-3-and-how-can-i-use-dall-e-3-in-chatgpt&#34;&gt;What is DALL-E 3 and how can I use DALL-E 3 in ChatGPT?&lt;/h1&gt;&#xA;&lt;div style=&#34;display: flex; justify-content: center; align-items: center&#34;&gt;&#xA;    &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/rueHwmpUijE?si=dr_JFfmj5NaroUPn&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;DALL-E 3, developed by OpenAI, is a groundbreaking AI system capable of generating realistic images and art from natural language descriptions. In my latest video, I experimented with the same DALL-E 3 prompts featured in a recent blog post to evaluate its integration with ChatGPT.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

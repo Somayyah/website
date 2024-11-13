@@ -56,7 +56,7 @@ To further this commitment, I'll limit video consumption, regardless of whether 
 
 Re-reading anything can become tedious and boring quickly, which means that it's a good exercise in my quest to tame boredom. By selecting the most boring, stupid, and jargon-filled articles, and reading them multiple times until exhaustion while trying to comprehend them, you train your mind to no longer consider enjoyment as a deciding factor in finishing a task.
 
-I suggest starting starting with one page articles and 5 reads * 3 reps, below is a list of boring HR Scrum and Agile mumbo jumbo-related keywords that are guaranteed to make your brain scream in agony and beg for the sweet release of death:
+I suggest starting with one page articles and 5 reads * 3 reps, below is a list of boring HR Scrum and Agile mumbo jumbo-related keywords that are guaranteed to make your brain scream in agony and beg for the sweet release of death:
 
 1. Agile Talent Acquisition and Sprint-Based Recruiting Methodologies
 2. Scrum Framework Integration into Human Resource Development Processes
