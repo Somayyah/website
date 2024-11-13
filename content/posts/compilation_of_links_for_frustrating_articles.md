@@ -8,4 +8,4 @@ tags: ["self-improvement", "mindfullness", "opinions", "re-reading", "focus"]
 
 In this post, I've compiled a list of articles I use for my re-reading exercise—articles intentionally difficult to read, often filled with jargon, HR-related topics, and dense regulations. The goal is to [build focus and patience by revisiting these challenging reads](https://techwebunraveled.xyz/posts/snap-out-of-it-how-i-m-learning-to-thrive-in-boredom-instead-of-scratching-it-away/#more-reps). The list is continuously updated:
 
-1 - read://https_mindofhr.com/?url=https%3A%2F%2Fmindofhr.com%2F2023%2F12%2Frevolutionizing-human-resources-with-scrum-a-comprehensive-exploration%2F
+1 - https://mindofhr.com/2023/12/revolutionizing-human-resources-with-scrum-a-comprehensive-exploration/
