@@ -127,5 +127,7 @@
     "self-improvement": {
         "title" : "self-improvement", 
         "description": "Articles about how I navigate self improvement and my experiments"
-    }
+    },
+    "unix": {},
+    "commands": {}
 }
