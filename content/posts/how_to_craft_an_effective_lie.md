@@ -1,5 +1,10 @@
-+++
-+++
+---
+title: "How to craft an effective lie"
+date: 2023-12-21
+description: "A tutorial"
+type: "post"
+tags: ["blog"]
+---
 
 When crafting a lie, keep it believable—no sensationalism, romanticizing, or anticipating the recipient's feelings. State it like a wildlife report: factual, detached, and unembellished.
 
