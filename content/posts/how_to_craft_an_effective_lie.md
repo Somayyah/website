@@ -1,6 +1,6 @@
 ---
 title: "How to craft an effective lie"
-date: 2023-12-21
+date: 2024-12-11
 description: "A tutorial"
 type: "post"
 tags: ["blog"]
