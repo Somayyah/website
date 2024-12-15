@@ -1,5 +1,5 @@
 ---
-title: "OSPF Deep dive - 1"
+title: "OSPF Deep dive - 1 - Introduction"
 date: 2024-12-13
 description: “My first tutorial on OSPF, attempting to provide a deep dive - Part 1"
 type: "post"
