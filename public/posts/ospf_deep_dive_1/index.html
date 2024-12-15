@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6W0F36B62E"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6W0F36B62E');
+        }
+      </script>
+
+    
+    <title>OSPF Deep dive - 1</title>
+    <meta name="description" content="“My first tutorial on OSPF, attempting to provide a deep dive - Part 1&#34;">
+    <meta name="keywords" content='OSPF, Networking, Routing Protocols, Cisco, Protocols, TCP/IP, Networking Basics, Routing, IP Routing, Internet Protocols, Network Security'>
+
+    <meta property="og:url" content="//localhost:1313/posts/ospf_deep_dive_1/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OSPF Deep dive - 1">
+    <meta property="og:description" content="“My first tutorial on OSPF, attempting to provide a deep dive - Part 1&#34;">
+    <meta property="og:image" content="//localhost:1313/images/logo.webp">
+    <meta property="og:image:secure_url" content="//localhost:1313/images/logo.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OSPF Deep dive - 1">
+    <meta name="twitter:description" content="“My first tutorial on OSPF, attempting to provide a deep dive - Part 1&#34;">
+    <meta property="twitter:domain" content="//localhost:1313/posts/ospf_deep_dive_1/">
+    <meta property="twitter:url" content="//localhost:1313/posts/ospf_deep_dive_1/">
+    <meta name="twitter:image" content="//localhost:1313/images/logo.webp">
+
+    
+    <link rel="canonical" href="//localhost:1313/posts/ospf_deep_dive_1/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.facf431b182600a14171e82fe3b9e8da39e2d9f1f94d4a01f892e455fa2730e3.js" integrity="sha256-&#43;s9DGxgmAKFBcegv47no2jni2fH5TUoB&#43;JLkVfonMOM="></script>
+
+    
+    
+</head><body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="//localhost:1313/">
+                <img width="38" height="38" src='/images/logo.webp' alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="/">Techweb unraveled</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="//localhost:1313/posts/"> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="//localhost:1313/tags/"> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="//localhost:1313/projects/"><span data-feather='archive'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="//localhost:1313/documentation/"><span data-feather='book-open'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="//localhost:1313/portal/"><span data-feather='key'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/Somayyah"><span data-feather='github'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="//localhost:1313/posts/"> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="//localhost:1313/tags/"> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="//localhost:1313/projects/"><span data-feather='archive'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="//localhost:1313/documentation/"><span data-feather='book-open'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="//localhost:1313/portal/"><span data-feather='key'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/Somayyah"><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>OSPF Deep dive - 1</h1>
+        <small role="doc-subtitle">“My first tutorial on OSPF, attempting to provide a deep dive - Part 1&#34;</small>
+        <p class="post-date">13 December, 2024
+        
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/ospf">OSPF</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/networking">Networking</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/routing-protocols">Routing Protocols</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/cisco">Cisco</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/protocols">Protocols</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/tcp/ip">TCP/IP</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/networking-basics">Networking Basics</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/routing">Routing</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/ip-routing">IP Routing</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/internet-protocols">Internet Protocols</a></li>
+        
+            <li class="post-tag"><a href="//localhost:1313/tags/network-security">Network Security</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p><a href="https://en.wikipedia.org/wiki/Open_Shortest_Path_First">OSPF</a> (Open Shortest Path First) is a <a href="https://en.wikipedia.org/wiki/Link-state_routing_protocol">link-state</a> routing protocol that&rsquo;s still super relevant in today’s world of networking. I know it can feel a bit overwhelming, but don’t worry – I’ll break it down for you in this blog. We’ll dive into both the theory and the practical side of things, and I’ll try to make it as easy to understand as possible. Hopefully, by the end, you’ll have a solid grasp on OSPF and why it’s so important.</p>
+<h2 id="introduction">Introduction</h2>
+<p>OSPF follows link-state routing principles, meaning that each OSPF-enabled router has a complete map of the network, not just information about its neighbors. This enables efficient path calculation, taking into account metrics like the link bandwidth cost (e.g., 1Gbps, Fast Ethernet, 10Gbps, etc.). The process starts with two OSPF-enabled routers forming a neighborship. After agreeing on a few parameters, they exchange LSAs (Link-State Advertisements) to populate their LSDB (Link-State Database).</p>
+<p>Of course, things aren&rsquo;t quite this simple, and there are deeper layers to explore. But hey, we’ve got to start somewhere, right?</p>
+<img src="https://cdn.networklessons.com/wp-content/uploads/2013/02/routers-lsdb-lsa.png" style="display: block; margin: 0 auto;" alt="Diagram of OSPF-enabled routers exchanging routing information through LSAs and storing it in their LSDBs" />
+<p style="font-size: 16px; text-align: center; background-color: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 5px;">
+  Image source: <a href="https://www.networklessons.com/">NetworkLessons</a>
+</p>
+<h2 id="preventing-ospf-traffic-overload">Preventing OSPF Traffic Overload</h2>
+<p>OSPF operates by routers exchanging LSAs (Link-State Advertisements) and using them to populate their Link-State Database (LSDB). You may have already noted a potential issue: since each router contains information about all the other routers in the network, wouldn&rsquo;t there be a risk of flooding if routers continuously initiate LSAs? If there are too many OSPF routers, could the exchange of these LSAs overwhelm the network? Yes, this can happen.</p>
+<img src="https://cdn.networklessons.com/wp-content/uploads/2013/02/ospf-full-mesh.png" style="display: block; margin: 0 auto;" alt="Diagram of LSA storm" />
+<p style="font-size: 16px; text-align: center; background-color: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 5px;">
+  Image source: <a href="https://www.networklessons.com/">NetworkLessons</a>
+</p>
+<p>To address this, solutions like the introduction of area hierarchies are used. In the case of a single-area OSPF network, routers elect a <strong>Designated Router (DR)</strong>, where all other routers send their LSAs. The DR then forwards the LSAs to other routers, avoiding the need for each router to send LSAs to every other router.</p>
+<p>This approach prevents OSPF traffic from becoming a mesh-like situation, making the network more efficient and less CPU-intensive. As a backup we also elect <strong>Backup designated router (BDR)</strong> in case the original one crashes.</p>
+<h2 id="shortest-path-first-spf-algorithm">Shortest-path first (SPF) algorithm</h2>
+<p>OSPF uses <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra&rsquo;s algorithm</a> to determine the best route between two destinations, then updates its <strong>routing table</strong> with the best paths. The LSDB serves as the database used by the SPF algorithm to compute these paths.</p>
+<p>OSPF uses the concept of areas, think of it as a heirarchy the default area is Area 0 (the backbone) and every other area has to connect to it.</p>
+<p><img src="/svg/assets/OSPF%20AREAS_11zon.webp" alt="An image of a multi area network, showing the backbone area 0 and two other areas, both areas have to connect to Area 0 through an area border router ABR"></p>
+<p>Area 0 is mandatory and other areas have to connect to it through an <strong>area border router (ABR)</strong>, also, it&rsquo;s possible to import routes from other domains that use other routing protocols like <a href="https://en.wikipedia.org/wiki/Routing_Information_Protocol">RIP</a> or <a href="https://en.wikipedia.org/wiki/Enhanced_Interior_Gateway_Routing_Protocol">EIGRP</a> or <a href="https://en.wikipedia.org/wiki/IS-IS">IS-IS</a> through a process called <strong>Redistribution</strong>, and routers that connect an OSPF area to a domain using another routing protocol are called <strong>Autonomous system border routers ASBR</strong></p>
+<h2 id="ospf-flow">OSPF flow</h2>
+<p>OSPF follows some steps to achieve it&rsquo;s objective, we will go deeper into each step but for now here is an overview:</p>
+<ul>
+<li>
+<p>Step 1 : Router Initialization</p>
+<ul>
+<li>OSPF routers are configured with an <strong>OSPF process ID</strong> and network interfaces.</li>
+<li><strong>Interface activation</strong>: OSPF needs to be enabled on the interfaces participating in the OSPF routing process.</li>
+</ul>
+</li>
+<li>
+<p>Step 2 : Neighbor Discovery</p>
+<ul>
+<li><strong>Hello packets</strong> are sent periodically to discover neighboring routers on the same network.</li>
+<li>These Hello packets contain information like router ID, area ID, and other parameters used to establish adjacency, we will talk about it in later sections.</li>
+<li>If a router receives a Hello packet from a neighboring router with compatible parameters (e.g., OSPF area, Hello and Dead intervals), an <strong>OSPF adjacency</strong> is formed.</li>
+</ul>
+</li>
+<li>
+<p>Step 3 : Exchange of Link-State Information</p>
+<ul>
+<li>Routers exchange <strong>Link-State Advertisements (LSAs)</strong> to share information about the state of their links (interfaces and their status).</li>
+<li>Each router sends an <strong>LSR (Link-State Request)</strong> to request missing LSAs from a neighbor if it does not have them in its database.</li>
+<li>The neighbor responds with <strong>LSU (Link-State Update)</strong>, which contains the requested LSAs.</li>
+</ul>
+</li>
+<li>
+<p>Step 4 : Building the Link-State Database (LSDB)</p>
+<ul>
+<li>Routers build and maintain a <strong>Link-State Database</strong> (LSDB) that contains information about all routers in the area and their links.</li>
+<li>This database is updated when new LSAs are received and processed.</li>
+</ul>
+</li>
+<li>
+<p>Step 5 : Shortest Path First (SPF) Calculation</p>
+<ul>
+<li>Once the LSDB is complete, OSPF uses the <strong>Dijkstra algorithm</strong> (Shortest Path First) to compute the shortest path tree (SPT) based on the LSDB.</li>
+<li>The result of the SPF calculation is the router’s <strong>routing table</strong>, which contains the best paths to reach each destination.</li>
+</ul>
+</li>
+<li>
+<p>Step 6 : Routing Table Update</p>
+<ul>
+<li>The router updates its <strong>routing table</strong> with the new OSPF routes derived from the SPF algorithm.</li>
+<li>These routes are used to forward traffic to their destinations based on the shortest path.</li>
+</ul>
+</li>
+<li>
+<p>Step 7 : Periodical Updates and LSAs</p>
+<ul>
+<li>OSPF routers periodically exchange LSAs to keep the network topology updated and ensure routing tables reflect changes in the network (like interface status changes or link failures).</li>
+<li>LSAs are triggered when there is a change in the network, such as a link going down or coming up.</li>
+</ul>
+</li>
+<li>
+<p>Step 8 : Convergence</p>
+<ul>
+<li>Convergence occurs when all OSPF routers have the same LSDB and routing tables, ensuring all routers have an updated and consistent view of the network.</li>
+</ul>
+</li>
+<li>
+<p>Step 9 : Maintaining Neighbor Relationships</p>
+<ul>
+<li>OSPF routers continually send <strong>Hello packets</strong> to maintain the adjacency.</li>
+<li>If there’s no response from a neighbor within a set time (Dead interval), the neighbor relationship is considered down, and the router recalculates the routing table.</li>
+</ul>
+</li>
+</ul>
+<h2 id="neighbor-discovery">Neighbor Discovery</h2>
+<p>OSPF routers won&rsquo;t exchange LSAs unless they form neighborships, think of it like introducing yourself to one another, routers start with a hello message which contain these parameters:</p>
+<ul>
+<li>Router ID: An OSPF router has a unique ID representing highest IP address on any active interface.</li>
+<li>Hello / Dead interval: Have to match on each side, keepalive messages are sent every X seconds, if a router isn&rsquo;t hearing them after the dead interval has elapsed then the neighbor is declared as dead.</li>
+<li>Neighbors: The neighbors of the router advertising it&rsquo;s LSAs.</li>
+<li>Area ID: Has to match on both sides to become neighbors.</li>
+<li>Router priority: Used to determine who will be the DR.</li>
+<li>DR / BDR IP addresses</li>
+<li>Authentication Password: has to match on both sides, can be in plain text or MD5, if configured then every packet has to be authenticated with it.</li>
+<li>Stub area flag : OSPF areas can be of different types.</li>
+</ul>
+<p>A <strong>router ID</strong> value will be automatically select the router ID based on the following order of preference:</p>
+<ul>
+<li>Manually Configured Router ID: If you configure the router ID manually, that value will be used.</li>
+<li>Highest IP Address on a Loopback Interface: If the router ID isn&rsquo;t manually configured, OSPF will select the highest IP address from the loopback interfaces. Loopback interfaces are preferred because they are always up as long as the router is functioning, making them more stable.</li>
+<li>Highest IP Address on an Active Physical Interface: If no loopback interfaces are available or configured, OSPF will then select the highest IP address on any active physical interface (such as Ethernet or serial interfaces).</li>
+</ul>
+<p>If non are applicable then OSPF will not start, and neighborships will not be formed. Loopbacks are useful because they never go down unless the router crashes.</p>
+<h2 id="shortest-path-first-spf-calculation">Shortest Path First (SPF) Calculation</h2>
+<p>OSPF uses the SPF algorithm, which is based on Dijkstra&rsquo;s algorithm, here is a table that shows the default OSPF cost (metric) based on interface bandwidth. The formula for OSPF cost is:</p>
+<p><strong>Cost = Reference Bandwidth (100 Mbps by default) ÷ Interface Bandwidth</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Interface Bandwidth</strong></th>
+          <th><strong>Default OSPF Cost</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>100 Gbps</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>10 Gbps</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1 Gbps</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>100 Mbps</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>10 Mbps</td>
+          <td>10</td>
+      </tr>
+      <tr>
+          <td>1 Mbps</td>
+          <td>100</td>
+      </tr>
+      <tr>
+          <td>512 Kbps</td>
+          <td>195</td>
+      </tr>
+      <tr>
+          <td>128 Kbps</td>
+          <td>781</td>
+      </tr>
+      <tr>
+          <td>64 Kbps</td>
+          <td>1562</td>
+      </tr>
+      <tr>
+          <td>56 Kbps</td>
+          <td>1785</td>
+      </tr>
+  </tbody>
+</table>
+<p>If two paths from the same source to the destination have equal costs, load balancing is used.</p>
+<p>In next post we will deep dive into path selection and LSAs and how LSDB is populated.</p>
+
+        </p>
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+
+    
+    
+    <svg id="btt-button" class="arrow-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" onclick="topFunction()" title="Go to top">
+        
+        <path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/>
+    </svg>
+    
+    <script>
+        let backToTopButton = document.getElementById("btt-button");
+
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            smoothScrollToTop();
+        }
+
+        function smoothScrollToTop() {
+            const scrollToTop = () => {
+                const c = document.documentElement.scrollTop || document.body.scrollTop;
+                if (c > 0) {
+                    window.requestAnimationFrame(scrollToTop);
+                    window.scrollTo(0, c - c / 8);
+                }
+            };
+            scrollToTop();
+        }
+    </script>
+    
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+    <span class="tech">&copy; 2024 watari@techwebunraveled.xyz</span>
+    
+</footer>
+</body>
+</html>

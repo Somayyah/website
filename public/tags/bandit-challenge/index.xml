@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bandit-Challenge on Techweb unraveled</title>
+    <link>//localhost:1313/tags/bandit-challenge/</link>
+    <description>Recent content in Bandit-Challenge on Techweb unraveled</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/bandit-challenge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux || xxd || How to create and reverse hexdump files</title>
+      <link>//localhost:1313/posts/linux_xxd_how_to_create_reverse_hexdump_files/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/linux_xxd_how_to_create_reverse_hexdump_files/</guid>
+      <description>&lt;p&gt;In this post I aim to explain what and how to interact with hex dump files and to solve a simple challenge to enforce learning.&lt;/p&gt;&#xA;&lt;h2 id=&#34;whats-a-hexdump-exactly&#34;&gt;What&amp;rsquo;s a hexdump exactly&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;a href=&#34;https://en.wikipedia.org/wiki/Hex_dump&#34;&gt;hex dump&lt;/a&gt; is a textual representation of data in hexadecimal format, often used for inspecting files or binary data. It&amp;rsquo;s especially useful for debugging and reverse engineering.&lt;/p&gt;&#xA;&lt;p&gt;However, a hex dump is not the same as a &lt;a href=&#34;https://en.wikipedia.org/wiki/Hex_file&#34;&gt;HEX file format&lt;/a&gt;. Instead, think of a hex dump as a way to view the binary data of a file in hexadecimal form, making it easier to read and analyze.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

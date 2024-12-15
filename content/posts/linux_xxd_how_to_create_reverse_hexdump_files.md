@@ -3,7 +3,8 @@ title: "Linux || xxd || How to create and reverse hexdump files"
 date: 2024-11-15
 description: Using xxd to convert files to hexdump files and revert them back to their original format
 type: "post"
-tags: ["linux", "unix", "commands", "how-to","technology","explain-like-i'm-five","hacks", "reverse-engineering", "OverTheWire"]
+tags: ["linux", "unix", "commands", "how-to", "technology", "explain-like-i'm-five", "hacks", "reverse-engineering", "OverTheWire", "hexdump", "gzip", "compression", "bandit-challenge"]
+
 ---
 
 In this post I aim to explain what and how to interact with hex dump files and to solve a simple challenge to enforce learning.
