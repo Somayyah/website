@@ -1,5 +1,5 @@
 ---
-title: "OSPF Deep dive - 1 - Introduction"
+title: "OSPF Deep Dive - 1"
 date: 2024-12-15
 description: “My first tutorial on OSPF, attempting to provide a deep dive - Part 1"
 type: "post"
@@ -127,4 +127,4 @@ OSPF uses the SPF algorithm, which is based on Dijkstra's algorithm, here is a t
 
 If two paths from the same source to the destination have equal costs, load balancing is used.
 
-In next post we will deep dive into path selection and LSAs and how LSDB is populated.
+In the [next post](../ospf_deep_dive_2/) we will deep dive into path selection and LSAs and how LSDB is populated.
