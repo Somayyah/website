@@ -1,10 +1,14 @@
 :root {
-  --dark-primary-color: #000;
-  --dark-secondary-color: #2d333b;
+  --dark-primary-color: #1e1717;
   --dark-tertiary-color: #646464;
   --dark-text-color: white;
   --accent-color-dark: #007FFF;
 
+}
+
+/* Optionally, you can also set the stroke if needed */
+.mermaid svg * {
+  stroke: var(--dark-text-color) !important; /* Example: Set the stroke to black for visibility */
 }
 
 .social-icon a svg path {
