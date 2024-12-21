@@ -6,6 +6,42 @@
   --light-secondary-color: #dddddd;
   --light-tertiary-color: #272822;
   --light-text-color: black;
+  --td-light-background: #ffffff;
+  --td-dark-background: #2e2e2e;
+  --td-light-text-color: #333333;
+  --td-dark-text-color: #f5f5f5;
+  --td-light-border-color: #dddddd;
+  --td-dark-border-color: #444444;
+  --td-light-hover-bg: #f1f1f1;
+  --td-dark-hover-bg: #444444;
+}
+
+.goat {
+  height: 50%;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+thead {
+  background-color: var(--td-light-background);
+  color: var(--td-light-text-color);
+}
+
+tbody {
+  background-color: var(--td-light-background);
+  color: var(--td-light-text-color);
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid var(--td-light-border-color);
+  text-align: left;
 }
 
 /* In case you want to ensure proper rendering of Mermaid diagrams */
@@ -17,12 +53,6 @@
 /* Optionally, you can also set the stroke if needed */
 .mermaid svg * {
   stroke: var(--light-text-color) !important; /* Example: Set the stroke to black for visibility */
-}
-
-/* Target all .edgelabel elements within any .edgeLabels group */
-[id^="#mermaid-"] .edgeLabel {
-  background-color: #e74c3c !important; /* Example: Red color for edge labels */
-  font-family: Arial, sans-serif;
 }
 
 /* For light theme */

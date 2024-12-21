@@ -1,9 +1,30 @@
 :root {
-  --dark-primary-color: #1e1717;
+  --dark-primary-color: #060606;
   --dark-tertiary-color: #646464;
   --dark-text-color: white;
   --accent-color-dark: #007FFF;
+  --td-light-background: #2e2e2e;
+  --td-dark-background: #1c1c1c;
+  --td-light-text-color: #f5f5f5;
+  --td-dark-text-color: #bdb6b6;
+  --td-light-border-color: #444444;
+  --td-dark-border-color: #666666;
+  --td-light-hover-bg: #444444;
+  --td-dark-hover-bg: #333333;
+}
 
+thead {
+  background-color: var(--td-dark-background);
+  color: var(--td-dark-text-color);
+}
+
+tbody {
+  background-color: var(--td-dark-background);
+  color: var(--td-dark-text-color);
+}
+
+th, td {
+  border: 1px solid var(--td-dark-border-color);
 }
 
 /* Optionally, you can also set the stroke if needed */
