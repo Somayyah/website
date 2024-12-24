@@ -35,7 +35,7 @@ enableRobotsTXT = true
   # You can use this to inject any HTML in the <head> tag.
   # Ideal usecase for this is to import custom js/css or add your analytics snippet
   customHeadHTML = ""
-
+  highlightCode = true
   socialIcons = [
     {name = "twitter", url = "https://twitter.com/mohd_somayyah"},
     {name = "linkedin", url = "https://www.linkedin.com/in/somayyah-mohammed-630a1a177/"},

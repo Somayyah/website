@@ -1,4 +1,3 @@
-
 {{ if .Store.Get "hasMermaid" }}
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
@@ -9,7 +8,7 @@
     <div class="post-header-section">
         <h1>{{ .Title }}</h1>
         <small role="doc-subtitle">{{ .Description }}</small>
-        <p class="post-date">{{ dateFormat (or .Site.Params.dateFormat "January 2, 2006") .Date}}
+        <p class="post-date">{{ dateFormat (or .Site.Params.dateFormat "January 2, 2006") .Date }}
         {{ if lt .Date .Lastmod }} | Updated {{ dateFormat .Site.Params.dateFormat .Lastmod }}{{ end }}
         </p>
 
@@ -21,14 +20,19 @@
     </div>
 
     <div class="post-content">
-        <p>
-            {{ .Content }}
-        </p>
-        {{ if .Site.Config.Services.Disqus.Shortname }}
-        <div class="post-comments">
-            {{ template "_internal/disqus.html" . }}
+        <div class="post-main-content">
+            <p>{{ .Content }}</p>
+            {{ if .Site.Config.Services.Disqus.Shortname }}
+            <div class="post-comments">
+                {{ template "_internal/disqus.html" . }}
+            </div>
+            {{ end }}
         </div>
-        {{ end }}
+
+        <!-- Add Table of Contents to the side -->
+        <div class="post-toc">
+            {{ .TableOfContents }}
+        </div>
     </div>
 
     <div class="prev-next">

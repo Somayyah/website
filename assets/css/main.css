@@ -16,6 +16,67 @@
   --td-dark-hover-bg: #444444;
 }
 
+/* Adjust post-content layout to be more balanced */
+.post-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adds some space between the content and TOC */
+}
+
+/* Main content */
+.post-main-content {
+  width: 70%; /* Adjusts the main content width */
+}
+
+/* TOC container */
+.post-toc {
+  width: 25%; /* Adjusts the TOC width */
+  padding-left: 20px; /* Adds spacing on the left side */
+  position: sticky;
+  top: 20px;
+  max-height: 80vh; /* Prevents TOC from taking over the screen */
+  overflow-y: auto; /* Adds scrolling to TOC if it's too long */
+}
+
+/* TOC styling */
+.post-toc ul {
+  list-style-type: none; /* Removes default bullet points */
+  padding-left: 0;
+}
+
+.post-toc li {
+  font-size: 14px; /* Makes the font smaller */
+  margin-bottom: 5px; /* Adds spacing between items */
+}
+
+.post-toc li a {
+  text-decoration: none; /* Removes underline from links */
+  color: #007bff; /* Custom link color */
+}
+
+.post-toc li a:hover {
+  text-decoration: underline; /* Adds underline on hover */
+}
+
+/* Indentation for subheadings */
+.post-toc li ul {
+  list-style-type: none;
+  padding-left: 20px; /* Indentation for subheadings */
+}
+
+.post-toc li ul li {
+  font-size: 13px; /* Smaller font for subheadings */
+}
+
+pre, code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #2d2d2d; /* Dark gray */
+  color: #ffffff;           /* White text */
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+
 .goat {
   height: 50%;
 }
@@ -113,8 +174,7 @@ main#content {
 
 main#content > .container {
   margin: auto;
-  width: 75%;
-  max-width: var(--container-width);
+  width: 90%;
 }
 
 .post.container {
