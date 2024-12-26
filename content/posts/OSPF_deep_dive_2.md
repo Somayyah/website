@@ -1,6 +1,6 @@
 ---
 title: "OSPF Deep Dive - 2"
-date: 2024-12-15
+date: 2024-12-26
 description: "About Tables and Packet types and LSAs"
 type: "post"
 tags: ["OSPF", "Networking", "Routing Protocols", "Cisco", "Protocols", "TCP/IP", "Networking Basics", "Routing", "IP Routing", "Internet Protocols", "Network Security"]
@@ -474,3 +474,5 @@ When a router receives a new LSA, it performs the following steps to determine i
    If the LSA is accepted as valid and newer, the router forwards it to its OSPF neighbors, ensuring synchronization across the network.  
 
 By examining and comparing these fields, OSPF ensures that each router maintains an accurate and synchronized view of the network topology.
+
+In the next post, we will understand how neighborships and adjacencies are formed and how to distinguish of them.
