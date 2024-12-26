@@ -2,7 +2,7 @@
 enableEmoji = true
 
 # Choose one of emacs, trac or perldoc
-#pygmentsStyle = "monokai"
+pygmentsStyle = "monokai"
 
 defaultContentLanguage = "en"
 languageCode = "en"
