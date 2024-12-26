@@ -6,7 +6,7 @@ enableEmoji = true
 
 defaultContentLanguage = "en"
 languageCode = "en"
-# googleAnalytics = "G-6W0F36B62E"
+googleAnalytics = "G-6W0F36B62E"
 Title = "Techweb unraveled"
 
 theme = "gokarna"
