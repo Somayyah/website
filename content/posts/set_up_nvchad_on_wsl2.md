@@ -1,6 +1,6 @@
 ---
 title: "Set NVChad on WSL2"
-date: 2024-12-26
+date: 2024-12-27
 description: "How to set up NVChad, neovim, and nerdfont on WSL2"
 type: "post"
 tags: ["how-to", "linux", "unix", "commands", "technology", "hacks", "operating systems",  "explain-like-i'm-five"]
