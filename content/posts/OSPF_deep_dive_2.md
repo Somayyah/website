@@ -122,7 +122,7 @@ C       172.16.2.0/24 is directly connected, Loopback0
 
 An OSPF packet starts with a standard 24 byte header, consider below format which is taken from the [RFC](http://www.faqs.org/rfcs/rfc2328.html) :
 
-```bash
+```goat
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -142,9 +142,10 @@ An OSPF packet starts with a standard 24 byte header, consider below format whic
 
 The first byte specifies the OSPF version, while the second byte specifies the packet type as per below:
 
-```bash
+```goat
 Type   Description
 ________________________________
+
 1      Hello
 2      Database Description
 3      Link State Request
@@ -162,7 +163,7 @@ All routers must agree on some parameters which are included in Hello packets, o
 
 **Hello packet structure**
 
-```bash
+```goat
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -187,7 +188,6 @@ All routers must agree on some parameters which are included in Hello packets, o
 |                      Designated Router                        |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                   Backup Designated Router                    |
-
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                          Neighbor                             |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -221,7 +221,7 @@ DBDs are exchanged during the initialization of an OSPF adjacency to compare the
 
 #### DBD Packet Structure
 
-```bash
+```goat
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -237,7 +237,7 @@ DBDs are exchanged during the initialization of an OSPF adjacency to compare the
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                       Authentication                          |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|         Interface MTU         |    Options    |0|0|0|0|0|I|M|MS |
+|         Interface MTU         |    Options    |0|0|0|0|0|I|M|MS|
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                     DD sequence number                        |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -275,7 +275,7 @@ A router that sends a Link State Request packet has in mind the precise instance
 instance is defined by its **LS sequence number**, **LS checksum**, and **LS age**, although these fields are not specified in the Link State Request Packet itself. 
 
 **LSR Packet Structure**
-```bash
+```goat
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -297,7 +297,7 @@ instance is defined by its **LS sequence number**, **LS checksum**, and **LS age
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                     Advertising Router                        |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|
+|                                                               |
 |                              ...                              |
 ```
 
@@ -314,7 +314,7 @@ Link State Update packets are OSPF packet type 4, and each packet carries a coll
 
 **LSU Packet format**
 
-```bash
+```goat
         0                   1                   2                   3
         0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -349,7 +349,7 @@ Link State Acknowledgment Packets are OSPF packet type 5, used to explicitly ack
 
 Depending on the state of the sending interface and the sender of the corresponding Link State Update packet, a Link State Acknowledgment packet is sent either to the multicast address AllSPFRouters, to the multicast address AllDRouters, or as a unicast. 
 
-```bash
+```goat
         0                   1                   2                   3
         0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -371,7 +371,6 @@ Depending on the state of the sending interface and the sender of the correspond
        +-                         An LSA Header                       -+
        |                                                               |
        +-                                                             -+
-
        |                                                               |
        +-                                                             -+
        |                                                               |
@@ -391,7 +390,7 @@ The Link-State Database (LSDB) is updated whenever a new Link-State Advertisemen
 
 Every LSA begins with a 20-byte header that contains fields essential for identifying, validating, and comparing LSAs:
 
-```bash
+```goat
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -424,9 +423,10 @@ Every LSA begins with a 20-byte header that contains fields essential for identi
 
 - **LS Type**:  
   Specifies the type of LSA being advertised. Each LSA type serves a different purpose in the OSPF topology. For example:
-  ```bash
+  ```goat
   LS Type   Description
   ___________________________________
+
   1         Router-LSAs
   2         Network-LSAs
   3         Summary-LSAs (IP network)
