@@ -1,4 +1,5 @@
 {{ define "main" }}
+
 <div class="flex-container">
     <!-- Home About Section -->
     <section class="home-about">
@@ -15,22 +16,6 @@
             <br>Welcome to my experimental space on the web. I’m driven by curiosity and constantly find myself diving into Linux, networking, and ethical hacking—trying to see how everything fits together or falls apart. I love digging into tech, asking questions, and testing out random ideas just to see what happens. This blog is a snapshot of my messy, often frustrating, but always rewarding learning journey. If you’re into experimenting and figuring things out on the fly, you’ll probably feel right at home here</b></p>
         {{ end }}
     
-    </section>
-
-    <!-- Random Quote with Cowsay Section -->
-    <section class="random-quote">
-        <h2>Quote of the Day</h2>
-
-        {{ $quoteData := resources.Get "static/quotes.json" }}
-        {{ $shuffledQuotes := shuffle $quoteData.quotes }}
-        {{ $quote := index $shuffledQuotes 0 }} <!-- Get the first item from the shuffled quotes array -->
-
-        {{ $quoteText := printf "\"%s\" - %s" $quote.quote $quote.author }}
-
-        <pre>
-        {{ $cowText := readFile "cowsay_quotes.txt" }}
-        {{ $cowText }}
-        </pre>
     </section>
 
     <!-- Social Icons Section -->
@@ -57,7 +42,9 @@
     {{ end }}
 </div>
 
+
 <div class="flex-break"></div>
+
 
 {{ if (os.FileExists "index-about.md") }}
 <div class="markdown-content">
