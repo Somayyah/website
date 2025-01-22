@@ -3,4 +3,4 @@ title: "Side Ventures"
 type: page
 ---
 
-### Soon :)
+### Micology, Gardening and Existential Crises
