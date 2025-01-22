@@ -103,6 +103,14 @@ enableRobotsTXT = true
     # We use feather-icons: https://feathericons.com/
     pre = "<span data-feather='github'></span>"
 
+  [[menu.main]]
+      identifier = "Side Ventures"
+      url = "/side-ventures/"
+      weight = 7
+      
+      # We use feather-icons: https://feathericons.com/
+      pre = "<span data-feather='aperture'></span>"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
