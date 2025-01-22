@@ -7,4 +7,4 @@ tags: ["blog"]
 ---
 
 # Hello World!
-This is my blog.
+This is my blog. Here I rant about anything and everything, my hobby is to make stuff and experiment with technology.
