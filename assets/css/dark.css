@@ -1,16 +1,16 @@
 :root {
-  --dark-primary-color: #060606;
-  --dark-tertiary-color: #646464;
-  --dark-text-color: white;
-  --accent-color-dark: #007FFF;
-  --td-light-background: #2e2e2e;
-  --td-dark-background: #1c1c1c;
-  --td-light-text-color: #f5f5f5;
-  --td-dark-text-color: #bdb6b6;
-  --td-light-border-color: #444444;
-  --td-dark-border-color: #666666;
-  --td-light-hover-bg: #444444;
-  --td-dark-hover-bg: #333333;
+  --dark-primary-color: #000000;       /* Pure black for primary background */
+  --dark-tertiary-color: #555555;      /* Medium gray for tertiary elements */
+  --dark-text-color: #ffffff;          /* Pure white for text */
+  --accent-color-dark: #00ff99;        /* Bright green for accents (kept the same) */
+  --td-light-background: #222222;      /* Dark gray for light backgrounds */
+  --td-dark-background: #111111;       /* Very dark gray for dark backgrounds */
+  --td-light-text-color: #ffffff;      /* Bright white for light text */
+  --td-dark-text-color: #cccccc;       /* Light gray for secondary text */
+  --td-light-border-color: #444444;    /* Medium gray for borders */
+  --td-dark-border-color: #666666;     /* Slightly lighter gray for contrast */
+  --td-light-hover-bg: #444444;        /* Hover background for light elements */
+  --td-dark-hover-bg: #333333;         /* Hover background for dark elements */
 }
 
 thead {
@@ -33,7 +33,6 @@ th, td {
 }
 
 .social-icon a svg path {
-  fill: var(--dark-tertiary-color)
 }
 
 .social-icon a svg path:hover {
@@ -45,7 +44,7 @@ a:hover{
 }
 
 #find-me-at {
-  color: var(--dark-primary-color);
+  color: var(--accent-color-dark);
 }
 
 #Badgesandcreds{
@@ -81,7 +80,6 @@ a:hover .feather-moon {
 }
 
 .social-icons{
-  background-color: var(--dark-text-color);
 }
 
 .social-icons-list .social-icon,
@@ -94,7 +92,6 @@ a:hover .feather-moon {
 }
 
 .social-icons .social-icons-list .social-icon a {
-  fill: var(--dark-tertiary-color);
 }
 
 .post-tags .post-tag:hover {
