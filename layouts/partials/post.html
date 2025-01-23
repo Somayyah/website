@@ -19,6 +19,22 @@
         </ul>
     </div>
 
+    <div class="post-content">
+        <div class="post-main-content">
+            <p>{{ .Content }}</p>
+            {{ if .Site.Config.Services.Disqus.Shortname }}
+            <div class="post-comments">
+                {{ template "_internal/disqus.html" . }}
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- Add Table of Contents to the side -->
+        <div class="post-toc">
+            {{ .TableOfContents }}
+        </div>
+    </div>
+
     <div class="prev-next">
         {{ if eq .Site.Params.TogglePreviousAndNextButtons "true" }}
             {{ if or .PrevInSection .NextInSection }}
