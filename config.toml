@@ -15,6 +15,10 @@ theme = "gokarna"
 enableRobotsTXT = true
 
 [params]
+  
+  giscusTheme="preferred_color_scheme"
+  disableComments=false
+
   # URL for the avatar on homepage
   avatarURL = "/images/logo.webp"
 
