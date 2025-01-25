@@ -261,10 +261,13 @@ img {
   background-color: inherit;
   color: var(--light-text-color);
   line-height: 1.2;
+  padding: 0;
+  margin: 0;
 }
 
 .cowsay pre {
   margin: 0; /* Remove default margin for <pre> */
+  padding: 0;
 }
 
 /* HEADER */
@@ -480,7 +483,7 @@ code {
   margin: 10px;
   color: var(--accent-color);
   text-align: center;
-  
+  font-family: "Electrolize", serif;
 }
 
 .twitter {
@@ -600,8 +603,7 @@ table td {
   flex: 1; /* social-icons will take up less space */
   padding: 15px;
   border-radius: 15px;
-  margin: 20px;
-  padding-top: 35px;
+  padding-top: 10%;
   border-left: 5px solid var(--accent-color); /* Width, style, and color */
   padding-right: 0px; /* Add some padding to space the content from the border */
   border-radius: 0; /* Ensure no radius */
@@ -621,7 +623,7 @@ table td {
 .social-icons-list .social-icon {
   box-sizing: border-box;
   display: inline-block;
-  height: 20px;
+  height: 40px;
   margin: 0 6px;
   width: 20px;
 }
