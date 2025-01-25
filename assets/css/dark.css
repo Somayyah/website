@@ -8,6 +8,11 @@
   --dark-hover-bg: #444444;             /* Dark gray for hover states */
 }
 
+.cowsay {
+  color: var(--dark-text-color);
+}
+
+
 thead {
   background-color: var(--td-dark-background);
   color: var(--td-dark-text-color);

@@ -1,6 +1,10 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Imprima&family=Roboto+Mono:ital@0;1&family=Roboto+Mono:wght@100;400;700&display=swap');
+/* Apply fonts to different elements */
+
 :root {
-  --content-width: 1120px;
-  --container-width: 810px;
+  --content-width: 90vw;
+  --container-width: 1000px;
   --accent-color: #FF6B6B;              /* Warm coral accent (softer than #FF4D4D) */
   --light-primary-color: #FFFFFF;       /* White for primary background */
   --light-tertiary-color: #EDEDED;      /* Very light gray for tertiary elements */
@@ -63,7 +67,7 @@
 }
 
 pre, code {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'courier new', monospace;
   background-color: #2d2d2d; /* Dark gray */
   color: #ffffff;           /* White text */
   padding: 1rem;
@@ -111,9 +115,6 @@ th, td {
   color: #000000; /* Black text for light theme */
 }
 
-/* Import fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Imprima&family=Roboto+Mono:ital@0;1&family=Roboto+Mono:wght@100;400;700&display=swap');
-/* Apply fonts to different elements */
 body {
     line-height: 1.6;
 }
@@ -135,19 +136,13 @@ header, nav, footer {
     font-weight: 400;
 }
 
-/* Example of using different font weights */
-strong, b {
-    font-weight: 700;
-}
-
 em, i {
     font-style: italic;
 }
 
 html {
-  background-color: rgb(var(--light-primary-color));
+  background-color: var(--light-primary-color);
   color: var(--light-text-color);
-  font-size: 17.5px;
   min-height: 100%;
   position: relative;
 }
@@ -172,7 +167,7 @@ a:hover {
 }
 
 main#content {
-  margin: 90px auto 0;
+  margin: 5% auto 0;
   width: var(--content-width);
 }
 
@@ -252,6 +247,9 @@ img {
 .cowsay {
   font-family: "Courier New", monospace; /* Monospace font for ASCII art */
   white-space: pre; /* Preserve spaces and line breaks */
+  background-color: inherit;
+  color: var(--light-text-color);
+  line-height: 1.2;
 }
 
 .cowsay pre {
@@ -436,8 +434,7 @@ a:hover .feather-sun {
 }
 
 /* CODE BLOCKS */
-code,
-pre {
+code, pre {
   background-color: var(--light-tertiary-color);
   box-sizing: border-box;
   color: white;
