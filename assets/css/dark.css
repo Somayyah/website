@@ -36,9 +36,11 @@ th, td {
   stroke: var(--dark-text-color) !important; /* Example: Set the stroke to black for visibility */
 }
 
+
 .post-toc {
   border-left: 5px solid var(--accent-color-dark); /* Width, style, and color */
   padding-left: 20px; /* Add some padding to space the content from the border */
+  color: var(--accent-color-dark);
 }
 
 .social-icon a svg path {

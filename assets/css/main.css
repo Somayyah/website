@@ -36,6 +36,7 @@
   overflow-y: auto; /* Adds scrolling to TOC if it's too long */
   border-left: 5px solid var(--accent-color); /* Width, style, and color */
   padding-left: 20px; /* Add some padding to space the content from the border */
+  color: var(--accent-color);
 }
 
 /* TOC styling */
@@ -51,7 +52,7 @@
 
 .post-toc li a {
   text-decoration: none; /* Removes underline from links */
-  color: #007bff; /* Custom link color */
+   /* Custom link color */
 }
 
 .post-toc li a:hover {
@@ -593,8 +594,6 @@ table td {
   border-radius: 15px;
   margin: 20px;
   padding-top: 35px;
-  padding-left: 35px;
-  padding-right: 35px;
   border-left: 5px solid var(--accent-color); /* Width, style, and color */
   padding-right: 0px; /* Add some padding to space the content from the border */
   border-radius: 0; /* Ensure no radius */
