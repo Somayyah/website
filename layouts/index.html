@@ -3,11 +3,11 @@
 <div class="flex-container">
     <!-- Home About Section -->
     <section class="home-about">
-        <div class="avatar">
+ <!--       <div class="avatar">
             {{ if isset .Site.Params "avatarurl" }}
             <img width="122.5" height="122.5" class="{{ .Site.Params.AvatarSize }}" src="{{ .Scratch.Get "avatarImgSrc" }}" alt="{{ .Site.Params.AvatarAltText | default "avatar" }}" />
             {{ end }}
-        </div>
+        </div> -->
     
         <h1>{{ .Site.Title }}</h1>
         {{ if isset .Site.Params "description" }}
@@ -32,8 +32,19 @@
             </li>
             {{ end }}
         </ul>
-        <p><b>Fines mean it's legal for those who can afford it</b></p>
-        <br>
+        <pre class="cowsay">  
+            ________________________________
+            / Fines mean it's legal for those \\
+            \\ who can afford it               /
+              --------------------------------
+        \   ^__^ 
+                \  (oo)\_______
+                        (__)\       )\/\\
+                         ||----w|
+                         ||    ||
+                
+            </pre>
+                    <br>
 <!--         <strong><p id="Badgesandcreds">Badges and Certificates</p></strong>
         <br><br><div class="creds">
             <a href="https://www.credly.com/badges/6e3a6399-268d-4614-9c13-c2eef14fed7c/public_url"><img alt="Cisco Security professional Certificate Badge" src="/images/cisco-certified-network-professional-security-ccnp-security.webp"></a>

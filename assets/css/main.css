@@ -1,15 +1,14 @@
 :root {
   --content-width: 1120px;
   --container-width: 810px;
-  --accent-color: #FF4D4D;
+  --accent-color: #FF6B6B;              /* Warm coral accent (softer than #FF4D4D) */
   --light-primary-color: #FFFFFF;       /* White for primary background */
-  --light-tertiary-color: #E0E0E0;      /* Light gray for tertiary elements */
-  --light-text-color: #121212;          /* Dark text for readability */
-  --accent-color-light: #007BFF;        /* Bright blue for accents */
-  --light-background: #F5F5F5;          /* Light gray for backgrounds */
-  --light-border-color: #CCCCCC;        /* Light gray for borders */
-  --light-hover-bg: #E0E0E0;            /* Light gray for hover states */
-}
+  --light-tertiary-color: #EDEDED;      /* Very light gray for tertiary elements */
+  --light-text-color: #2D2D2D;          /* Dark gray for text (softer than pure black) */
+  --accent-color-light: #4A90E2;        /* Soft blue for accents (less intense than #007BFF) */
+  --light-background: #FAFAFA;          /* Off-white for backgrounds */
+  --light-border-color: #D1D1D1;        /* Light gray for borders */
+  --light-hover-bg: #E8E8E8;            /* Light gray for hover states */}
 
 /* Adjust post-content layout to be more balanced */
 .post-content {
@@ -250,21 +249,27 @@ img {
   max-width: 100%;
 }
 
+.cowsay {
+  font-family: "Courier New", monospace; /* Monospace font for ASCII art */
+  white-space: pre; /* Preserve spaces and line breaks */
+}
+
+.cowsay pre {
+  margin: 0; /* Remove default margin for <pre> */
+}
+
 /* HEADER */
 .header {
-  background-color: rgba(var(--light-primary-color), 0.95);
+  background-color: var(--light-primary-color);
   color: inherit;
   height: 50px;
   left: 0;
   position: fixed;
   top: 0px;
-  margin: 5px;
   transition: box-shadow 0.3s ease-in-out;
   width: 100%;
   z-index: 5;
 }
-
-
 
 .header a {
   text-decoration: none;
