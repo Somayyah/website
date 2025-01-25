@@ -9,7 +9,7 @@
 }
 
 .cowsay {
-  color: var(--dark-text-color);
+  color: var(--accent-color-dark);
 }
 
 .saying{
