@@ -12,6 +12,10 @@
   color: var(--dark-text-color);
 }
 
+.post-tags .post-tag a {
+  color: var(--accent-color-dark);
+  border-color: var(--accent-color-dark);
+}
 
 thead {
   background-color: var(--td-dark-background);
@@ -30,6 +34,11 @@ th, td {
 /* Optionally, you can also set the stroke if needed */
 .mermaid svg * {
   stroke: var(--dark-text-color) !important; /* Example: Set the stroke to black for visibility */
+}
+
+.post-toc {
+  border-left: 5px solid var(--accent-color-dark); /* Width, style, and color */
+  padding-left: 20px; /* Add some padding to space the content from the border */
 }
 
 .social-icon a svg path {
@@ -79,6 +88,7 @@ a:hover .feather-moon {
 }
 
 .social-icons{
+  border-left: 5px solid var(--accent-color-dark); /* Width, style, and color */
 }
 
 .social-icons-list .social-icon,

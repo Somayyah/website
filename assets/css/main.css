@@ -28,12 +28,14 @@
 
 /* TOC container */
 .post-toc {
-  width: 25%; /* Adjusts the TOC width */
+  width: 50%; /* Adjusts the TOC width */
   padding-left: 20px; /* Adds spacing on the left side */
   position: sticky;
   top: 20px;
   max-height: 80vh; /* Prevents TOC from taking over the screen */
   overflow-y: auto; /* Adds scrolling to TOC if it's too long */
+  border-left: 5px solid var(--accent-color); /* Width, style, and color */
+  padding-left: 20px; /* Add some padding to space the content from the border */
 }
 
 /* TOC styling */
@@ -43,7 +45,7 @@
 }
 
 .post-toc li {
-  font-size: 14px; /* Makes the font smaller */
+  font-size: 1rem; /* Makes the font smaller */
   margin-bottom: 5px; /* Adds spacing between items */
 }
 
@@ -126,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: normal;
 }
 
-p, ul, ol, li, a, p {
+p, ul, ol, li, a {
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
 }
@@ -423,7 +425,7 @@ a:hover .feather-sun {
   font-size: 14px;
 }
 .post-tags .post-tag:hover {
-  background-color: var(--light-text-color);
+  background-color: var(--light-hover-bg);
   color: rgb(var(--light-primary-color));
 }
 .post-tag a {
@@ -593,6 +595,9 @@ table td {
   padding-top: 35px;
   padding-left: 35px;
   padding-right: 35px;
+  border-left: 5px solid var(--accent-color); /* Width, style, and color */
+  padding-right: 0px; /* Add some padding to space the content from the border */
+  border-radius: 0; /* Ensure no radius */
 }
 
 .social-icons p{
