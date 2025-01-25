@@ -1,16 +1,11 @@
 :root {
-  --dark-primary-color: #000000;       /* Pure black for primary background */
-  --dark-tertiary-color: #555555;      /* Medium gray for tertiary elements */
-  --dark-text-color: #ffffff;          /* Pure white for text */
-  --accent-color-dark: #00ff99;        /* Bright green for accents (kept the same) */
-  --td-light-background: #222222;      /* Dark gray for light backgrounds */
-  --td-dark-background: #111111;       /* Very dark gray for dark backgrounds */
-  --td-light-text-color: #ffffff;      /* Bright white for light text */
-  --td-dark-text-color: #cccccc;       /* Light gray for secondary text */
-  --td-light-border-color: #444444;    /* Medium gray for borders */
-  --td-dark-border-color: #666666;     /* Slightly lighter gray for contrast */
-  --td-light-hover-bg: #444444;        /* Hover background for light elements */
-  --td-dark-hover-bg: #333333;         /* Hover background for dark elements */
+  --dark-primary-color: #1E1E1E;        /* Dark gray for primary background */
+  --dark-tertiary-color: #757575;       /* Medium gray for tertiary elements */
+  --dark-text-color: #F5F5F5;           /* Off-white for text */
+  --accent-color-dark: #00CC88;         /* Desaturated green for accents */
+  --dark-background: #121212;           /* Very dark gray for backgrounds */
+  --dark-border-color: #555555;         /* Medium gray for borders */
+  --dark-hover-bg: #444444;             /* Dark gray for hover states */
 }
 
 thead {
@@ -52,7 +47,6 @@ a:hover{
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
   color: var(--accent-color-dark);
 }
 

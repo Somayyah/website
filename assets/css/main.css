@@ -2,18 +2,13 @@
   --content-width: 1120px;
   --container-width: 810px;
   --accent-color: #FF4D4D;
-  --light-primary-color: 255, 255, 255;
-  --light-secondary-color: #dddddd;
-  --light-tertiary-color: #272822;
-  --light-text-color: black;
-  --td-light-background: #ffffff;
-  --td-dark-background: #2e2e2e;
-  --td-light-text-color: #333333;
-  --td-dark-text-color: #f5f5f5;
-  --td-light-border-color: #dddddd;
-  --td-dark-border-color: #444444;
-  --td-light-hover-bg: #f1f1f1;
-  --td-dark-hover-bg: #444444;
+  --light-primary-color: #FFFFFF;       /* White for primary background */
+  --light-tertiary-color: #E0E0E0;      /* Light gray for tertiary elements */
+  --light-text-color: #121212;          /* Dark text for readability */
+  --accent-color-light: #007BFF;        /* Bright blue for accents */
+  --light-background: #F5F5F5;          /* Light gray for backgrounds */
+  --light-border-color: #CCCCCC;        /* Light gray for borders */
+  --light-hover-bg: #E0E0E0;            /* Light gray for hover states */
 }
 
 /* Adjust post-content layout to be more balanced */
@@ -69,7 +64,7 @@
 }
 
 pre, code {
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Roboto Mono', monospace;
   background-color: #2d2d2d; /* Dark gray */
   color: #ffffff;           /* White text */
   padding: 1rem;
@@ -117,27 +112,42 @@ th, td {
   color: #000000; /* Black text for light theme */
 }
 
-@font-face {
-  font-family: 'IBM Plex Sans', sans-serif;
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Imprima&family=Roboto+Mono:ital@0;1&family=Roboto+Mono:wght@100;400;700&display=swap');
+/* Apply fonts to different elements */
+body {
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Electrolize", serif !important;
   font-weight: 400;
-  src: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-}
-
-@font-face {
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
-  font-weight: 700;
-  src: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@700&display=swap');
-}
-
-h1, h2, h3, h4, h5, h6{
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
   color: var(--accent-color);
+  font-style: normal;
+}
+
+p, ul, ol, li, a, p {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+}
+
+header, nav, footer {
+    font-family: 'Imprima', sans-serif;
+    font-weight: 400;
+}
+
+/* Example of using different font weights */
+strong, b {
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
 }
 
 html {
   background-color: rgb(var(--light-primary-color));
   color: var(--light-text-color);
-  font-family: "IBM Plex Sans", sans-serif;
   font-size: 17.5px;
   min-height: 100%;
   position: relative;
@@ -247,7 +257,8 @@ img {
   height: 50px;
   left: 0;
   position: fixed;
-  top: 0;
+  top: 0px;
+  margin: 5px;
   transition: box-shadow 0.3s ease-in-out;
   width: 100%;
   z-index: 5;
@@ -258,6 +269,7 @@ img {
 .header a {
   text-decoration: none;
 }
+
 .header .header-nav {
   height: 50px;
   margin-top: 0;
@@ -284,7 +296,6 @@ img {
 .nav-title a {
   height: 50px;
   color: var(--accent-color);
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 .header-nav .nav-links {
@@ -448,7 +459,7 @@ code {
   font-size: 1rem;
   margin: 0;
   color: white;
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  
 }
 
 #find-me-at {
@@ -456,7 +467,7 @@ code {
   margin: 10px;
   color: var(--accent-color);
   text-align: center;
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  
 }
 
 .twitter {
@@ -474,10 +485,6 @@ code {
 
 .email {
   fill: #d8be6f;
-}
-
-p {
-  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 :not(pre) > code {
