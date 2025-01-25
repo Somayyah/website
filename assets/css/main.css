@@ -5,7 +5,7 @@
 :root {
   --content-width: 90vw;
   --container-width: 1000px;
-  --accent-color: #FF6B6B;              /* Warm coral accent (softer than #FF4D4D) */
+  --accent-color: #800020;              /* Warm coral accent (softer than #FF4D4D) */
   --light-primary-color: #FFFFFF;       /* White for primary background */
   --light-tertiary-color: #EDEDED;      /* Very light gray for tertiary elements */
   --light-text-color: #2D2D2D;          /* Dark gray for text (softer than pure black) */
@@ -52,7 +52,15 @@
 
 .post-toc li a {
   text-decoration: none; /* Removes underline from links */
-   /* Custom link color */
+}
+
+.saying{
+  font-size: 0.3rem;
+  line-height: 0.3rem;
+  font-weight: 700;
+  white-space: pre; /* Preserve spaces and line breaks */
+  background-color: inherit;
+  color: var(--accent-color);
 }
 
 .post-toc li a:hover {

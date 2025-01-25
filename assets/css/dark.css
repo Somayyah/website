@@ -12,6 +12,10 @@
   color: var(--dark-text-color);
 }
 
+.saying{
+  color: var(--accent-color-dark);
+}
+
 .post-tags .post-tag a {
   color: var(--accent-color-dark);
   border-color: var(--accent-color-dark);
