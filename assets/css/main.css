@@ -294,23 +294,15 @@ img {
   margin-top: 0;
 }
 
-.header-nav .avatar {
-  float: left;
-  height: 100%;
-  margin-left: 15px;
-}
-.header-nav .avatar img {
-  display: block;
-  height: 38px;
-  margin-top: 5px;
-  overflow: hidden;
-  width: 38px;
-}
 .header-nav .nav-title {
   display: inline-block;
   height: 100%;
   line-height: 50px;
   padding-left: 15px;
+}
+
+.header-nav .nav-title .nav-brand{
+  font-family: "Electrolize", serif;
 }
 .nav-title a {
   height: 50px;
@@ -329,6 +321,7 @@ img {
 .nav-links .nav-link a {
   display: block;
   padding: 0 6px;
+  font-family: 'Imprima', sans-serif;
 }
 .nav-link a svg {
   height: 20px;
