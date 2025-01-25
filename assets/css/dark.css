@@ -5,7 +5,6 @@
   --accent-color-dark: #00CC88;         /* Desaturated green for accents */
   --dark-background: #121212;           /* Very dark gray for backgrounds */
   --dark-border-color: #555555;         /* Medium gray for borders */
-  --dark-hover-bg: #444444;             /* Dark gray for hover states */
 }
 
 .cowsay {
@@ -45,9 +44,6 @@ th, td {
   border-left: 5px solid var(--accent-color-dark); /* Width, style, and color */
   padding-left: 20px; /* Add some padding to space the content from the border */
   color: var(--accent-color-dark);
-}
-
-.social-icon a svg path {
 }
 
 .social-icon a svg path:hover {
@@ -136,22 +132,12 @@ hr {
   color: var(--dark-secondary-color);
 }
 
-table thead {
-  background-color: var(--dark-secondary-color);
-}
-
-table td,
-table th {
-  border-bottom-color: var(--dark-secondary-color);
-}
-
 code,
 pre {
   background-color: var(--dark-secondary-color) !important;
 }
 
 :not(pre) > code {
-  background-color: var(--dark-tertiary-color) !important;
   color: var(--dark-text-color);
 }
 
@@ -162,24 +148,3 @@ a:hover  {
 .nav-title a {
   color: var(--accent-color-dark);
 }
-
-.tech {
-  color: var(--accent-color-dark);
-}
-
-.header-shadow {
-  box-shadow: white 0px -1px 0px 0px inset;
-}
-
-.arrow-logo { 
-  background-color: var(--dark-secondary-color);
-}
-
-/* TODO: Check if this is needed or not */
-/* 
-img,
-video {
-  filter: hue-rotate(180deg) contrast(100%) invert(100%);
-  -webkit-filter: hue-rotate(180deg) contrast(100%) invert(100%);
-} 
-*/

@@ -86,13 +86,6 @@ enableRobotsTXT = true
       pre = "<span data-feather='archive'></span>"
   
   [[menu.main]]
-    identifier = "Documentation"
-    url = "/Documentation/"
-    weight = 4
-    # We use feather-icons: https://feathericons.com/
-    pre = "<span data-feather='book-open'></span>"
-
-  [[menu.main]]
       identifier = "portal"
       url = "/portal/"
       weight = 5
@@ -120,3 +113,7 @@ enableRobotsTXT = true
     [markup.goldmark.renderer]
       unsafe = true
       
+[minify]
+  disableCSS = false
+  disableJS = false
+  disableHTML = false

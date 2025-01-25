@@ -2,13 +2,7 @@
 
 <div class="flex-container">
     <!-- Home About Section -->
-    <section class="home-about">
- <!--       <div class="avatar">
-            {{ if isset .Site.Params "avatarurl" }}
-            <img width="122.5" height="122.5" class="{{ .Site.Params.AvatarSize }}" src="{{ .Scratch.Get "avatarImgSrc" }}" alt="{{ .Site.Params.AvatarAltText | default "avatar" }}" />
-            {{ end }}
-        </div> -->
-    
+    <section class="home-about">    
         <h1>{{ .Site.Title }}</h1>
         {{ if isset .Site.Params "description" }}
             <h2>{{ .Site.Params.Description }}</h2>

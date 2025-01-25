@@ -1,15 +1,23 @@
-/* Import fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Imprima&family=Roboto+Mono:ital@0;1&family=Roboto+Mono:wght@100;400;700&display=swap');
 /* Apply fonts to different elements */
+
+@font-face {
+  font-family: 'Electrolize-Regular';
+  src: url('/fonts/Electrolize-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Imprima-Regular';
+  src: url('/fonts/Imprima-Regular.woff2') format('woff2');
+  font-display: swap;
+}
 
 :root {
   --content-width: 90vw;
   --container-width: 1000px;
-  --accent-color: #800020;              /* Warm coral accent (softer than #FF4D4D) */
+  --accent-color: #FF4D4D;              /* Warm coral accent (softer than #FF4D4D) */
   --light-primary-color: #FFFFFF;       /* White for primary background */
-  --light-tertiary-color: #EDEDED;      /* Very light gray for tertiary elements */
   --light-text-color: #2D2D2D;          /* Dark gray for text (softer than pure black) */
-  --accent-color-light: #4A90E2;        /* Soft blue for accents (less intense than #007BFF) */
   --light-background: #FAFAFA;          /* Off-white for backgrounds */
   --light-border-color: #D1D1D1;        /* Light gray for borders */
   --light-hover-bg: #E8E8E8;            /* Light gray for hover states */}
@@ -78,35 +86,10 @@
 }
 
 pre, code {
-  font-family: 'courier new', monospace;
   background-color: #2d2d2d; /* Dark gray */
   color: #ffffff;           /* White text */
   padding: 1rem;
   border-radius: 5px;
-}
-
-/* Table Styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 16px;
-}
-
-thead {
-  background-color: var(--td-light-background);
-  color: var(--td-light-text-color);
-}
-
-tbody {
-  background-color: var(--td-light-background);
-  color: var(--td-light-text-color);
-}
-
-th, td {
-  padding: 12px 15px;
-  border: 1px solid var(--td-light-border-color);
-  text-align: left;
 }
 
 /* In case you want to ensure proper rendering of Mermaid diagrams */
@@ -122,8 +105,7 @@ th, td {
 
 /* For light theme */
 .mermaid {
-  background-color: #ffffff; /* White background for light theme */
-  color: #000000; /* Black text for light theme */
+  color: var(--light-text-color); /* Black text for light theme */
 }
 
 body {
@@ -132,19 +114,14 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Electrolize", serif !important;
+  font-family: "Electrolize-regular", serif !important;
   font-weight: 400;
   color: var(--accent-color);
   font-style: normal;
 }
 
-p, ul, ol, li, a {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 400;
-}
-
 header, nav, footer {
-    font-family: 'Imprima', sans-serif;
+    font-family: 'Imprima-regular', sans-serif;
     font-weight: 400;
 }
 
@@ -161,11 +138,6 @@ html {
 
 body {
   margin-bottom: 170px;
-}
-
-b,
-strong {
-  font-weight: bold;
 }
 
 a {
@@ -198,7 +170,6 @@ main#content > .container {
   display: inline-block;
   padding-left: 50px;
   vertical-align: top;
-  /* Would be 25% had there been no margins or border box on all inline blocks */
   width: 24%;
 }
 
@@ -257,7 +228,6 @@ img {
 }
 
 .cowsay {
-  font-family: "Courier New", monospace; /* Monospace font for ASCII art */
   white-space: pre; /* Preserve spaces and line breaks */
   background-color: inherit;
   color: var(--accent-color);
@@ -265,6 +235,7 @@ img {
   font-size: 0.7rem;
   margin: 0;
   text-align: center;
+  width: 100%;
 }
 
 .cowsay pre {
@@ -302,7 +273,7 @@ img {
 }
 
 .header-nav .nav-title .nav-brand{
-  font-family: "Electrolize", serif;
+  font-family: "Electrolize-regular", serif;
 }
 .nav-title a {
   height: 50px;
@@ -321,7 +292,7 @@ img {
 .nav-links .nav-link a {
   display: block;
   padding: 0 6px;
-  font-family: 'Imprima', sans-serif;
+  font-family: 'Imprima-regular', sans-serif;
 }
 .nav-link a svg {
   height: 20px;
@@ -414,15 +385,12 @@ a:hover .feather-sun {
   color: var(--accent-color);
 }
 
-.header-shadow {
-  box-shadow: #ad192d50 0px -1px 0px 0px inset;
-}
-
 /* TAGS */
 .post-tags {
   list-style-type: none;
   padding: 0;
 }
+
 .post-tags .post-tag {
   border: 1.5px solid;
   border-radius: 4px;
@@ -430,11 +398,13 @@ a:hover .feather-sun {
   color: inherit;
   display: inline-block;
   font-size: 14px;
+  margin-top: 5px;
 }
 .post-tags .post-tag:hover {
   background-color: var(--light-hover-bg);
-  color: rgb(var(--light-primary-color));
+  color: var(--light-primary-color);
 }
+
 .post-tag a {
   color: inherit;
   display: block;
@@ -444,7 +414,6 @@ a:hover .feather-sun {
 
 /* CODE BLOCKS */
 code, pre {
-  background-color: var(--light-tertiary-color);
   box-sizing: border-box;
   color: white;
 }
@@ -455,22 +424,10 @@ pre {
   padding: 20px;
 }
 
-.creds a {
-  display: block;
-  margin-bottom: 10px; /* Adjusts space between images */
-}
-
-
 code {
   box-decoration-break: clone;
   word-wrap: break-word;
   font-size: 0.8em;
-}
-#Badgesandcreds{
-  font-size: 1rem;
-  margin: 0;
-  color: white;
-  
 }
 
 #find-me-at {
@@ -478,7 +435,8 @@ code {
   margin: 10px;
   color: var(--accent-color);
   text-align: center;
-  font-family: "Electrolize", serif;
+  font-family: "Electrolize-regular", serif;
+  width: 100%;
 }
 
 .twitter {
@@ -522,7 +480,6 @@ hr {
 
 table {
   border-collapse: collapse;
-  margin: 30px 0;
   text-align: left;
   display: block;
   overflow-x: auto;
@@ -596,7 +553,7 @@ table td {
 }
 
 .home-about h2 {
-  font-family: 'Imprima', sans-serif !important;
+  font-family: 'Imprima-regular', sans-serif !important;
 }
 
 .social-icons {
@@ -851,32 +808,6 @@ table td {
 
 .prev-post, .next-post {
   max-width: 33%;
-}
-
-/* back to top button  */
-.arrow-logo {
-  background-color: transparent;
-  border-radius: 50%;
-  bottom: 20px;
-  cursor: pointer;
-  display: none;
-  font-size: 24px;
-  padding: 10px;
-  padding-right: 8px;
-  position: fixed;
-  right: 20px;
-  z-index: 5;
-  background-color: var(--light-tertiary-color);
-  width: 25px;
-  height: 25px;
-}
-
-.arrow-logo path{
-  fill: var(--light-secondary-color)
-}
-
-.arrow-logo:hover {
-  fill:  var(--accent-color); 
 }
 
 @media screen and (max-width: 600px) {
