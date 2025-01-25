@@ -261,9 +261,10 @@ img {
   white-space: pre; /* Preserve spaces and line breaks */
   background-color: inherit;
   color: var(--accent-color);
-  line-height: 1.2;
   padding: 0;
+  font-size: 0.7rem;
   margin: 0;
+  text-align: center;
 }
 
 .cowsay pre {
@@ -610,7 +611,6 @@ table td {
   flex: 1; /* social-icons will take up less space */
   padding: 15px;
   border-radius: 15px;
-  padding-top: 10%;
   border-left: 5px solid var(--accent-color); /* Width, style, and color */
   padding-right: 10px; /* Add some padding to space the content from the border */
   border-radius: 0; /* Ensure no radius */
@@ -625,6 +625,7 @@ table td {
   list-style-type: none;
   padding: 0;
   text-align: center;
+  margin: 0;
 }
 
 .social-icons-list .social-icon {
