@@ -597,7 +597,12 @@ table td {
 }
 
 .home-about h1 {
-  font-size: 2em;
+  font-size: 3em;
+  margin: 0;
+}
+
+.home-about h2 {
+  font-family: 'Imprima', sans-serif !important;
 }
 
 .social-icons {
