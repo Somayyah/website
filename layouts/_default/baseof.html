@@ -6,16 +6,16 @@
     {{- end -}}
     {{- .Scratch.Set "avatarImgSrc" $avatarImgSrc -}}
 
-    {{- partialCached "head.html" . -}}
+    {{- partial "head.html" . -}}
     <body>
         <script type="text/javascript">
             // Immediately set theme on page load
             setThemeByUserPref();
         </script>
-        {{- partialCached "header.html" . -}}
+        {{- partial "header.html" . -}}
         <main id="content">
         {{- block "main" . }}{{- end }}
         </main>
-        {{- partialCached "footer.html" . -}}
+        {{- partial "footer.html" . -}}
     </body>
 </html>

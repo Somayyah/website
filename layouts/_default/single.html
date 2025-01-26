@@ -1,11 +1,11 @@
 {{ define "main" }}
     {{ if eq .Type "post" }}
-        {{- partialCached "post.html" . -}}
-        {{- partialCached "toc.html" . -}}
+        {{- partial "post.html" . -}}
+        {{- partial "toc.html" . -}}
     {{ end }}
 
     {{ if eq .Type "page" }}
-        {{- partialCached "page.html" . -}}
-        {{- partialCached "toc.html" . -}}
+        {{- partial "page.html" . -}}
+        {{- partial "toc.html" . -}}
     {{ end }}
 {{ end }}
