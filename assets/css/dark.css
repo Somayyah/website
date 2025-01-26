@@ -148,3 +148,7 @@ a:hover  {
 .nav-title a {
   color: var(--accent-color-dark);
 }
+
+footer .tech {
+  color: var(--accent-color-dark);
+}
