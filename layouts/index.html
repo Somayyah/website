@@ -94,11 +94,11 @@
 
     {{ if eq .Site.Params.ShowPostsOnHomePage "popular" }}
         {{ range $posts.ByWeight | first 4 }}
-            {{- partial "list-posts.html" . -}}
+            {{- partialCached "list-posts.html" . -}}
         {{ end }}
     {{ else if eq .Site.Params.ShowPostsOnHomePage "recent" }}
         {{ range $posts.ByDate.Reverse | first 4 }}
-            {{- partial "list-posts.html" . -}}
+            {{- partialCached "list-posts.html" . -}}
         {{ end }}
     {{ end }}
     </div>
