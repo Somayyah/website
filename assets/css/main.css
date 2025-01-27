@@ -815,3 +815,91 @@ table td {
       visibility: hidden;
   }
 }
+
+/* Ensure the HTML and body take up full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main content wrapper to push footer down */
+#page-wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content area to grow and push footer down */
+#main-content {
+    flex: 1;
+}
+
+/* Footer Styles */
+.ft-footer {
+    background-color: var(--accent-color);
+    color: var(--light-primary-color);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 40px; /* Add space at the top of the footer */
+}
+
+.ft-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Part 1: Social Section */
+.ft-social-section {
+    flex: 1;
+    text-align: left;
+    padding: 10px 0; /* Minimal padding for spacing */
+}
+
+#ft-find-me-at {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--light-primary-color);
+}
+
+.ft-social-icons-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.ft-social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+}
+
+.ft-social-icon img:hover {
+    transform: scale(1.2);
+}
+
+/* Part 2: Reserved Section */
+.ft-reserved-section {
+    flex: 1;
+    text-align: right;
+    padding: 10px 0; /* Minimal padding for spacing */
+}
+
+/* Part 3: Copyright Section */
+.ft-copyright-section {
+    text-align: center;
+    padding: 10px 0;
+    background-color: var(--accent-color);
+    border-top: 1px solid var(--light-border-color);
+    width: 100%;
+}
+
+.ft-copyright-text {
+    font-size: 0.9em;
+    color: var(--light-primary-color);
+}

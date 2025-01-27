@@ -1,10 +1,27 @@
-<footer class="footer">
-    <!-- Option for user to inject custom html -->
-    {{ if .Site.Params.CustomFooterHTML }}
-    {{ .Site.Params.CustomFooterHTML | safeHTML }}
-    {{ end }}
+<footer class="ft-footer">
+    <div class="ft-container">
+        <!-- Part 1: "Find me at" and Social Media Icons -->
+        <div class="ft-social-section">
+            <p id="ft-find-me-at">Find me at</p>
+            <ul class="ft-social-icons-list">
+                {{ range .Site.Params.SocialIcons }}
+                <li class="ft-social-icon">
+                    <a href="{{ .url }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} aria-label="Find me at {{ .name }}">
+                        <img alt="Follow me on {{ .name }}" class="ft-svg-inject {{ .name }}" src="/svg/icons/{{ .name }}.svg" />
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
 
-    {{ if .Site.Params.footer }}
-    <span class="tech">&copy; {{ now.Year }} {{ .Site.Params.Footer}}</span>
-    {{ end }}
+        <!-- Part 2: Reserved Section -->
+        <div class="ft-reserved-section">
+            <!-- Reserved for future content -->
+        </div>
+    </div>
+
+    <!-- Part 3: Copyright Section -->
+    <div class="ft-copyright-section">
+        <span class="ft-copyright-text">&copy; {{ now.Year }} watari@techwebunraveled.xyz</span>
+    </div>
 </footer>
