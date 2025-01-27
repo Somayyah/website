@@ -14,9 +14,31 @@
             </ul>
         </div>
 
-        <!-- Part 2: Reserved Section -->
+        <!-- Part 2: Reserved Section with Netlify Form -->
         <div class="ft-reserved-section">
-            <!-- Reserved for future content -->
+            <p id="ft-contact-me">Contact Me</p>
+            <form class="ft-contact-form" name="contact" method="POST" netlify data-netlify-recaptcha="true">
+                <!-- Hidden input for Netlify form-name -->
+                <input type="hidden" name="form-name" value="contact">
+
+                <!-- Email Input -->
+                <div class="ft-form-group">
+                    <label for="ft-email">Email:</label>
+                    <input type="email" id="ft-email" name="email" placeholder="Your email" required>
+                </div>
+
+                <!-- Question Input -->
+                <div class="ft-form-group">
+                    <label for="ft-question">Question:</label>
+                    <textarea id="ft-question" name="question" placeholder="Ask me anything..." rows="3" required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="ft-form-group">
+                    <button type="submit" class="ft-submit-button">Send</button>
+                </div>
+                <div class="ft-form-group" data-netlify-recaptcha="true"></div>
+            </form>
         </div>
     </div>
 

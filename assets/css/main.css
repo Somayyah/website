@@ -1,5 +1,4 @@
-/* Apply fonts to different elements */
-
+/* CSS Reset */
 @font-face {
   font-family: 'Electrolize-Regular';
   src: url('/fonts/Electrolize-Regular.woff2') format('woff2');
@@ -12,82 +11,182 @@
   font-display: swap;
 }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Ensures padding and border are included in element's total width/height */
+}
+
+html,
+body {
+  height: 100%;
+  /* Ensures the body takes up the full height of the viewport */
+}
+
+body {
+  line-height: 1.6;
+  /* Sets a consistent line height */
+  -webkit-font-smoothing: antialiased;
+  /* Improves font rendering on WebKit browsers */
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  /* Ensures images and other replaced elements are block-level */
+  max-width: 100%;
+  /* Prevents images from overflowing their containers */
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  /* Ensures form elements inherit font styles */
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  /* Prevents long words from overflowing */
+}
+
+/* Optional: Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Optional: Remove default anchor styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Optional: Remove default button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Apply fonts to different elements */
+
 :root {
   --content-width: 90vw;
   --container-width: 1000px;
-  --accent-color: #FF4D4D;              /* Warm coral accent (softer than #FF4D4D) */
-  --light-primary-color: #FFFFFF;       /* White for primary background */
-  --light-text-color: #2D2D2D;          /* Dark gray for text (softer than pure black) */
-  --light-background: #FAFAFA;          /* Off-white for backgrounds */
-  --light-border-color: #D1D1D1;        /* Light gray for borders */
-  --light-hover-bg: #E8E8E8;            /* Light gray for hover states */}
+  --accent-color: #FF4D4D;
+  /* Warm coral accent (softer than #FF4D4D) */
+  --light-primary-color: #FFFFFF;
+  /* White for primary background */
+  --light-text-color: #2D2D2D;
+  /* Dark gray for text (softer than pure black) */
+  --light-background: #FAFAFA;
+  /* Off-white for backgrounds */
+  --light-border-color: #D1D1D1;
+  /* Light gray for borders */
+  --light-hover-bg: #E8E8E8;
+  /* Light gray for hover states */
+}
+
 
 /* Adjust post-content layout to be more balanced */
 .post-content {
   display: flex;
   justify-content: space-between;
-  gap: 20px; /* Adds some space between the content and TOC */
+  gap: 20px;
+  /* Adds some space between the content and TOC */
 }
 
 /* Main content */
 .post-main-content {
-  width: 70%; /* Adjusts the main content width */
+  width: 70%;
+  /* Adjusts the main content width */
 }
 
 /* TOC container */
 .post-toc {
-  width: 50%; /* Adjusts the TOC width */
-  padding-left: 20px; /* Adds spacing on the left side */
+  width: 50%;
+  /* Adjusts the TOC width */
+  padding-left: 20px;
+  /* Adds spacing on the left side */
   position: sticky;
   top: 20px;
-  max-height: 80vh; /* Prevents TOC from taking over the screen */
-  overflow-y: auto; /* Adds scrolling to TOC if it's too long */
-  border-left: 5px solid var(--accent-color); /* Width, style, and color */
-  padding-left: 20px; /* Add some padding to space the content from the border */
+  max-height: 80vh;
+  /* Prevents TOC from taking over the screen */
+  overflow-y: auto;
+  /* Adds scrolling to TOC if it's too long */
+  border-left: 5px solid var(--accent-color);
+  /* Width, style, and color */
+  padding-left: 20px;
+  /* Add some padding to space the content from the border */
   color: var(--accent-color);
 }
 
 /* TOC styling */
 .post-toc ul {
-  list-style-type: none; /* Removes default bullet points */
+  list-style-type: none;
+  /* Removes default bullet points */
   padding-left: 0;
 }
 
 .post-toc li {
-  font-size: 1rem; /* Makes the font smaller */
-  margin-bottom: 5px; /* Adds spacing between items */
+  font-size: 1rem;
+  /* Makes the font smaller */
+  margin-bottom: 5px;
+  /* Adds spacing between items */
 }
 
 .post-toc li a {
-  text-decoration: none; /* Removes underline from links */
+  text-decoration: none;
+  /* Removes underline from links */
 }
 
-.saying{
+.saying {
   font-size: 0.3rem;
   line-height: 0.3rem;
   font-weight: 700;
-  white-space: pre; /* Preserve spaces and line breaks */
+  white-space: pre;
+  /* Preserve spaces and line breaks */
   background-color: inherit;
   color: var(--accent-color);
 }
 
 .post-toc li a:hover {
-  text-decoration: underline; /* Adds underline on hover */
+  text-decoration: underline;
+  /* Adds underline on hover */
 }
 
 /* Indentation for subheadings */
 .post-toc li ul {
   list-style-type: none;
-  padding-left: 20px; /* Indentation for subheadings */
+  padding-left: 20px;
+  /* Indentation for subheadings */
 }
 
 .post-toc li ul li {
-  font-size: 13px; /* Smaller font for subheadings */
+  font-size: 13px;
+  /* Smaller font for subheadings */
 }
 
-pre, code {
-  background-color: #2d2d2d; /* Dark gray */
-  color: #ffffff;           /* White text */
+pre,
+code {
+  background-color: #2d2d2d;
+  /* Dark gray */
+  color: #ffffff;
+  /* White text */
   padding: 1rem;
   border-radius: 5px;
 }
@@ -100,33 +199,42 @@ pre, code {
 
 /* Optionally, you can also set the stroke if needed */
 .mermaid svg * {
-  stroke: var(--light-text-color) !important; /* Example: Set the stroke to black for visibility */
+  stroke: var(--light-text-color) !important;
+  /* Example: Set the stroke to black for visibility */
 }
 
 /* For light theme */
 .mermaid {
-  color: var(--light-text-color); /* Black text for light theme */
+  color: var(--light-text-color);
+  /* Black text for light theme */
 }
 
 body {
-    line-height: 1.6;
-    font-family: 'Roboto Mono', monospace;
+  line-height: 1.6;
+  font-family: 'Roboto Mono', monospace;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Electrolize-regular", serif !important;
   font-weight: 400;
   color: var(--accent-color);
   font-style: normal;
 }
 
-header, nav, footer {
-    font-family: 'Imprima-regular', sans-serif;
-    font-weight: 400;
+header,
+nav {
+  font-family: 'Imprima-regular', sans-serif;
+  font-weight: 400;
 }
 
-em, i {
-    font-style: italic;
+em,
+i {
+  font-style: italic;
 }
 
 html {
@@ -155,7 +263,7 @@ main#content {
   width: var(--content-width);
 }
 
-main#content > .container {
+main#content>.container {
   margin: auto;
   width: 90%;
 }
@@ -175,8 +283,10 @@ main#content > .container {
 
 .flex-container {
   display: flex;
-  align-items: start; /* Aligns items to the start of the container */
-  justify-content: space-between; /* Adjusts the spacing between items */
+  align-items: start;
+  /* Aligns items to the start of the container */
+  justify-content: space-between;
+  /* Adjusts the spacing between items */
 }
 
 #toc {
@@ -228,7 +338,8 @@ img {
 }
 
 .cowsay {
-  white-space: pre; /* Preserve spaces and line breaks */
+  white-space: pre;
+  /* Preserve spaces and line breaks */
   background-color: inherit;
   color: var(--accent-color);
   padding: 0;
@@ -239,7 +350,8 @@ img {
 }
 
 .cowsay pre {
-  margin: 0; /* Remove default margin for <pre> */
+  margin: 0;
+  /* Remove default margin for <pre> */
   padding: 0;
 }
 
@@ -272,9 +384,10 @@ img {
   padding-left: 15px;
 }
 
-.header-nav .nav-title .nav-brand{
+.header-nav .nav-title .nav-brand {
   font-family: "Electrolize-regular", serif;
 }
+
 .nav-title a {
   height: 50px;
   color: var(--accent-color);
@@ -285,30 +398,36 @@ img {
   line-height: 50px;
   margin-right: 10px;
 }
+
 .nav-links .nav-link {
   display: inline-block;
   padding: 0 2px;
 }
+
 .nav-links .nav-link a {
   display: block;
   padding: 0 6px;
   font-family: 'Imprima-regular', sans-serif;
 }
+
 .nav-link a svg {
   height: 20px;
   margin: -3px auto;
   stroke-width: 2;
   width: 20px;
 }
+
 .nav-links .nav-link.icon a {
   padding: 0 8px;
 }
+
 .nav-links .nav-icons-divider {
   border-color: inherit;
   border-left: 1.5px solid;
   color: var(--light-secondary-color);
   margin: 0 10px;
 }
+
 .nav-links .dark-theme-toggle:hover {
   cursor: pointer;
 }
@@ -324,15 +443,18 @@ a:hover .feather-sun {
   stroke-linejoin: round;
   width: 22px;
 }
+
 #hamburger-menu-toggle {
   display: none;
 }
+
 #hamburger-menu-toggle .feather {
   height: 24px;
   stroke-linecap: round;
   stroke-linejoin: round;
   width: 24px;
 }
+
 .nav-hamburger-list {
   background: rgb(var(--light-primary-color));
   border-bottom: solid 1.5px var(--light-secondary-color);
@@ -346,28 +468,9 @@ a:hover .feather-sun {
   width: 100%;
   z-index: 5;
 }
+
 .nav-hamburger-list a:hover {
   text-decoration: underline;
-}
-
-/* FOOTER */
-.footer {
-  bottom: 0;
-  color: inherit;
-  left: 0;
-  margin-left: 30%;
-  overflow: hidden;
-  padding: 40px 0;
-  position: absolute;
-  text-align: center;
-  width: 40%;
-}
-
-.footer span {
-  display: block;
-  font-size: 0.85em;
-  font-weight: 300;
-  padding: 1px 0;
 }
 
 /** COMMON **/
@@ -400,6 +503,7 @@ a:hover .feather-sun {
   font-size: 14px;
   margin-top: 5px;
 }
+
 .post-tags .post-tag:hover {
   background-color: var(--light-hover-bg);
   color: var(--light-primary-color);
@@ -413,7 +517,8 @@ a:hover .feather-sun {
 }
 
 /* CODE BLOCKS */
-code, pre {
+code,
+pre {
   box-sizing: border-box;
   color: white;
 }
@@ -456,7 +561,7 @@ code {
   fill: #d8be6f;
 }
 
-:not(pre) > code {
+:not(pre)>code {
   background-color: var(--light-secondary-color) !important;
   color: var(--light-text-color);
   padding: 1px 4px;
@@ -500,18 +605,21 @@ table td {
 
 @media (max-width: 768px) {
   .flex-container {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  .home-about, .social-icons {
-      flex: none; /* Reset flex sizing on smaller screens */
+  .home-about,
+  .social-icons {
+    flex: none;
+    /* Reset flex sizing on smaller screens */
   }
 }
 
 /* HOME PAGE */
 .home-about {
   text-align: center;
-  flex: 4; /* home-about will take up more space */
+  flex: 4;
+  /* home-about will take up more space */
   padding: 15px;
   margin: 15px;
 }
@@ -558,15 +666,19 @@ table td {
 
 .social-icons {
   text-align: center;
-  flex: 1; /* social-icons will take up less space */
+  flex: 1;
+  /* social-icons will take up less space */
   padding: 15px;
   border-radius: 15px;
-  border-left: 5px solid var(--accent-color); /* Width, style, and color */
-  padding-right: 10px; /* Add some padding to space the content from the border */
-  border-radius: 0; /* Ensure no radius */
+  border-left: 5px solid var(--accent-color);
+  /* Width, style, and color */
+  padding-right: 10px;
+  /* Add some padding to space the content from the border */
+  border-radius: 0;
+  /* Ensure no radius */
 }
 
-.social-icons p{
+.social-icons p {
   text-align: center;
 }
 
@@ -611,36 +723,51 @@ table td {
   font-size: 1.1em;
   font-style: italic;
 }
+
 .post {
   /* Prevent long strings from overflowing */
   overflow-wrap: break-word;
 }
-.post .post-date, .prev-post-date, .next-post-date {
+
+.post .post-date,
+.prev-post-date,
+.next-post-date {
   color: gray;
 }
+
 .post .post-content {
   line-height: 1.7;
   margin-top: 50px;
   letter-spacing: 0.5px;
 }
-.post-content h1, .post-content h2, .post-content h3, .post-content h4 {
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
   scroll-margin-top: 55px;
 }
+
 .post-content h1 {
   margin-top: 40px;
 }
+
 .post-content h2 {
   margin-top: 35px;
 }
+
 .post-content h3 {
   margin-top: 30px;
 }
+
 .post-content h4 {
   margin-top: 25px;
 }
+
 .post-content h5 {
   margin-top: 20px;
 }
+
 .post-content img {
   display: block;
   margin-left: auto;
@@ -651,19 +778,24 @@ table td {
 .list-posts .list-title {
   text-align: center;
 }
+
 .list-posts .posts-year {
   margin-top: 70px;
 }
+
 .list-posts .post-title {
   margin: 18px 0 0 15px;
 }
+
 .list-posts a {
   text-decoration: none;
 }
+
 .post-title .post-link,
 .post-title .post-date {
   display: inline-block;
 }
+
 .post-title .post-link {
   /* This magic number is the largest width that keeps the post-date div from
    *  causing the line to wrap with the longest possible date string
@@ -671,23 +803,29 @@ table td {
    */
   width: 73%;
 }
+
 .tags-list .post-tags {
   margin-top: 50px;
 }
+
 .tags-list .post-tags .post-tag {
   margin: 2px 5px;
   padding: 0;
 }
+
 .tags-list .post-tags .post-tag a {
   border-radius: inherit;
   padding: 0;
 }
+
 .tags-list .post-tags .post-tag a div {
   display: inline-block;
 }
+
 .tags-list .post-tags .post-tag a .tag-name {
   padding: 5px 8px;
 }
+
 .tags-list .post-tags .post-tag a .tag-posts-count {
   background-color: var(--light-secondary-color);
   border-radius: inherit;
@@ -697,6 +835,7 @@ table td {
   position: relative;
   z-index: 0;
 }
+
 .tags-list .post-tags .post-tag:hover a .tag-posts-count {
   background-color: var(--light-text-color);
   color: rgb(var(--light-primary-color));
@@ -715,7 +854,7 @@ table td {
 
 @media (max-width: 768px) {
   .flex-container {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
 
@@ -749,7 +888,8 @@ table td {
     width: auto;
   }
 
-  .markdown-content, .home-posts {
+  .markdown-content,
+  .home-posts {
     width: auto;
     margin: 0;
   }
@@ -763,7 +903,7 @@ table td {
   }
 
   #toc {
-    display:none;
+    display: none;
   }
 
   .list-posts {
@@ -806,100 +946,157 @@ table td {
   text-align: right;
 }
 
-.prev-post, .next-post {
+.prev-post,
+.next-post {
   max-width: 33%;
 }
 
 @media screen and (max-width: 600px) {
   #btt-button {
-      visibility: hidden;
+    visibility: hidden;
   }
 }
 
-/* Ensure the HTML and body take up full height */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+/* Main container to push footer to the bottom */
+#page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Ensure it takes at least the full viewport height */
 }
 
-/* Main content wrapper to push footer down */
-#page-wrapper {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+/* Content wrapper to grow and take available space */
+#content-wrap {
+  flex: 1;
+  /* Grow to fill available space */
 }
 
-/* Content area to grow and push footer down */
-#main-content {
-    flex: 1;
+/* Footer styles */
+footer.ft-footer {
+  background-color: var(--accent-color);
+  color: var(--light-primary-color);
+  font-family: 'Imprima', sans-serif !important;
+  padding: 40px 0 0;
+  /* Add space at the top */
+  margin: 80px 0 0;
+  /* Remove margins */
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
-/* Footer Styles */
-.ft-footer {
-    background-color: var(--accent-color);
-    color: var(--light-primary-color);
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    margin-top: 40px; /* Add space at the top of the footer */
-}
-
+/* Container for the footer content */
 .ft-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0;
+  /* Remove padding to avoid empty space on sides */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  /* Add space between sections */
 }
 
-/* Part 1: Social Section */
+/* Social media section */
 .ft-social-section {
-    flex: 1;
-    text-align: left;
-    padding: 10px 0; /* Minimal padding for spacing */
+  flex: 1;
+  min-width: 200px;
 }
 
 #ft-find-me-at {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: var(--light-primary-color);
+  font-family: 'Electrolize', sans-serif  !important;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 .ft-social-icons-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 15px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
 }
 
 .ft-social-icon img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.2s ease;
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease;
 }
 
 .ft-social-icon img:hover {
-    transform: scale(1.2);
+  opacity: 0.8;
 }
 
-/* Part 2: Reserved Section */
+/* Reserved section with contact form */
 .ft-reserved-section {
-    flex: 1;
-    text-align: right;
-    padding: 10px 0; /* Minimal padding for spacing */
+  flex: 1;
+  min-width: 200px;
 }
 
-/* Part 3: Copyright Section */
+#ft-contact-me {
+  font-family: 'Electrolize', sans-serif  !important;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.ft-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ft-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-form-group label {
+  font-family: 'Roboto Mono', monospace  !important;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.ft-form-group input,
+.ft-form-group textarea {
+  padding: 8px;
+  border: 1px solid var(--light-border-color);
+  border-radius: 4px;
+  font-family: 'Roboto Mono', monospace  !important;
+  font-size: 0.9rem;
+}
+
+.ft-form-group textarea {
+  resize: vertical;
+}
+
+.ft-submit-button {
+  background-color: var(--light-primary-color);
+  color: var(--light-text-color);
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Electrolize', sans-serif  !important;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.ft-submit-button:hover {
+  background-color: var(--light-hover-bg);
+}
+
+/* Copyright section */
 .ft-copyright-section {
-    text-align: center;
-    padding: 10px 0;
-    background-color: var(--accent-color);
-    border-top: 1px solid var(--light-border-color);
-    width: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
+  border-top: 1px solid var(--light-border-color);
 }
 
 .ft-copyright-text {
-    font-size: 0.9em;
-    color: var(--light-primary-color);
+  font-family: 'Roboto Mono', monospace  !important;
+  font-size: 0.8rem;
+  color: var(--light-primary-color);
 }
