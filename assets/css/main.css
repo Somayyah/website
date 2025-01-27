@@ -544,23 +544,6 @@ code {
   width: 100%;
 }
 
-.twitter {
-  fill: #1DA1F2;
-}
-
-.youtube {
-  fill: #B2071d;
-
-}
-
-.discord {
-  fill: #738ADB;
-}
-
-.email {
-  fill: #d8be6f;
-}
-
 :not(pre)>code {
   background-color: var(--light-secondary-color) !important;
   color: var(--light-text-color);
@@ -975,7 +958,7 @@ table td {
 footer.ft-footer {
   background-color: var(--accent-color);
   color: var(--light-primary-color);
-  font-family: 'Imprima', sans-serif !important;
+  font-family: 'Imprima-regular', sans-serif;
   padding: 40px 0 0;
   /* Add space at the top */
   margin: 80px 0 0;
@@ -1006,7 +989,7 @@ footer.ft-footer {
 }
 
 #ft-find-me-at {
-  font-family: 'Electrolize', sans-serif  !important;
+  font-family: "Electrolize-regular", serif !important;
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
@@ -1035,7 +1018,7 @@ footer.ft-footer {
 }
 
 #ft-contact-me {
-  font-family: 'Electrolize', sans-serif  !important;
+  font-family: "Electrolize-regular", serif !important;
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
@@ -1075,7 +1058,7 @@ footer.ft-footer {
   color: var(--light-text-color);
   border: none;
   padding: 10px 20px;
-  font-family: 'Electrolize', sans-serif  !important;
+  font-family: "Electrolize-regular", serif !important;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 4px;
@@ -1099,4 +1082,21 @@ footer.ft-footer {
   font-family: 'Roboto Mono', monospace  !important;
   font-size: 0.8rem;
   color: var(--light-primary-color);
+}
+
+.twitter {
+  fill: #1DA1F2;
+}
+
+.youtube {
+  fill: #B2071d;
+
+}
+
+.discord {
+  fill: #738ADB;
+}
+
+.email {
+  fill: #d8be6f;
 }

@@ -46,7 +46,6 @@ enableRobotsTXT = true
   socialIcons = [
     {name = "twitter", url = "https://twitter.com/mohd_somayyah"},
     {name = "youtube", url = "https://www.youtube.com/channel/UCV91hFH6IHsl6-sxbLmMtfA"},
-    {name = "discord", url = "https://discord.gg/6N8yxV27"},
     {name = "email", url = "mailto:watari@techwebunraveled.xyz"},
     {name = "bsky", url = "https://bsky.app/profile/watariuiuiuizifa.bsky.social"}
   ]
