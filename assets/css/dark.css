@@ -41,7 +41,7 @@ th, td {
 
 
 .post-toc {
-  border-left: 5px solid var(--accent-color-dark); /* Width, style, and color */
+  border-left: 5px dashed var(--accent-color-dark); /* Width, style, and color */
   padding-left: 20px; /* Add some padding to space the content from the border */
   color: var(--accent-color-dark);
 }
@@ -90,7 +90,7 @@ a:hover .feather-moon {
 }
 
 .social-icons{
-  border-left: 5px solid var(--accent-color-dark); /* Width, style, and color */
+  border-left: 5px dashed var(--accent-color-dark); /* Width, style, and color */
 }
 
 .social-icons-list .social-icon,
@@ -153,25 +153,18 @@ footer .tech {
   color: var(--accent-color-dark);
 }
 
-/**/
+.parent {
+background-color: var(--accent-color-dark);
+}
 
-/* Footer Styles */
-.ft-footer {
+.div1 {
   background-color: var(--accent-color-dark);
-  color: var(--dark-primary-color);
 }
 
-
-#ft-find-me-at {
-  color: var(--dark-primary-color);
+.div2 {
+  background-color: var(--dark-primary-color);
 }
 
-/* Part 3: Copyright Section */
-.ft-copyright-section {
+.div3 {
   background-color: var(--accent-color-dark);
-  border-top: 1px solid var(--dark-border-color);
-}
-
-.ft-copyright-text {
-  color: var(--dark-primary-color);
 }

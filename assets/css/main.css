@@ -653,7 +653,7 @@ table td {
   /* social-icons will take up less space */
   padding: 15px;
   border-radius: 15px;
-  border-left: 5px solid var(--accent-color);
+  border-left: 5px dashed var(--accent-color);
   /* Width, style, and color */
   padding-right: 10px;
   /* Add some padding to space the content from the border */
@@ -940,163 +940,67 @@ table td {
   }
 }
 
-/* Main container to push footer to the bottom */
-#page-container {
+.parent {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  background-color: rgb(var(--light-primary-color));
+  color: var(--light-background);
+  font-family: 'Electrolize-Regular', sans-serif;
+  margin-top: 5%;
+}
+
+.div1 {
+  grid-column: span 5 / span 5;
+  grid-row: span 7 / span 7; /* Adjusted to accommodate div3 spanning 3 rows */
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  /* Ensure it takes at least the full viewport height */
-}
-
-/* Content wrapper to grow and take available space */
-#content-wrap {
-  flex: 1;
-  /* Grow to fill available space */
-}
-
-/* Footer styles */
-footer.ft-footer {
+  align-items: center;
+  justify-content: center;
+  padding-top: 5%;
   background-color: var(--accent-color);
-  color: var(--light-primary-color);
-  font-family: 'Imprima-regular', sans-serif;
-  padding: 40px 0 0;
-  /* Add space at the top */
-  margin: 80px 0 0;
-  /* Remove margins */
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  overflow: hidden; /* Add this line */
 }
 
-/* Container for the footer content */
-.ft-container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0;
-  /* Remove padding to avoid empty space on sides */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  /* Add space between sections */
-}
-
-/* Social media section */
-.ft-social-section {
-  flex: 1;
-  min-width: 200px;
-}
-
-#ft-find-me-at {
-  font-family: "Electrolize-regular", serif !important;
+.div1 p {
   font-size: 1.2rem;
-  margin-bottom: 10px;
+  margin: 0; /* Remove default margin */
 }
 
-.ft-social-icons-list {
-  list-style: none;
-  padding: 0;
+.social-icons {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 32px; /* Space between icons */
 }
 
-.ft-social-icon img {
+.social-icons img {
   width: 24px;
   height: 24px;
-  transition: opacity 0.3s ease;
 }
 
-.ft-social-icon img:hover {
-  opacity: 0.8;
-}
-
-/* Reserved section with contact form */
-.ft-reserved-section {
-  flex: 1;
-  min-width: 200px;
-}
-
-#ft-contact-me {
-  font-family: "Electrolize-regular", serif !important;
+.div2 {
+  grid-column: span 5 / span 5;
+  grid-row: span 7 / span 7; /* Adjusted to accommodate div3 spanning 3 rows */
+  grid-column-start: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.ft-contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.ft-form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.ft-form-group label {
-  font-family: 'Roboto Mono', monospace  !important;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-}
-
-.ft-form-group input,
-.ft-form-group textarea {
-  padding: 8px;
-  border: 1px solid var(--light-border-color);
-  border-radius: 4px;
-  font-family: 'Roboto Mono', monospace  !important;
-  font-size: 0.9rem;
-}
-
-.ft-form-group textarea {
-  resize: vertical;
-}
-
-.ft-submit-button {
-  background-color: var(--light-primary-color);
-  color: var(--light-text-color);
-  border: none;
-  padding: 10px 20px;
-  font-family: "Electrolize-regular", serif !important;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.ft-submit-button:hover {
-  background-color: var(--light-hover-bg);
-}
-
-/* Copyright section */
-.ft-copyright-section {
-  width: 100%;
   text-align: center;
-  margin-top: 20px;
-  padding: 10px 0;
-  border-top: 1px solid var(--light-border-color);
+  padding-top: 5%;
+  background-color: var(--light-background);
+  overflow: hidden; /* Add this line */
 }
 
-.ft-copyright-text {
-  font-family: 'Roboto Mono', monospace  !important;
-  font-size: 0.8rem;
-  color: var(--light-primary-color);
-}
-
-.twitter {
-  fill: #1DA1F2;
-}
-
-.youtube {
-  fill: #B2071d;
-
-}
-
-.discord {
-  fill: #738ADB;
-}
-
-.email {
-  fill: #d8be6f;
+.div3 {
+  grid-column: span 10 / span 10;
+  grid-row: span 3 / span 3; /* Spans 3 rows */
+  grid-row-start: 8; /* Starts at row 8 to span rows 8, 9, and 10 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  padding: 1%;
+  background-color: var(--accent-color);
 }

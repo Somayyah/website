@@ -1,49 +1,31 @@
-<footer class="ft-footer">
-    <div class="ft-container">
-        <!-- Part 1: "Find me at" and Social Media Icons -->
-        <div class="ft-social-section">
-            <p id="ft-find-me-at">Find me at</p>
-            <ul class="ft-social-icons-list">
-                {{ range .Site.Params.SocialIcons }}
-                <li class="ft-social-icon">
-                    <a href="{{ .url }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} aria-label="Find me at {{ .name }}">
-                        <img alt="Follow me on {{ .name }}" class="ft-svg-inject {{ .name }}" src="/svg/icons/{{ .name }}.svg" />
-                    </a>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-
-        <!-- Part 2: Reserved Section with Netlify Form -->
-        <div class="ft-reserved-section">
-            <p id="ft-contact-me">Contact Me</p>
-            <form class="ft-contact-form" name="contact" method="POST" netlify data-netlify-recaptcha="true">
-                <!-- Hidden input for Netlify form-name -->
-                <input type="hidden" name="form-name" value="contact">
-
-                <!-- Email Input -->
-                <div class="ft-form-group">
-                    <label for="ft-email">Email:</label>
-                    <input type="email" id="ft-email" name="email" placeholder="Your email" required>
-                </div>
-
-                <!-- Question Input -->
-                <div class="ft-form-group">
-                    <label for="ft-question">Question:</label>
-                    <textarea id="ft-question" name="question" placeholder="Ask me anything..." rows="3" required></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="ft-form-group">
-                    <button type="submit" class="ft-submit-button">Send</button>
-                </div>
-                <div class="ft-form-group" data-netlify-recaptcha="true"></div>
-            </form>
+<footer class="parent">
+    <div class="div1">
+        <p>Find me at</p>
+        <div class="social-icons">
+            <div class="twitter">
+                <a href="https://x.com/mohd_somayyah" aria-label="Find me at Twitter">
+                    <img alt="Follow me on Twitter" class="ft-svg-inject" src="/svg/icons/twitter.svg" />
+                </a>
+            </div>
+            <div class="youtube">
+                <a href="https://www.youtube.com/@waturiuiuiuizifa" aria-label="Find me at YouTube">
+                    <img alt="Follow me on YouTube" class="ft-svg-inject" src="/svg/icons/youtube.svg" />
+                </a>
+            </div>
+            <div class="email">
+                <a href="mailto:watari@techwebunraveled.xyz" aria-label="Email me">
+                    <img alt="Email me" class="ft-svg-inject" src="/svg/icons/email.svg" />
+                </a>
+            </div>
+            <div class="bsky">
+                <a href="https://bsky.app/profile/watariuiuiuizifa.bsky.social" aria-label="Find me at Bsky">
+                    <img alt="Follow me on Bsky" class="ft-svg-inject" src="/svg/icons/bsky.svg" />
+                </a>
+            </div>
         </div>
     </div>
-
-    <!-- Part 3: Copyright Section -->
-    <div class="ft-copyright-section">
+    <div class="div2"></div>
+    <div class="div3">
         <span class="ft-copyright-text">&copy; {{ now.Year }} watari@techwebunraveled.xyz</span>
     </div>
 </footer>
