@@ -153,18 +153,74 @@ footer .tech {
   color: var(--accent-color-dark);
 }
 
+
 .parent {
-background-color: var(--accent-color-dark);
 }
 
 .div1 {
-  background-color: var(--accent-color-dark);
+  background-color: var(--dark-primary-color);
+  border-color: var(--accent-color-dark);
+}
+
+.div1 p {
+  color: var(--dark-text-color);
 }
 
 .div2 {
-  background-color: var(--dark-primary-color);
+  color: var(--accent-color-dark);
 }
 
 .div3 {
+  color: var(--accent-color-dark);
+}
+
+/* Form Container */
+.ft-form {
+  background-color: var(--dark-primary-color);
+  color: var(--light-background);
+}
+
+/* Labels */
+.ft-label {
+  color: var(--dark-text-color);
+}
+
+/* Input Fields */
+.ft-input {
+  border: 3px dashed var(--dark-primary-color);
+  background-color: #00cc8875;
+}
+
+.ft-input::placeholder {
+  color: #f0f2f1a4; /* Red color */
+}
+
+.ft-input:focus {
+  border-color: var(--accent-color);
+}
+
+/* Textarea */
+.ft-textarea {
+  border: 3px dashed var(--dark-primary-color);
+  background-color: #00cc8875;
+  color: var(--light-background);
+}
+
+.ft-textarea::placeholder {
+  color: #f0f2f1a4;
+}
+
+.ft-textarea:focus {
+  border-color: var(--accent-color);
+}
+
+/* Submit Button */
+.ft-submit {
+  background-color: var(--dark-text-color);
+  color: var(--dark-primary-color);
+}
+
+.ft-submit:hover {
   background-color: var(--accent-color-dark);
+  color: var(--dark-text-color);
 }
