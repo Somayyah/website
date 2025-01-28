@@ -943,7 +943,7 @@ table td {
 .parent {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: repeat(7, 1fr);
   background-color: rgb(var(--light-primary-color));
   color: var(--light-background);
   font-family: 'Electrolize-Regular', sans-serif;
@@ -960,6 +960,7 @@ table td {
   padding-top: 5%;
   background-color: var(--accent-color);
   overflow: hidden; /* Add this line */
+  border-top-right-radius: 30px;
 }
 
 .div1 p {
@@ -988,19 +989,122 @@ table td {
   justify-content: center;
   font-size: 1.2rem;
   text-align: center;
-  padding-top: 5%;
   background-color: var(--light-background);
   overflow: hidden; /* Add this line */
+  border-bottom-left-radius: 30px;
 }
 
 .div3 {
   grid-column: span 10 / span 10;
-  grid-row: span 3 / span 3; /* Spans 3 rows */
-  grid-row-start: 8; /* Starts at row 8 to span rows 8, 9, and 10 */
+  grid-row: span 1 / span 1; /* Spans only 1 row */
+  grid-row-start: 8; /* Starts at row 8 */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
   padding: 1%;
   background-color: var(--accent-color);
+}
+
+/* Form Container */
+.ft-form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-background);
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  text-align: left;
+  font-family: 'Imprima-Regular', sans-serif;
+  color: var(--light-text-color);
+}
+
+/* Form Group */
+.ft-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.ft-label {
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  font-family: 'Electrolize-Regular', sans-serif;
+}
+
+/* Input Fields */
+.ft-input {
+  padding: 0.5rem;
+  border: 3px dashed var(--light-border-color);
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--light-primary-color);
+  color: var(--light-text-color);
+  font-family: 'Imprima-Regular', sans-serif;
+}
+
+.ft-input:focus {
+  border-color: var(--accent-color);
+}
+
+/* Textarea */
+.ft-textarea {
+  border: 3px dashed var(--light-border-color);
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  background-color: var(--light-primary-color);
+  color: var(--light-text-color);
+  font-family: 'Imprima-Regular', sans-serif;
+  padding: 0.5rem;
+}
+
+.ft-textarea:focus {
+  border-color: var(--accent-color);
+}
+
+/* Submit Button */
+.ft-submit {
+  padding: 0.75rem;
+  background-color: var(--accent-color);
+  color: var(--light-primary-color);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Electrolize-Regular', sans-serif;
+  border-bottom-left-radius: 60px;
+  z-index: 10;
+}
+
+.ft-submit:hover {
+  background-color: var(--light-hover-bg);
+  color: var(--light-text-color);
+}
+
+.div2::before, .div2::after {
+  content: ''; /* Required for pseudo-elements */
+  display: block;
+  position: absolute;
+}
+
+.div2::before {
+  background-color: var(--light-background);
+  width: 60px;
+  height: 60px;
+  left: 50%;
+  transform: translateY(298%);
+  z-index: 8;
+  border-bottom-left-radius: 120px;
+}
+
+.div2::after{
+  background-color: var(--accent-color);
+  width: 60px;
+  height: 60px;
+  left: 50%;
+  transform: translateY(298%);
+  z-index: 7;
 }
