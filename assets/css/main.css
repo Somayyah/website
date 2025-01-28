@@ -946,7 +946,7 @@ table td {
   grid-template-rows: repeat(7, 1fr);
   color: var(--light-background);
   font-family: 'Electrolize-Regular', sans-serif;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .div1 {
