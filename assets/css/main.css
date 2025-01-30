@@ -983,6 +983,9 @@ table td {
   margin-top: -10%;
 }
 
+.post-main-content li {
+  list-style-type: disc;  /* Adds a solid dot before each list item */
+}
 /* Add a square between each icon 
 .social-icons > div:not(:last-child)::after {
   content: "";

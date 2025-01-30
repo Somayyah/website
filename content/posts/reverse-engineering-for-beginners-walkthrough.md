@@ -6,38 +6,36 @@ type: "post"
 tags: ["assembly", "security", "reverse-engineering", "how-to", "technology", "arm", "operating systems", "kernel", "x86-64", "ARM"]
 ---
 
-Reverse engineering is a deep topic that I'm interested in for a while and I feel like I'm ready to dive in, starting with the book [Reverse engineering for beginners](https://beginners.re/) by [Dennis Yurichev](https://yurichev.com/) then moving to other resources if needed.
+# Reverse Engineering Journey
 
-## Chapter 1 || Code patterns
+Reverse engineering is a deep topic I've been interested in for a while, and now I feel ready to dive in. I'm starting with the book [*Reverse Engineering for Beginners*](https://beginners.re/) by [Dennis Yurichev](https://yurichev.com/), and I'll move to other resources as needed.
 
-The book starts with an introduction of the writer and his tech journey and gives a background about compilers and different computers architecture, it also talks about modern compilers and how they're good at optimizing, it's a fun read.
+## Chapter 1: Code Patterns
 
-### 1.2.1 A short introduction to the CPU
+The book begins with an introduction to the author's background, his tech journey, and a discussion on compilers and computer architectures. It also touches on modern compilers and how they excel at optimizing code. It's a fun and informative read.
 
-This section talks about the CPU, what is it and some important glossary:
-+ Instruction : A primitive CPU command. The simplest examples include: moving data between registers,
-working with memory, primitive arithmetic operations. As a rule, each CPU has its own instruction
-set architecture (ISA).
-+ Machine code : Code that the CPU directly processes. Each instruction is usually encoded by several
-bytes.
-+ Assembly language : Mnemonic code and some extensions, like macros, that are intended to make a
-programmer’s life easier.
-+ CPU register : Each CPU has a fixed set of general purpose registers (GPR2). ~ 8 in x86, ~ 16 in x86-64, and also ~ 16 in ARM. The easiest way to understand a register is to think of it as an untyped temporary variable. Imagine if you were working with a high-level PL and could only use eight 32-bit (or 64-bit) variables. Yet a lot can be done using just these!
+### 1.2.1 A Short Introduction to the CPU
 
-This short introduction explains the importance of assembly and how it relates to machine code and PL languages like C/C++ and Java, again, a fun read.
+This section explains the CPU, its function, and key terms. Here are some important definitions:
+
+- **Instruction**: A primitive CPU command. Examples include moving data between registers, working with memory, and basic arithmetic operations. Each CPU has its own Instruction Set Architecture (ISA).
+- **Machine Code**: Code that the CPU directly processes. Each instruction is typically encoded with several bytes.
+- **Assembly Language**: A human-readable representation of machine code, often with extensions like macros to simplify programming.
+- **CPU Register**: A fixed set of general-purpose registers (GPRs) within a CPU. For example, x86 has around 8 registers, x86-64 has about 16, and ARM has around 16. A register is essentially an untyped temporary variable, which is a powerful tool in assembly programming.
+
+This introduction highlights the importance of assembly and how it relates to machine code and higher-level languages like C, C++, and Java.
 
 ### 1.3 An Empty Function
 
-We start with reviewing the assembly dump of an empty C code:
+The book explores the assembly dump of an empty C function:
 
-```bash
-void f()
-{
+```c
+void f() {
     return;
 };
 ```
 
-The function does nothing and returns nothing, using GCC and MSVC with https://godbolt.org/ produces below:
+This function does nothing and returns nothing. Using GCC and MSVC on [Godbolt](https://godbolt.org/), we get the following assembly:
 
 ```bash
 f       PROC
@@ -45,94 +43,112 @@ f       PROC
 f       ENDP
 ```
 
-In my study I'll focus on x86-64 and ARM as they're the areas I'm interested in exploring. The code above is slightly different from the result in the book even with trying the /O7 flag:
+In my study, I'll focus on **x86-64** and **ARM** architectures, which are the areas I'm most interested in exploring. The code above differs slightly from the book's output, even with the `/O7` optimization flag:
 
 ```bash
 f:
     ret
 ```
 
-After changing the compiler to x86-64 GCC with -O3 flag I got the same result, so it's important to check for the compiler version and optimization settings always.
+After changing the compiler to **x86-64 GCC** with the `-O3` flag, I got the same result. So, it's important to always check the compiler version and optimization settings.
 
 ### 1.4.2 ARM
 
-The ARM output is a bit different:
+For ARM, the assembly output is a bit different:
 
 ```bash
 f   PROC
-    BX      lr # For branching
+    BX      lr  # For branching
     ENDP
 ```
 
-I found this [cheetsheet](https://azeria-labs.com/downloads/cheatsheetv1.3-1920x1080.png) for ARM assembly, ```BX``` is used for branching to return to the caller which it's address is saved in the ```lr``` (link register).
+I found this [cheatsheet](https://azeria-labs.com/downloads/cheatsheetv1.3-1920x1080.png) for ARM assembly. The `BX` instruction is used for branching, returning to the caller, whose address is stored in the `lr` (link register).
 
 ### Hello World in Assembly
 
-Below is the code to output "Hello, World!" in x86-64 assembly:
+Here’s the assembly code to print **"Hello, World!"** in **x86-64** assembly:
 
-```bash
+```assembly
 .global _start
 .intel_syntax noprefix
 
 .section .text
-_start:	
+_start:    
 
-	// sys_write call	
-	mov rax, 1
-	mov rdi, 1	
-	lea rsi, [hello_world]
-	mov rdx, 14 
-	syscall
-	
-	// sys_exit call to exit from the program
-	mov rax, 60
-	mov rdi, 0
-	syscall
+    // sys_write call    
+    mov rax, 1
+    mov rdi, 1    
+    lea rsi, [hello_world]
+    mov rdx, 14 
+    syscall
+    
+    // sys_exit call to exit the program
+    mov rax, 60
+    mov rdi, 0
+    syscall
 
 .section .data
 hello_world:
-	.asciz "Hello, World!\n"
+    .asciz "Hello, World!\n"
 
 .section .bss 
 ```
 
-It has 4 main sections:
-* - Global section to identify the entry point.
-* - TEXT section which holds the actual code instructions.
-* - DATA section which holds the **Initialized** variables.
-* - BSS section which holds the **Uninitialized** variables.
+The program contains 4 main sections:
+- **Global section**: Identifies the entry point.
+- **Text section**: Contains the actual code instructions.
+- **Data section**: Holds **initialized** variables.
+- **BSS section**: Holds **uninitialized** variables.
 
-In the .text section we notice two [system calls](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/) have been performed:
+In the `.text` section, two [system calls](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/) are made:
 
-* - sys_write call section to print out the "Hello, World!" sentence, from the [syscall table](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/) we find below:
+- **`sys_write`**: To print out the "Hello, World!" string. The [syscall table](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/) specifies the arguments:
+
+| %rax | System call | %rdi            | %rsi            | %rdx         | %r10 | %r8 | %r9 |
+|------|-------------|-----------------|-----------------|-------------|------|----|----|
+| 1    | sys_write   | unsigned int fd | const char *buf | size_t count |      |    |    |
+
+The assembly code corresponding to the `sys_write` syscall is:
+
+```assembly
+mov rax, 1               // 1 = sys_write (this tells Linux we want to write)
+mov rdi, 1               // File descriptor: 1 (stdout)
+lea rsi, [hello_world]   // Address of the string (pointer)
+mov rdx, 14              // Number of bytes to write
+syscall                  // Perform the syscall
+```
+
+### Running the Assembly Code
+
+To assemble and run the code, follow these steps:
+
+1. **Assemble the source file (`hello-world.s`) into an object file (`hello-world.o`)**:
+    ```bash
+    as hello-world.s -o hello-world.o
+    ```
+
+2. **Link the object file to create an executable (`hello-world`)**:
+    - The `-nostdlib` flag prevents linking with the standard C libraries.
+    - The `-static` flag ensures the executable is statically linked.
+    ```bash
+    gcc -o hello-world hello-world.o -nostdlib -static
+    ```
+
+3. **Run the executable to see the output**:
+    ```bash
+    ./hello-world
+    ```
+
+This will output **"Hello, World!"** to the terminal. The second syscall is for sys_exit which enables us to exit from the code:
 
 | %rax | System call | %rdi            | %rsi            | %rdx         | %r10 | %r8 | %r9 |
 |------|------------|-----------------|-----------------|-------------|------|----|----|
-| 1    | sys_write  | unsigned int fd | const char *buf | size_t count |      |    |    |
+| 60    | sys_exit  | int error_code | | |      |    |    |
 
-which resembles below code:
+So only two registers are needed, RAX to hold the syscall number, RDI to hold the return value then syscall to excute the call.
 
-```bash
-mov rax,    1               // 1 = sys_write (this tells Linux we want to write)
-mov rdi,    1               // File descriptor: 1 (stdout)
-lea rsi,    [hello_world]   // Address of the string (pointer)
-mov rdx,    14              // Number of bytes to write
-syscall                      // Perform the syscall
-```
+---
 
-To run out assembly code we can use gcc as below:
+### Final Thoughts
 
-```bash
-# Assemble the source file (hello-world.s) into an object file (hello-world.o)
-as hello-world.s -o hello-world.o
-
-# Link the object file (hello-world.o) to create an executable (hello-world).
-# -nostdlib: Instructs GCC to not link the standard libraries (i.e., no C runtime).
-# -static: Statically links the executable, including all required libraries inside the binary.
-gcc -o hello-world hello-world.o -nostdlib -static
-
-# Run the executable. This will output "Hello, World!" to the terminal.
-./hello-world
-```
-
-There are compilers other than gcc mentioned, my interest is only with x86-64 and ARM architecture so I won't cover MIPS, for now..
+While I’ve covered **x86-64** and **ARM** architectures, other compilers and architectures (like **MIPS**) are also mentioned in the book, though I’m not covering them in my study for now.
