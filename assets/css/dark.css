@@ -8,7 +8,7 @@
 }
 
 .cowsay {
-  color: var(--accent-color-dark);
+  color: var(--dark-text-color);
 }
 
 .saying{

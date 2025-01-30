@@ -341,7 +341,7 @@ img {
   white-space: pre;
   /* Preserve spaces and line breaks */
   background-color: inherit;
-  color: var(--accent-color);
+  color: var(--light-text-color);
   padding: 0;
   font-size: 0.7rem;
   margin: 0;
@@ -520,6 +520,7 @@ a:hover .feather-sun {
 code,
 pre {
   box-sizing: border-box;
+  white-space: pre;
   color: white;
 }
 
