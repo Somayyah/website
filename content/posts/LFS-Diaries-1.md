@@ -61,11 +61,11 @@ The book instructs that the system should be built using an already-installed Li
 
 Now we have a VM with Fedora mounted, but it's not yet installed. After clicking "Start," we’ll be welcomed by a boot menu. Select "Start Fedora Workstation Live" to boot from the ISO live image.
 
-![Fedora Live running](/images/Fedora-live.png)  
+![Fedora Live running](/images/Fedora-live.webp)  
 
 The window is small, and since we just booted into the live image, everything will be lost if the machine is powered down. To create a stable system, click "Install Fedora" to start the installation. Select your preferred keyboard layout and choose automatic partitioning. Then, click "Begin Installation."
 
-![English keyboard selected and automatic partitioning selected](/images/Fedora-VM-Initial-Settings.png)  
+![English keyboard selected and automatic partitioning selected](/images/Fedora-VM-Initial-Settings.webp)  
 
 Now, let’s wait until the installation is complete. Once it’s done, click **Finish Installation**.  
 
