@@ -85,14 +85,14 @@ enableRobotsTXT = true
       weight = 3
       
       # We use feather-icons: https://feathericons.com/
-      pre = "<span data-feather='archive'></span>"
+      pre = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-archive'><polyline points='21 8 21 21 3 21 3 8'></polyline><rect x='1' y='3' width='22' height='5'></rect><line x1='10' y1='12' x2='14' y2='12'></line></svg>"
   
   [[menu.main]]
       identifier = "portal"
       url = "/portal/"
       weight = 5
       # We use feather-icons: https://feathericons.com/
-      pre = "<span data-feather='key'></span>"
+      pre = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-key'><path d='M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4'></path></svg>"
 
   [[menu.main]]
     identifier = "github"
@@ -108,7 +108,7 @@ enableRobotsTXT = true
       weight = 7
       
       # We use feather-icons: https://feathericons.com/
-      pre = "<span data-feather='aperture'></span>"
+      pre = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-aperture'><circle cx='12' cy='12' r='10'></circle><line x1='14.31' y1='8' x2='20.05' y2='17.94'></line><line x1='9.69' y1='8' x2='21.17' y2='8'></line><line x1='7.38' y1='12' x2='13.12' y2='2.06'></line><line x1='9.69' y1='16' x2='3.95' y2='6.06'></line><line x1='14.31' y1='16' x2='2.83' y2='16'></line><line x1='16.62' y1='12' x2='10.88' y2='21.94'></line></svg>"
 
 [markup]
   [markup.goldmark]
