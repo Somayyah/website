@@ -9,7 +9,7 @@
     {{ $cssNormalize := resources.Get "css/normalize.min.css" }}
     <link rel="stylesheet" type="text/css" href="{{ $cssNormalize.RelPermalink }}" media="print">
 
-    {{ $cssMain := resources.Get "css/main.css" | minify }}
+    {{ $cssMain := resources.Get "css/main-theme.css" | minify }}
     <link rel="stylesheet" type="text/css" href="{{ $cssMain.RelPermalink }}">
 
 
@@ -39,7 +39,7 @@
     <meta property="og:image:secure_url" content="{{ absURL $image }}">
 
     <!-- Option for user to inject custom html -->
-    {{ $cssDark := resources.Get "css/dark.css" | minify }}
+    {{ $cssDark := resources.Get "css/dark-theme.css" | minify }}
     <link id="dark-theme" rel="stylesheet" href="{{ $cssDark.RelPermalink }}">
 
     {{ if .Site.Params.CustomHeadHTML }}
