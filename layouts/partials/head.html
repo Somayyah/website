@@ -9,11 +9,11 @@
     {{ $cssNormalize := resources.Get "css/normalize.min.css" }}
     <link rel="stylesheet" type="text/css" href="{{ $cssNormalize.RelPermalink }}" media="print">
 
-    {{ $cssMain := resources.Get "css/main-theme.css" | minify }}
+    {{ $cssMain := resources.Get "css/main-theme.css" }}
     <link rel="stylesheet" type="text/css" href="{{ $cssMain.RelPermalink }}">
 
 
-    {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | minify | resources.Fingerprint
+    {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | resources.Fingerprint
     "sha256" }}
     <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" defer></script>
 
@@ -39,7 +39,7 @@
     <meta property="og:image:secure_url" content="{{ absURL $image }}">
 
     <!-- Option for user to inject custom html -->
-    {{ $cssDark := resources.Get "css/dark-theme.css" | minify }}
+    {{ $cssDark := resources.Get "css/dark-theme.css" }}
     <link id="dark-theme" rel="stylesheet" href="{{ $cssDark.RelPermalink }}">
 
     {{ if .Site.Params.CustomHeadHTML }}

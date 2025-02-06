@@ -116,9 +116,9 @@ enableRobotsTXT = true
       unsafe = true
       
 [minify]
-  disableCSS = false
-  disableJS = false
+  disableCSS = true 
+  disableJS = true
   disableHTML = false
 
 [build]
-  minify = true
+  minify = false
