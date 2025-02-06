@@ -12,11 +12,7 @@
     {{ $cssMain := resources.Get "css/main-theme.css" }}
     <link rel="stylesheet" type="text/css" href="{{ $cssMain.RelPermalink }}">
 
-
-    {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | resources.Fingerprint
-    "sha256" }}
-    <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" defer></script>
-
+    <script src="/js/main.js"></script>
     {{ $title := .Title | default .Site.Title }}
     {{ $description := ((.Description | default (.Summary | default .Content) | default .Site.Params.Description) |
     plainify | truncate 160) }}
