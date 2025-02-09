@@ -10,18 +10,28 @@ tags: ["linux", "unix", "commands", "how-to", "technology", "lfs", "operating sy
 
 Below are the packages that I installed and the issues I faced:
 
-### Glibc
+## Glibc
 
-Encountered the error:
+### Error # 1 
 
-**configure: error: you must configure in a separate build directory**
-
-**Solution **
-
-```
+```bash
+## configure: error: you must configure in a separate build directory
+## Solution: 
 cd /mnt/LFS/sources/glibc-2.40
 # Create separate build directory
 mkdir glibc-build && cd "$_"
 # Configure with the correct prefix
 ../configure --prefix=/mnt/LFS/usr/include && make && make install
+```
+### Error # 2
+
+```bash
+### Reading this error
+    # wctomb.c:57:1: error: ‘artificial’ attribute ignored [-Werror=attributes]
+    # 57 | libc_hidden_def (wctomb)
+###
+# Use the option --disable-werror
+../configure --prefix=/mnt/LFS/usr \
+             --disable-werror \
+             --with-headers=$LFS/usr/include
 ```
