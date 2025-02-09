@@ -1,6 +1,6 @@
 ---
 title: "LFS Diaries - 3 || Chapter 2 Continued"
-date: 2025-02-07  
+date: 2025-02-09  
 description: Chapter 2, prepering the system and it's partitions 
 type: "post"  
 tags: ["linux", "unix", "commands", "how-to", "technology", "lfs", "operating systems", "kernel"]
