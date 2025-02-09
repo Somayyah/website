@@ -6,7 +6,7 @@ type: "post"
 tags: ["linux", "unix", "commands", "how-to", "technology", "lfs", "operating systems", "kernel"]
 ---
 
-Rest of the LFS posts can be viewed [**here**](https://techwebunraveled.xyz/tags/lfs/).<br><br>
+> Rest of the LFS posts can be viewed [**here**](https://techwebunraveled.xyz/tags/lfs/).
 
 In this chapter, We'll download some packages to build a basic Linux system. The versions listed in the book are the ones that are known to work, and the instructions are based on using those specific versions. It's strongly recommended to stick to these versions because the building steps might not work with a different one, unless there’s a special note or update from LFS about it.
 
@@ -145,3 +145,7 @@ root@LFS-Ubuntu:/mnt/LFS/sources/acl-2.3.2# ^C
 So far, we’ve successfully installed two packages. At this point, it’s a good idea to take a VM snapshot to save our progress. I’ll continue with the remaining packages, and in a follow-up post, I’ll share any issues or challenges I encounter along the way.
 
 **Cheers!! 🐸**
+
+**Update**
+
+To determine the correct order for installing packages, refer to the **Appendix C: Dependencies** section.
