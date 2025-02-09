@@ -22,6 +22,6 @@ Encountered the error:
 cd /mnt/LFS/sources/glibc-2.40
 # Create separate build directory
 mkdir glibc-build && cd "$_"
-# Configure
-../configure --prefix=/mnt/LFS/glibc-2.40/glibc-build && make && make install
+# Configure with the correct prefix
+../configure --prefix=/mnt/LFS/usr/include && make && make install
 ```
