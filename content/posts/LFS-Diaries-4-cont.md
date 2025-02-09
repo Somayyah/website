@@ -35,3 +35,15 @@ mkdir glibc-build && cd "$_"
              --disable-werror \
              --with-headers=$LFS/usr/include
 ```
+
+## Automake
+
+```bash
+### Reading this error
+    #   checking whether autoconf is installed... no
+    #   configure: error: Autoconf 2.65 or better is required.
+    #   Please make sure it is installed and in your PATH.
+###
+# Update the $PATH variable before configuring
+export PATH=$PATH:/mnt/LFS/usr/bin
+```
