@@ -6,6 +6,8 @@ type: "post"
 tags: ["OSPF", "Networking", "Routing Protocols", "Cisco", "Protocols", "TCP/IP", "Networking Basics", "Routing", "IP Routing", "Internet Protocols", "Network Security"]
 ---
 
+> Rest of the OSPF posts can be viewed [**here**](https://techwebunraveled.xyz/tags/ospf/)
+
 [OSPF](https://en.wikipedia.org/wiki/Open_Shortest_Path_First) (Open Shortest Path First) is a [link-state](https://en.wikipedia.org/wiki/Link-state_routing_protocol) routing protocol that's still super relevant in today’s world of networking. I know it can feel a bit overwhelming, but don’t worry – I’ll break it down for you in this blog. We’ll dive into both the theory and the practical side of things, and I’ll try to make it as easy to understand as possible. Hopefully, by the end, you’ll have a solid grasp on OSPF and why it’s so important.
 
 ## Introduction

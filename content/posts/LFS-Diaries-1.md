@@ -6,6 +6,8 @@ type: "post"
 tags: ["linux", "unix", "commands", "how-to", "technology", "lfs", "operating systems", "kernel"]
 ---
 
+> Rest of the LFS posts can be viewed [**here**](https://techwebunraveled.xyz/tags/lfs/).
+
 Linux has been my favorite OS since 2016. Over the years, I’ve written more shell scripts than I can count, automated configurations, and hopped between countless distros. At this point, I like to think I’m pretty good at it—especially since I’m the go-to person whenever my colleagues need help.  
 
 But here’s the thing: I still feel like an [impostor](https://en.wikipedia.org/wiki/Impostor_syndrome).  

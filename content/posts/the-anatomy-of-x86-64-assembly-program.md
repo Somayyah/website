@@ -6,6 +6,8 @@ type: "post"
 tags: ["x86-64", "reverse-engineering", "assembly", "operating systems"]
 ---
 
+> Rest of the RE posts can be viewed [**here**](https://techwebunraveled.xyz/tags/reverse-engineering/).
+
 Today we'll talk about the sections of assembly program and we'll use it to write a simple "Hello, World!" application. We'll focus on x86-64 architecture but generally same applies to ARM.
 
 ## The General Structure of Assembly program

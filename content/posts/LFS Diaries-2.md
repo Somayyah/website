@@ -6,6 +6,8 @@ type: "post"
 tags: ["linux", "unix", "commands", "how-to", "technology", "lfs", "operating systems", "kernel"]
 ---
 
+> Rest of the LFS posts can be viewed [**here**](https://techwebunraveled.xyz/tags/lfs/).
+
 **After setting up a new Ubuntu VM with 30 GB of storage (double the previous 15 GB), I retraced the steps from the first post. Now, I'm ready to move forward while taking snapshots at key milestones.** From the guide we read below:
 <br><br>
 > Like most other operating systems, LFS is usually installed on a dedicated partition. The recommended approach to building an LFS system is to use an available empty partition or, if you have enough unpartitioned space, to create one.

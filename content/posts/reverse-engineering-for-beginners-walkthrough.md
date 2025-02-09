@@ -6,6 +6,8 @@ type: "post"
 tags: ["assembly", "security", "reverse-engineering", "how-to", "technology", "arm", "operating systems", "kernel", "x86-64", "ARM"]
 ---
 
+> Rest of the RE posts can be viewed [**here**](https://techwebunraveled.xyz/tags/reverse-engineering/).
+
 # Reverse Engineering Journey
 
 Reverse engineering is a deep topic I've been interested in for a while, and now I feel ready to dive in. I'm starting with the book [*Reverse Engineering for Beginners*](https://beginners.re/) by [Dennis Yurichev](https://yurichev.com/), and I'll move to other resources as needed.

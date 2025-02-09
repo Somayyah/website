@@ -6,6 +6,8 @@ type: "post"
 tags: ["OSPF", "Networking", "Routing Protocols", "Cisco", "Protocols", "TCP/IP", "Networking Basics", "Routing", "IP Routing", "Internet Protocols", "Network Security"]
 ---
 
+> Rest of the OSPF posts can be viewed [**here**](https://techwebunraveled.xyz/tags/ospf/).
+
 In this post, we'll break down the core tables and packet types used in OSPF, which are crucial for understanding how OSPF routers communicate and maintain network topology. I used [rfc2328](http://www.faqs.org/rfcs/rfc2328.html) in writing this post.
 
 
