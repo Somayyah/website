@@ -6,7 +6,7 @@ type: "post"
 tags: ["linux", "unix", "commands", "how-to", "technology", "lfs", "operating systems", "kernel"]
 ---
 
-Rest of the LFS posts can be viewed [**here**](https://techwebunraveled.xyz/tags/lfs/).<br><br>
+> Rest of the LFS posts can be viewed [**here**](https://techwebunraveled.xyz/tags/lfs/).
 
 After preparing the new partition in the previous part we are now ready to create a new filesystem for it, as a reminder here is the new partition /dev/sda3:
 
