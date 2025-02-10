@@ -47,3 +47,60 @@ mkdir glibc-build && cd "$_"
 # Update the $PATH variable before configuring
 export PATH=$PATH:/mnt/LFS/usr/bin
 ```
+
+**Update**
+
+After installing some packages I realised there are some env variables that are not set like **$LFS_TGT** because I didn't follow the rest of CH4 and went straight into compiling the packages ... I don't know how I missed the below part:
+
+Create the required directory layout by issuing the following commands as root:
+
+```bash
+mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
+for i in bin lib sbin; do
+ln -sv usr/$i $LFS/$i
+done
+case $(uname -m) in
+x86_64) mkdir -pv $LFS/lib64 ;;
+esac
+```
+
+Programs in Chapter 6 will be compiled with a cross-compiler (more details can be found in section Toolchain Technical Notes). This cross-compiler will be installed in a special directory, to separate it from the other programs. Still acting as root, create that directory with this command:
+
+```
+mkdir -pv $LFS/tools
+```
+
+The book advises against using the root user, so far I didn't encounter issues but I'll follow it's recommendations anyways:
+
+```
+groupadd lfs
+useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+passwd lfs ## If you wish to give the user a password
+chown -v lfs $LFS/{usr{,/*},lib,var,etc,bin,sbin,tools}
+case $(uname -m) in
+x86_64) chown -v lfs $LFS/lib64 ;;
+esac  
+su - lfs # To log in as the new user  
+
+## To setup the working environment
+
+cat > ~/.bash_profile << "EOF"
+exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
+EOF
+
+cat > ~/.bashrc << "EOF"
+set +h
+umask 022
+LFS=/mnt/lfs
+LC_ALL=POSIX
+LFS_TGT=$(uname -m)-lfs-linux-gnu
+PATH=/usr/bin
+if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
+PATH=$LFS/tools/bin:$PATH
+CONFIG_SITE=$LFS/usr/share/config.site
+export LFS LC_ALL LFS_TGT PATH CONFIG_SITE
+EOF
+## Configure parallel make
+make -j32
+
+```
