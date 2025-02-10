@@ -47,9 +47,11 @@ mkdir glibc-build && cd "$_"
 # Update the $PATH variable before configuring
 export PATH=$PATH:/mnt/LFS/usr/bin
 ```
+<br>
 
 **Update**
 
+<br>
 After installing some packages I realised there are some env variables that are not set like **$LFS_TGT** because I didn't follow the rest of CH4 and went straight into compiling the packages ... I don't know how I missed the below part:
 
 Create the required directory layout by issuing the following commands as root:
@@ -72,7 +74,7 @@ mkdir -pv $LFS/tools
 
 The book advises against using the root user, so far I didn't encounter issues but I'll follow it's recommendations anyways:
 
-```
+```bash
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs ## If you wish to give the user a password
