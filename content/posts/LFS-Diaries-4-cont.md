@@ -102,5 +102,7 @@ export LFS LC_ALL LFS_TGT PATH CONFIG_SITE
 EOF
 ## Configure parallel make
 make -j32
-
+cat >> ~/.bashrc << "EOF"
+export MAKEFLAGS=-j$(nproc)
+EOF
 ```
