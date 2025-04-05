@@ -16,5 +16,6 @@ Like it's not about being comfortable with linux which I already am, instead **w
 
 Such demoralizing experience but I won't give up. I'll rebuild it and no shortcuts only sweat and tears.
 
+<br>
 
 - Watari
