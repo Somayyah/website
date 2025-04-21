@@ -1,6 +1,6 @@
 ---
 title: "Making Kombucha without a starter"
-date: 2024-12-11
+date: 2025-04-21
 description: "My attempt at cultivating wild yeast and bacteria"
 type: "post"
 tags: ["mycology", "mold", "microbiology", "fermentation", "kombucha", "experiments", "kitchen alchemy", "DIY microbiology", "biochemistry"]
