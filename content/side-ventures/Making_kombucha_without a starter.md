@@ -6,7 +6,7 @@ type: "post"
 tags: ["mycology", "mold", "microbiology", "fermentation", "kombucha", "experiments", "kitchen alchemy", "DIY microbiology", "biochemistry"]
 ---
 
-I’ve always wanted to try Kombucha, but it’s tough to find where I live. So, I figured, why not make it from scratch? How hard could it really be? I've done my fair share of fermentation projects, so this should be a breeze—right? Even if it’s not, I’ve got enough audacity to power through and see this thing through to the end. <br><br>
+I’ve always wanted to try Kombucha, but it’s tough to find where I live. So, I figured, why not make it from scratch? How hard could it really be? I've done my fair share of fermentation projects, so this should be a breeze, right? Even if it’s not, I’ve got enough audacity to power through and see this thing through to the end. <br><br>
 
 Here's what I have:<br><br>
 
