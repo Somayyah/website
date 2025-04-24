@@ -16,7 +16,7 @@ Here's what I have:<br><br>
 - Oxygen
 - Patience
 <br><br>
-According to this [study]("https://www.mdpi.com/2076-2607/9/5/1060#:~:text=Kombucha%2C%20an%20acidic%20beverage%20containing%20low%20%28to%20null%29,culture%20of%20bacteria%20and%20yeast%20%28SCOBY%29%20%5B1%2C%202%5D."), Kombucha is created with the help of a culture of bacteria and yeast called together as [scoby]("https://en.wikipedia.org/wiki/SCOBY"), and below are the main microorganism species that live in this community:
+According to this [study](https://www.mdpi.com/2076-2607/9/5/1060#:~:text=Kombucha%2C%20an%20acidic%20beverage%20containing%20low%20%28to%20null%29,culture%20of%20bacteria%20and%20yeast%20%28SCOBY%29%20%5B1%2C%202%5D.), Kombucha is created with the help of a culture of bacteria and yeast called together as [scoby](https://en.wikipedia.org/wiki/SCOBY), and below are the main microorganism species that live in this community:
 <br><br>
 - Bacteria (Acetic Acid Bacteria):
     - Komagataeibacter species:
@@ -41,7 +41,7 @@ According to this [study]("https://www.mdpi.com/2076-2607/9/5/1060#:~:text=Kombu
 <br><br>
 Yeasts convert sugars to ethanol, which is later oxidized by acetic acid bacteria.
 <br><br>
-We know that you can make a [ginger bug]("https://herbalfusion.co.nz/pages/ginger-bug"), a fizzy, fermented starter from ginger, sugar, and water. That implies ginger skin carries some useful wild yeast and bacteria. Similarly, you can make vinegar from just apple scraps, sugar, and time, so apples seem to have some acetic acid bacteria.
+We know that you can make a [ginger bug](https://herbalfusion.co.nz/pages/ginger-bug), a fizzy, fermented starter from ginger, sugar, and water. That implies ginger skin carries some useful wild yeast and bacteria. Similarly, you can make vinegar from just apple scraps, sugar, and time, so apples seem to have some acetic acid bacteria.
 <br><br>
 So here’s the theory: if ginger skin and apple peels can both harbor the microbes I need since they create acetic acid which seem most important, maybe they’re enough to fake a SCOBY.
 <br><br>
