@@ -13,11 +13,11 @@ I'm not looking to become a successful version of myself, but the version that w
 
 ### **Failure Is a Destination, Too**
 <br>
-Not a shame, but an endpoint, a truth, a crown you *earn* by trying. We do not fear it; we revere it. Not trying puts you beneath failure, at least to fail, you have to earn it.
+Not a shame, but an endpoint, a truth, a crown you earn by trying. We do not fear it; we revere it. Not trying puts you beneath failure, at least to fail, you have to earn it.
 
 ### **Effort Is Sacred**
 <br>
-What matters is that you moved and reached the end. were you victorious? defeated? humbled? Maybe. But at least you *dared* to ask "What if?" and didn’t settle for dreaming the answer.
+What matters is that you moved and reached the end. were you victorious? defeated? humbled? Maybe. But at least you dared to ask "What if?" and didn’t settle for dreaming the answer.
 
 ### **Honor is in the Attempt**
 <br>
