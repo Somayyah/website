@@ -5,11 +5,11 @@ description: Showing what I look for and my journey to hunt the best adapter
 type: "post"  
 ---
 
-I decided to start learning WiFi cybersecurity. I already work with enterprise wireless networks, my expertise lies in protocols like **RADIUS**, **TACACS+**, **802.1X**, **MAB**, EAP in all its flavors, guest networks ... etc. I’d say I have a good grip on managing WLCs, creating access points, configuring them top to bottom.
+I decided to start learning WiFi cybersecurity. I already work with enterprise wireless networks, my expertise lies in protocols like **RADIUS**, **TACACS+**, **802.1X**, **MAB**, EAP in all its flavors, guest networks ... etc. I’d say I have a good grip on managing WLCs, creating access points, configuring them top to bottom.<br><br>
 
-But I want the **rogue** kind of expertise.
+But I want the **rogue** kind of expertise.<br><br>
 
-I want to learn the unforgiving, chaotic, messy consumer-side WiFi. When someone asks why the signal is better in the kitchen than in the bedroom, I want to have a real answer not just “because the router’s closer.”
+I want to learn the unforgiving, chaotic, messy consumer-side WiFi. When someone asks why the signal is better in the kitchen than in the bedroom, I want to have a real answer not just “because the router’s closer.”<br><br>
 
 So I started researching adapters. I knew I’d need one that supports **monitor mode** and **packet injection**. These are non negotiable if you’re serious about learning WiFi hacking. Otherwise the adapter’s just a piece of plastic.
 
