@@ -15,7 +15,7 @@ So I started researching adapters. I knew I’d need one that supports **monitor
 
 ### First stop: TP-Link TL-WN722N v1
 
-This one’s the cheapest decent option but only if you get version 1, as the newer ones are useless. No monitor mode, wrong chipset, completely useless for our purposes. Sadly it’s a collector’s item now, stores haven’t stocked it in ages and the packaging makes it worse, you think you’re buying v1, but then you flip the box and see version 3.2 hiding on the back like it’s ashamed of itself.
+This one’s the cheapest decent option but only if you get version 1, as the newer ones are useless. No monitor mode and wrong chipset, completely useless for our purposes. Sadly it’s a collector’s item now, stores haven’t stocked it in ages and the packaging makes it worse, you think you’re buying v1, but then you flip the box and see version 3.2 hiding on the back like it’s ashamed of itself.
 
 Amazon seemed to have it. I found this [listing](https://www.amazon.com/Tp-Link-TL-WN722N-IEEE-802-11n-draft/dp/B002SZEOLG/) that looked right. But after digging through the reviews I realized it’s actually version 2.
 
