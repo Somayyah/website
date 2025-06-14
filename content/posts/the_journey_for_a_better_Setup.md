@@ -1,6 +1,6 @@
 ---
 title: "Creating a better workspace setup for programming"
-date: 2025-02-09  
+date: 2025-06-14  
 description: What I'm doing so my workspace is more ergonomic
 type: "post"  
 tags: ["programming", "health", "how-to", "technology", "ergonomics"]
