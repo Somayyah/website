@@ -56,3 +56,19 @@ The signature 4D 5A is for [DOS MZ Executable](https://en.wikipedia.org/wiki/DOS
 | 26     | 0x1A | Overlay            | word | Overlay number — 0 means main executable                                                     |
 | 28     | 0x1C | Overlay info       | N/A  | Optional data used for managing overlays (non-standard)                                      |
 ```
+
+Let's see how this translates to our file(s):<br>
+
+```
+➜ xxd -l 28 audience.exe
+00000000: 4d5a 9000 0300 0000 0400 0000 ffff 0000  MZ..............
+00000010: b800 0000 0000 0000 4000 0000            ........@...
+➜ xxd -l 28 audience_p_exact.exe
+00000000: 4d5a 9000 0300 0000 0400 0000 ffff 0000  MZ..............
+00000010: b800 0000 0000 0000 4000 0000            ........@...
+➜ xxd -l 28 audience_p_large.exe
+00000000: 4d5a 9000 0300 0000 0400 0000 ffff 0000  MZ..............
+00000010: b800 0000 0000 0000 4000 0000            ........@...
+```
+
+They're identical which makes sense, I just duct taped the content and didn't account for any hardcoded stuff or alignments.
