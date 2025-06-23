@@ -1,8 +1,9 @@
 ---
-title: "Best Wireless Adapter for Cybersecurity | Why I Decided to Purchase the PAU09 N600"  
+title: "Best Wireless Adapter for Cybersecurity | Why I Decided to Purchase the PAU09 N600" 
 date: 2025-05-29  
 description: Showing what I look for and my journey to hunt the best adapter  
 type: "post"  
+tags: ["wireless", "security", "hacking", "how-to", "technology", "gear"]
 ---
 
 I decided to start learning WiFi cybersecurity. I already work with enterprise wireless networks, my expertise lies in protocols like **RADIUS**, **TACACS+**, **802.1X**, **MAB**, EAP in all its flavors, guest networks ... etc. I’d say I have a good grip on managing WLCs, creating access points, configuring them top to bottom.<br><br>
