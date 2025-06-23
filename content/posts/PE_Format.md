@@ -5,7 +5,7 @@ type: "post"
 tags: ["assembly", "security", "reverse-engineering", "how-to", "technology"]
 ---
 
-In a previous [post](/posts/editing_a_exe_binary/) I managed to patch a binary and replace an embedded audio with another WAV audio, and I discovered that it only works if hte new  audio is exactly the same size as the old one. Weird, right? <br><br>
+In a previous [post](/posts/editing_a_exe_binary/) I managed to patch a binary and replace an embedded audio with another WAV audio, and I discovered that it only works if the new  audio is exactly the same size as the old one. Weird, right? <br><br>
 
 This suggests that maybe there are hardcoded stuff, a checksum? In today's post I will look around in this binary file, compare it with the original and maybe fix it. I generated three files for testing:
 <br><br>
