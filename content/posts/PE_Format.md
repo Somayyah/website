@@ -171,4 +171,6 @@ Is 0x000013f8, and base of code is 0x00001000:
 0000012c: 0010 0000                                ....
 ```
 
-**.text** section identifies the section of an executable that contains code, since the patched file is way larger than the original one, shouldn't it's value be larger? How would I find it? what about SizeOfInitializedData field?
+**.text** section identifies the section of an executable that contains code, since the patched file is way larger than the original one, shouldn't it's value be larger? what about SizeOfInitializedData field? I know that the size of the original embedded audio is 1893464, this is less than the SizeOfInitializedData, so maybe there are more stuff in the data section? where does it start / end? <br><br>
+
+TBD .... 
