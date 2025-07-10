@@ -1,6 +1,0 @@
-/.well-known/openpgpkey/*
-  Content-Type: application/octet-stream
-
-/.well-known/openpgpkey/policy
-  Content-Type: text/plain
-
