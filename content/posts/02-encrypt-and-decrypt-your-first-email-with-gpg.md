@@ -1,5 +1,5 @@
 ---
-title: "GPG Series || "
+title: "GPG Series - 2"
 date: 1995-01-15
 description: 
 type: "post"
