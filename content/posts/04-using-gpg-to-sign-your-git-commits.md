@@ -1,5 +1,5 @@
 ---
-title: "LFS Diaries - 1 || Prerequisites & CH1-2"
+title: "GPG Series - 4"
 date: 1995-01-15
 description: My attempt at building Linux from scratch
 type: "post"
