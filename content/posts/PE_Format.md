@@ -171,65 +171,7 @@ Is 0x000013f8, and base of code is 0x00001000:
 0000012c: 0010 0000                                ....
 ```
 
-**.text** section identifies the section of an executable that contains code, since the patched file is way larger than the original one, shouldn't it's value be larger? what about SizeOfInitializedData field? I know that the size of the original embedded audio is 1893464, this is less than the SizeOfInitializedData, so maybe there are more stuff in the data section? where does it start / end? <br><br>
-<br><br>
-For testing purposes I created a simple binary that does nothing, now we have a valid exe executable to test, checking the PE offset:
-
-```
-➜ xxd -s 0x3C -l 4 do-nothing.exe
-0000003c: 0001 0000                                ....
-➜ xxd -s 0x100 -l 24 do-nothing.exe
-00000100: 5045 0000 6486 0700 c5b3 9d68 0000 0000  PE..d......h....
-00000110: 0000 0000 f000 2200                      ......".                                ....
-```
-
-From the first 24 Bytes we can learn some information:
-
-```
-5045 0000 		PE Signature
-6486 			Machine
-0700			NumberOfSections = 7
-c5b3 9d68		TimeDateStamp
-0000 0000		PointerToSymbolTable
-0000 0000 		NumberOfSymbols
-f000 			SizeOfOptionalHeader = 240
-2200 			Characteristics
-```
-
-Second part is is the optional header, we notice that it also starts with 0x20b which is for PE32+, and as per the [spec](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#optional-header-image-only) we need to look at 3 main parts:
-
-```
-## Standard fields section, 24 bytes in length, start from 118
-
-xxd -s 0x118 -l 24 do-nothing.exe
-00000118: 0b02 0e2c 00e2 0000 00d2 0000 0000 0000  ...,............
-00000128: 6412 0000 0010 0000                      d.......
-
-## Windows-specific fields, 88 bytes in length, starts from 0x130
-
-xxd -s 0x130 -l 88 do-nothing.exe
-00000130: 0000 0040 0100 0000 0010 0000 0002 0000  ...@............
-00000140: 0600 0000 0000 0000 0600 0000 0000 0000  ................
-00000150: 0000 0200 0004 0000 0000 0000 0300 6081  ..............`.
-00000160: 0000 1000 0000 0000 0010 0000 0000 0000  ................
-00000170: 0000 1000 0000 0000 0010 0000 0000 0000  ................
-00000180: 0000 0000 1000 0000                      ........
-
-## Data directories, variable length, starts from 0x188. Since SizeOfOptionalHeader is 240 bytes, then it's length should be 128. I assume I'm correct for now but I may change my mind later
-
-➜ xxd -s 0x188 -l 128 do-nothing.exe
-00000188: 0000 0000 0000 0000 a490 0100 2800 0000  ............(...
-00000198: 00e0 0100 e001 0000 00c0 0100 840f 0000  ................
-000001a8: 0000 0000 0000 0000 00f0 0100 6406 0000  ............d...
-000001b8: 407a 0100 3800 0000 0000 0000 0000 0000  @z..8...........
-000001c8: 0000 0000 0000 0000 0000 0000 0000 0000  ................
-000001d8: 0079 0100 4001 0000 0000 0000 0000 0000  .y..@...........
-000001e8: 0000 0100 6002 0000 0000 0000 0000 0000  ....`...........
-000001f8: 0000 0000 0000 0000 0000 0000 0000 0000  ................
-
-```
-
-For now I will focus on the first two sections:
+I followed the PE specification and below are the fields and sections right after the COFF header:
 
 ```
 ## Standard fields section, 24 bytes in length, start from 118
@@ -268,18 +210,76 @@ For now I will focus on the first two sections:
 1000 0000					NumberOfRvaAndSizes = 0x00000010             
 ```
 
-The Fields I want to focus on for now are:
-
-+ SizeOfOptionalHeader : 
-
-In do-nothing.exe it's 240 bytes, in audience.exe its 0xf0 = 240, same so ignoring for now.
+The fields I'm interested in are:
 
 + NumberOfSections: for audience.exe it's 0x06 = 6, this is the first different field, indicates the size of the section table.
-
-+ SizeOfCode: The size of the code (text) section, or the sum of all code sections if there are multiple sections. For audience.exe it's 
-0x1000 = 4096, for do-nothing.exe it's 0xe200 = 57856. The empty do-nothing binary has a bigger .text section from audience.exe :/, that's alright, at least I know that this field is variable and I need to check it.
-
-+ SizeOfInitializedData: For audience.exe it's 0x1d0600 = 1902080, and for do-nothing.exe SizeOfInitializedData = 0xd200 = 53760. This has to be where the audio file is. 
++ SizeOfCode
++ SizeOfInitializedData
 
 ## NumberOfSections
+
+Using objdump we can examine file headers as below for the original file:
+
+```
+➜ objdump -h audience.exe
+
+audience.exe:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      File off  Algn
+  0 .text         00000ffc  00000400  2**4
+  1 .rdata        00001094  00001400  2**4
+  2 .data         00000200  00002600  2**4
+  3 .pdata        000001c8  00002800  2**2
+  4 .rsrc         001ce690  00002a00  2**2
+  5 .reloc        00000030  001d1200  2**2
+```
+
+The .rsrc section is massive (1.8MB) and contains our embedded audio file. We can draft the file layout as below:
+
+```
+┌─────────────────┐ 0x00000000
+│   PE Headers    │
+├─────────────────┤ 0x00000400
+│ .text           │
+├─────────────────┤ 0x00001400  
+│ .rdata          │
+├─────────────────┤ 0x00002600
+│ .data           │ 
+├─────────────────┤ 0x00002800
+│ .pdata          │
+├─────────────────┤ 0x00002a00  ← Audio starts here
+│                 │
+│ .rsrc (1.8MB)   │ ← Our audio file
+│     AUDIO       │
+│                 │
+├─────────────────┤ 0x001d1200  ← Next section starts here
+│ .reloc          │
+└─────────────────┘
+```
+
+Since patching modifies this section then we can assume that the next .reloc section is misaligned. Let's check what should be at offset 0x001d1200 (where .reloc starts) in the three files:
+
+**Original binary**:
+```
+➜ xxd -s 0x001d1200 -l 32 audience.exe
+001d1200: 0020 0000 3000 0000 f0a1 f8a1 00a2 08a2  . ..0...........
+001d1210: 10a2 20a2 30a2 48a2 50a2 80a2 88a2 08a3  .. .0.H.P.......
+```
+
+**Exact-size patch**:
+```
+➜ xxd -s 0x001d1200 -l 32 audience_p_exact.exe  
+001d1200: 0020 0000 3000 0000 f0a1 f8a1 00a2 08a2  . ..0...........
+001d1210: 10a2 20a2 30a2 48a2 50a2 80a2 88a2 08a3  .. .0.H.P.......
+```
+Same clean relocation data.
+
+**Large patch**:
+```
+➜ xxd -s 0x001d1200 -l 32 audience_p_large.exe
+001d1200: 0ebc 7ac6 50b5 bebd e9b6 a5bb c6b8 08bd  ..z.P...........
+001d1210: 8fb4 24b8 49b4 d1b5 f2b5 5eb9 30ae 22b5  ..$.I.....^.0.".
+```
+.reloc section doesn't start here!
 
