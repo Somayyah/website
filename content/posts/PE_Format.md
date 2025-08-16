@@ -7,7 +7,11 @@ tags: ["assembly", "security", "reverse-engineering", "how-to", "technology"]
 
 In a previous [post](/posts/editing_a_exe_binary/) I managed to patch a binary and replace an embedded audio with another WAV audio, and I discovered that it only works if the new  audio is exactly the same size as the old one. Weird, right? <br><br>
 
-This suggests that maybe there are hardcoded stuff, a checksum? In today's post I will look around in this binary file, compare it with the original and maybe fix it. I generated three files for testing:
+This suggests that maybe there are hardcoded stuff, a checksum? In today's post I will look around in this binary file, compare it with the original and maybe fix it. 
+
+## Preparation and High Overview
+
+I generated three files for testing:
 <br><br>
 ```
 ➜ ls -al test/
@@ -28,7 +32,7 @@ I did the patching using a [script](https://github.com/Somayyah/bch) I wrote:<br
 ➜ python bch.py test/audience.exe 0x2ab0 test/exact_size.wav 1893472 audience_p_exact.exe
 ```
 
-all the files shows the signature of MS-DOS executable:
+all the files show the signature of MS-DOS executable:
 <br><br>
 ```
 ➜ hexdump -C audience.exe | head -n 1
@@ -92,6 +96,7 @@ They're identical which makes sense, I just duct taped the content and didn't ac
 | 0x1A   | Overlay            | 0000    | 0x0000 = 0                  | The main executable                 
 ```	
 
+## Understanding headers content
 Some interesting fields are the **pages**, **header size**, **Relocation table** and **overlay**. The pages field says we need 3 pages of 512 content. There's 144 bytes in  the last page, so total content length is 2 * 512 + 144 = 1168 bytes, but this is way smaller than the original file size!!
 
 ```
@@ -149,27 +154,7 @@ db13 5068 	==> TimeDateStamp, should I care about it now?
 f000 		==> SizeOfOptionalHeader, 0x00f0 = 240, since it's not zero then we're dealing with executable not object file.
 2200		==> Characteristics, 0x0022, File attributes, IMAGE_FILE_LARGE_ADDRESS_AWARE and IMAGE_FILE_EXECUTABLE_IMAGE
 ```
-For the optional header, it has 3 major parts, first section is for the standard header, it's either 28 or 24 bytes depending on the type PE32 or PE32+, first two bytes are 0x020b which means we are dealing with PE32+. In this section there's the field SizeOfCode which is for the .text section:
-
-```
-➜ xxd -s 0x11c -l 4 audience.exe
-0000011c: 0010 0000                                ....
-```
-
-So the .text section equals 0x00001000, that's 4096 bytes. Then we have SizeOfInitializedData field = 00061d00 = 0x001D0600 which is 1902080 bytes. The address of the entry point:
-
-```
-➜ xxd -s 0x11c -l 16 audience.exe
-0000011c: 0010 0000 0006 1d00 0000 0000 f813 0000  ................
-``` 
-
-Is 0x000013f8, and base of code is 0x00001000:
-
-```
-➜ xxd -s 0x11c -l 20 audience.exe
-0000011c: 0010 0000 0006 1d00 0000 0000 f813 0000  ................
-0000012c: 0010 0000                                ....
-```
+For the optional header, it has 3 major parts, first section is for the standard header, it's either 28 or 24 bytes depending on the type PE32 or PE32+, first two bytes are 0x020b which means we are dealing with PE32+. 
 
 I followed the PE specification and below are the fields and sections right after the COFF header:
 
@@ -210,13 +195,7 @@ I followed the PE specification and below are the fields and sections right afte
 1000 0000					NumberOfRvaAndSizes = 0x00000010             
 ```
 
-The fields I'm interested in are:
-
-+ NumberOfSections: for audience.exe it's 0x06 = 6, this is the first different field, indicates the size of the section table.
-+ SizeOfCode
-+ SizeOfInitializedData
-
-## NumberOfSections
+## Examining the file headers and sections
 
 Using objdump we can examine file headers as below for the original file:
 
@@ -283,3 +262,44 @@ Same clean relocation data.
 ```
 .reloc section doesn't start here!
 
+Using [binwalk](https://github.com/ReFirmLabs/binwalk) we find the hex raw string for the start or .reloc begins at the offset 0xD9D8CA:
+
+```
+➜ binwalk -R "\x00\x20\x00\x00\x30\x00\x00\x00\xf0" audience_p_large.exe
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+14276810      0xD9D8CA        Raw signature (\x00\x20\x00\x00\x30\x00\x00\x00\xf0)
+
+➜ binwalk -R "\x00\x20\x00\x00\x30\x00\x00\x00\xf0" audience.exe
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+1905152       0x1D1200        Raw signature (\x00\x20\x00\x00\x30\x00\x00\x00\xf0)
+
+➜ xxd -s 0xD9D8CA -l 200 audience_p_large.exe
+00d9d8ca: 0020 0000 3000 0000 f0a1 f8a1 00a2 08a2  . ..0...........
+00d9d8da: 10a2 20a2 30a2 48a2 50a2 80a2 88a2 08a3  .. .0.H.P.......
+00d9d8ea: 20a3 28a3 b0a3 c8a3 d0a3 d8a3 e0a3 e8a3   .(.............
+00d9d8fa: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d90a: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d91a: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d92a: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d93a: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d94a: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d95a: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d96a: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d97a: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00d9d98a: 0000 0000 0000 0000                      ........
+
+```
+
+### What We've Discovered
+- WAV audio lives in .rsrc section (1.8MB)  
+- Large patch pushes .reloc from 0x1D1200 to 0xD9D8CA
+- .rsrc section is now 0xD9AECA bytes instead of 0x1CE690
+- Headers still contain old values → windows got confused and panicked
+
+## Fixing The Binary
+
+TBD...
