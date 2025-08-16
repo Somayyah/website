@@ -268,3 +268,18 @@ For now I will focus on the first two sections:
 1000 0000					NumberOfRvaAndSizes = 0x00000010             
 ```
 
+The Fields I want to focus on for now are:
+
++ SizeOfOptionalHeader : 
+
+In do-nothing.exe it's 240 bytes, in audience.exe its 0xf0 = 240, same so ignoring for now.
+
++ NumberOfSections: for audience.exe it's 0x06 = 6, this is the first different field, indicates the size of the section table.
+
++ SizeOfCode: The size of the code (text) section, or the sum of all code sections if there are multiple sections. For audience.exe it's 
+0x1000 = 4096, for do-nothing.exe it's 0xe200 = 57856. The empty do-nothing binary has a bigger .text section from audience.exe :/, that's alright, at least I know that this field is variable and I need to check it.
+
++ SizeOfInitializedData: For audience.exe it's 0x1d0600 = 1902080, and for do-nothing.exe SizeOfInitializedData = 0xd200 = 53760. This has to be where the audio file is. 
+
+## NumberOfSections
+
