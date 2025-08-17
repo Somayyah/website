@@ -302,4 +302,8 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 
 ## Fixing The Binary
 
-TBD...
+Resource and relocation table and sizes information are found in the Optional Header Data Directories section, which starts at offset 112 for PE32+:
+```
+
+
+```
