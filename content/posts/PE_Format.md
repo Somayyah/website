@@ -396,3 +396,77 @@ Idx Name    Size      File off  Algn
             CONTENTS, 
 ```
 
+I will use binwalk to find the old offset:
+
+```
+# Old file offset: 0x1D1200 → little-endian: 00121D00
+binwalk -R "\x00\x12\x1D\x00" audience_p_large.exe
+
+WARNING: Signature '0    string    \x00\x12\x1D\x00    Raw signature (\x00\x12\x1D\x00)' is a self-overlapping signature!
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+740           0x2E4           Raw signature (\x00\x12\x1D\x00)
+
+# New file offset: 0xD9D8CA → little-endian: CAD8D900  
+binwalk -R "\xCA\xD8\xD9\x00" audience_p_large.exe
+<empty, expected>
+```
+
+So after modifying the bytes starting from 0x2E4 with hexcurse, now objdump shows the correct offset for reloc:
+
+```
+➜ objdump -h audience_p_large.exe
+
+audience_p_large.exe:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00000ffc  0000000140001000  0000000140001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        00001094  0000000140002000  0000000140002000  00001400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .data         00000200  0000000140004000  0000000140004000  00002600  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .pdata        000001c8  0000000140005000  0000000140005000  00002800  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .rsrc         001ce690  0000000140006000  0000000140006000  00002a00  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .reloc        00000030  00000001401d5000  00000001401d5000  00d9d8ca  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+```
+
+Now let's fix the size for .rsrc, with binwalk here's the offset:
+
+```
+# Old file .rsrc size: 0x001ce690 → little-endian: 0x90e61c00
+➜ binwalk -R "\x90\xe6\x1c\x00" audience_p_large.exe
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+688           0x2B0           Raw signature (\x90\xe6\x1c\x00)
+
+```
+
+It should be 0xD9AECA, 0xCAAED900, so after modifying it:
+
+```
+➜ objdump -h audience_p_large.exe
+
+audience_p_large.exe:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      File off  Algn
+  0 .text         00000ffc  00000400  2**4
+                  CONTENTS, 
+  1 .rdata        00001094  00001400  2**4
+                  CONTENTS, 
+  2 .data         00000200  00002600  2**4
+                  CONTENTS, 
+  3 .pdata        000001c8  00002800  2**2
+                  CONTENTS, 
+  4 .rsrc         001ce800  00002a00  2**2
+                  CONTENTS, 
+  5 .reloc        00000030  00d9d8ca  2**2
+                  CONTENTS, 
+```
