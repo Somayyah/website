@@ -302,8 +302,97 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 
 ## Fixing The Binary
 
-Resource and relocation table and sizes information are found in the Optional Header Data Directories section, which starts at offset 112 for PE32+:
-```
-
+Resource and relocation table and sizes information are found in the Optional Header Data Directories section, which starts at offset 112 (70 in hex) after the Magic number for PE32+:
 
 ```
+# Offset = 0x118 + 0x70 = 188, length of data = 128 bytes (SizeOfOptionalHeader - offset of data directory = 240 - 112)
+
+➜ xxd -s 0x188 -l 128 audience.exe ### For the original file
+00000188: 0000 0000 0000 0000 d428 0000 c800 0000  .........(......
+00000198: 0060 0000 90e6 1c00 0050 0000 c801 0000  .`.......P......
+000001a8: 0000 0000 0000 0000 0050 1d00 3000 0000  .........P..0...
+000001b8: f023 0000 3800 0000 0000 0000 0000 0000  .#..8...........
+000001c8: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000001d8: b022 0000 4001 0000 0000 0000 0000 0000  ."..@...........
+000001e8: 0020 0000 f001 0000 0000 0000 0000 0000  . ..............
+000001f8: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+
+➜ xxd -s 0x188 -l 128 audience_p_large.exe
+00000188: 0000 0000 0000 0000 d428 0000 c800 0000  .........(......
+00000198: 0060 0000 90e6 1c00 0050 0000 c801 0000  .`.......P......
+000001a8: 0000 0000 0000 0000 0050 1d00 3000 0000  .........P..0...
+000001b8: f023 0000 3800 0000 0000 0000 0000 0000  .#..8...........
+000001c8: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000001d8: b022 0000 4001 0000 0000 0000 0000 0000  ."..@...........
+000001e8: 0020 0000 f001 0000 0000 0000 0000 0000  . ..............
+000001f8: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+```
+
+Both have the same data directories section, but only one is right!, below are the fields dump:
+
+```
+0000 0000 0000 0000 : No export table, so no edata section
+d428 0000 c800 0000 : Import table information, idata section
+0060 0000 90e6 1c00 : Resource table information, rsrc section
+0050 0000 c801 0000 : Exception Table, pdata section
+0000 0000 0000 0000 : No Certificate Table
+0050 1d00 3000 0000 : Base Relocation Table, reloc section
+f023 0000 3800 0000 : Debug
+0000 0000 0000 0000 : Architecture Reserved must be zero
+0000 0000 0000 0000 : Global Ptr
+0000 0000 0000 0000 : TLS Table
+b022 0000 4001 0000 : Load Config Table
+0000 0000 0000 0000 : Bound Import
+0020 0000 f001 0000 : IAT
+0000 0000 0000 0000 : Delay Import Descriptor
+0000 0000 0000 0000 : CLR Runtime Header
+0000 0000 0000 0000 : Reserved, must be zero
+```
+
+each 8 bits present the below structure:
+
+```
+typedef struct _IMAGE_DATA_DIRECTORY {
+    DWORD   VirtualAddress;
+    DWORD   Size;
+} IMAGE_DATA_DIRECTORY, *PIMAGE_DATA_DIRECTORY;
+
+```
+
+So for resource table, RVA = 0x6000, and size = 0x1ce690 = 1894032 bytes. This is accurate for audience.exe, but for the patched file the size should be 0xD9AECA (calculated previously), after changing the hex with hexcurse:
+
+```
+➜ xxd -s 0x188 -l 128 audience_p_large.exe
+00000188: 0000 0000 0000 0000 d428 0000 c800 0000  .........(......
+00000198: 0060 0000 caae d900 0050 0000 c801 0000  .`.......P......
+000001a8: 0000 0000 0000 0000 0050 1d00 3000 0000  .........P..0...
+000001b8: f023 0000 3800 0000 0000 0000 0000 0000  .#..8...........
+000001c8: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000001d8: b022 0000 4001 0000 0000 0000 0000 0000  ."..@...........
+000001e8: 0020 0000 f001 0000 0000 0000 0000 0000  . ..............
+000001f8: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+```
+
+Next let's look at reloc section, RVA = 0x001d5000, size = 0x30, it should start at 0xD9D8CA instead of 0x1D1200. But were do we update it? using objdump we still see the old header information which makes sense because I didn't edit them yet:
+
+```
+➜ objdump -h audience_p_large.exe
+
+audience_p_large.exe:     file format pei-x86-64
+
+Sections:
+Idx Name    Size      File off  Algn
+  0 .text   00000ffc  00000400  2**4
+            CONTENTS, 
+  1 .rdata  00001094  00001400  2**4
+            CONTENTS, 
+  2 .data   00000200  00002600  2**4
+            CONTENTS, 
+  3 .pdata  000001c8  00002800  2**2
+            CONTENTS, 
+  4 .rsrc   001ce690  00002a00  2**2
+            CONTENTS, 
+  5 .reloc  00000030  001d1200  2**2
+            CONTENTS, 
+```
+
