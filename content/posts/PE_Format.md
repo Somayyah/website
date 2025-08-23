@@ -1,11 +1,11 @@
 ---
-title: "Why Did My Patched EXE Break? || Fixing a binary"  
-date: 2001-06-17 
+title: "Why Did My Patched EXE Break? || Fixing a binary - 1"  
+date: 2025-08-23
 type: "post"  
 tags: ["assembly", "security", "reverse-engineering", "how-to", "technology"]
 ---
 
-In a previous [post](/posts/editing_a_exe_binary/) I managed to patch a binary and replace an embedded audio with another WAV audio, and I discovered that it only works if the new  audio is exactly the same size as the old one. Weird, right? <br><br>
+In a previous [post](/posts/editing_a_exe_binary/) I managed to patch a binary and replace an embedded audio with another WAV audio, and I discovered that it only works if the new audio is exactly the same size as the old one. Weird, right? <br><br>
 
 This suggests that maybe there are hardcoded stuff, a checksum? In today's post I will look around in this binary file, compare it with the original and maybe fix it. 
 
@@ -433,8 +433,7 @@ Idx Name          Size      VMA               LMA               File off  Algn
   4 .rsrc         001ce690  0000000140006000  0000000140006000  00002a00  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   5 .reloc        00000030  00000001401d5000  00000001401d5000  00d9d8ca  2**2
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-```
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA```
 
 Now let's fix the size for .rsrc, with binwalk here's the offset:
 
@@ -469,4 +468,37 @@ Idx Name          Size      File off  Algn
                   CONTENTS, 
   5 .reloc        00000030  00d9d8ca  2**2
                   CONTENTS, 
+				  
+➜ binwalk -R "\x00\xe8\x1c\x00" audience_p_large.exe
+
+WARNING: Signature '0    string    \x00\xe8\x1c\x00    Raw signature (\x00\xe8\x1c\x00)' is a self-overlapping signature!
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+696           0x2B8           Raw signature (\x00\xe8\x1c\x00)
+
+➜ objdump -h audience_p_large.exe
+
+audience_p_large.exe:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00000ffc  0000000140001000  0000000140001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        00001094  0000000140002000  0000000140002000  00001400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .data         00000200  0000000140004000  0000000140004000  00002600  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .pdata        000001c8  0000000140005000  0000000140005000  00002800  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .rsrc         00d9aeca  0000000140006000  0000000140006000  00002a00  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .reloc        00000030  00000001401d5000  00000001401d5000  00d9d8ca  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
 ```
+
+Now it looks fine, but it still doesn't work on windows. So there's something else at play.
+
+### TBD...
+
+<br><br>
