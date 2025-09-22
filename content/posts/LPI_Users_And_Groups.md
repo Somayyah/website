@@ -31,9 +31,9 @@ The password file is located in /etc/passwd, and contains one line for each user
 <br><br>
 Below are the fields explained:
 
-+ login name : The unique name for the user, duh.
++ Login name : The unique name for the user, duh.
 + encrypted password : a 13 characters encrypted password, if shadowed passwords are used then it's presented as x. If the password field contains any other string or a string of other characters then the login to this user is disabled.
 + UID : Unique user ID, if it's 0 then the user has super privilages.
 + GID : The ID of the first of the groups of which this user is a member. Further group memberships for this user are defined in the system group file.
 + HOME Directory : The directory where the user is placed once they log in, this becomes the value for $HOME.
-+ login shell : The shell where the user is transferred to once they log in, this becomes the value for $SHELL.
++ Login shell : The shell where the user is transferred to once they log in, this becomes the value for $SHELL.
