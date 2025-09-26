@@ -16,7 +16,7 @@ For example, each file belongs to a particular user and group, and each process 
 <br><br>
 This sounds trivial but how does it translate in practice?
 
-## The Password File: /etc/passwd
+### The Password File: /etc/passwd
 <br><br>
 ![A snippet of the file /etc/passwd showing the users ](/svg/assets/etcpasswd.svg "A snippet of the file /etc/passwd showing the users")
 <br><br>
@@ -37,9 +37,95 @@ Login name: Unique username for the account.
 + HOME Directory : The directory where the user is placed once they log in, this becomes the value for $HOME.
 + Login shell : The shell where the user is transferred to once they log in, this becomes the value for $SHELL.
 
-## The Password File: /etc/passwd
+### The shadow File: /etc/shadow
 <br><br>
 ![A snippet of the file /etc/shadow ](/images/shadow.gif "A snippet of the file /etc/shadow showing the users")
 <br><br>
 
 Historically, /etc/passwd contained all user account information, including password hashes. Because /etc/passwd is world-readable, this exposed password hashes to all users, making password cracking attempts feasible. To mitigate this, /etc/shadow was introduced to store password hashes securely, accessible only by the root user, while /etc/passwd retained only non-sensitive account information needed for system operations.
+
+### The groups File: /etc/group
+<br><br>
+![A snippet of the file /etc/group ](/images/group.gif "A snippet of the file /etc/group showing the groups")
+<br><br>
+
+Groups are used to logically gather users that share similar administrative characteristics, for example privilages, access to files .. etc. The groups file is formatted as below:
+
+```
+<Group name>:<placeholder for the hash of optional password>:<GID>:<users list, separated by comma>
+```
+
+### Retrieving User and Group Information
+
+I installed a tarball of all the code examples of this book via the [official link](https://man7.org/tlpi/code/index.html), and I managed to run the first example in users_groups/check_password.c, below are the general steps:
+
+```
+!! Install some important libraries
+
+sudo apt update
+sudo apt install build-essential libcap-dev libacl1-dev libselinux1-dev
+
+!! Build the Core Library (libtlpi.a)
+
+cd tlpi-book/lib
+make
+
+!! cd tlpi-book/users_groups
+make check_password
+```
+
+which will generate the executable check_password, and we can run it to check if a user's password is correct:
+
+```
+watari@vbox:~/.../tlpi-book/users_groups$ sudo ./check_password 
+Username: watari
+Password: 
+Successfully authenticated: UID=1000
+watari@vbox:~/.../tlpi-book/users_groups$ 
+```
+
+The reason we run this executable in sudo mode is because it checks the passwords in /etc/shadow which requires privilaged access.
+
+### Libraries and functions
+
+Below is a list of important C libraries and functions for each one related to users and passwords management:
+
++ [pwd.h](https://www.man7.org/linux/man-pages/man0/pwd.h.0p.html): For user's password structure.
+	+ struct passwd:
+		+ pw_name :  User's login name.
+		+ pw_uid  :  Numerical user ID.
+		+ pw_gid  :  Numerical group ID.
+		+ pw_dir  :  Initial working directory.
+		+ pw_shell:  Program to use as shell.
+	+ Functions:
+		+ endpwent : closes the user database
+		+ getpwent : returns a pointer to a structure containing the broken-out fields of an entry in the user database. Each entry in the user database contains a passwd structure
+		+ getpwnam : returns a pointer to a structure containing the broken-out fields of the record in the password database (e.g., the local password file /etc/passwd, NIS, and LDAP) that matches the username name.
+		+ getpwnam_r : obtains the same information as getpwnam() 
+		+ getpwuid : return a pointer to a passwd structure, or NULL if the matching entry is not found or an error occurs.
+		+ getpwuid_r: obtains the same information as getpwuid()
+		+ setpwent: rewind the user database so that the next getpwent() call returns the first entry, allowing repeated        searches.
++ [shadow.h](https://www.man7.org/linux/man-pages/man3/shadow.3.html) : manipulates the contents of the shadow password file.
+	+ struct spwd:
+		+ sp_namp : user login name
+		+ sp_pwdp : encrypted password
+		+ sp_lstchg : last password change
+		+ sp_min : days until change allowed.
+		+ sp_max : days before change required
+		+ sp_warn : days warning for expiration
+		+ sp_inact : days before account inactive
+		+ sp_expire : date when account expires
+		+ sp_flag : reserved for future use
+	+ Functions:
+		+ getspent : returns a pointer to a struct spwd
+		+ getspname : returns a pointer to a struct spwd
+		+ fgetspent : returns a pointer to a struct spwd
+		+ sgetspent : returns a pointer to a struct spwd
+		+ fgetspent : returns the next entry from the given stream, which is assumed to be a file of the proper format.
+        + sgetspent returns a pointer to a struct spwd using the provided string as input.  
+		+ getspnam searches from the current position in the file for an entry matching name. 
+
+## Encryption and User Authentication
+
+UNIX systems encrypt passwords using a one-way encryption algorithm, which means that there is no method of re-creating the original password from its encrypted form. Therefore, the only way of validating a candidate password is to encrypt it using the same method and see if the encrypted result matches the value stored in /etc/shadow. The encryption algorithm is encapsulated
+in the crypt() function which is from  the library [unistd.h](https://www.man7.org/linux/man-pages/man0/unistd.h.0p.html)
