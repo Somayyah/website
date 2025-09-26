@@ -1,6 +1,6 @@
 ---
 title: "LPI || Users and groups"
-date: 1999-09-22
+date: 2025-09-26
 description: Reading CH 8 of the linux programming interface book
 type: "post"
 tags: ["linux", "unix", "commands", "how-to", "technology", "explain-like-i'm-five", "hacks", "security", "LPI"]
