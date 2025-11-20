@@ -1,6 +1,6 @@
 ---
 title: "Linux Dotfiles Explained"
-date: 1995-01-15
+date: 2025-11-20
 description:
 type: "post"
 tags: ["linux", "bash", "dotfiles", "how-to"]
