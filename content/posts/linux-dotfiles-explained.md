@@ -128,9 +128,9 @@ So when we log into a new session we are greeted with the echo message, but not 
 
 ```bash
 Hello from /home/watari/.profile
-● [watari@DESKTOP-PVA8708] in ~
+● [watari@DESKTOP] in ~
 ➜ bash
-● [watari@DESKTOP-PVA8708] in ~
+● [watari@DESKTOP] in ~
 ➜
 ```
 
