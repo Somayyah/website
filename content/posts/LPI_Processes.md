@@ -1,6 +1,6 @@
 ---
 title: "LPI || Processes"
-date: 2025-09-26
+date: 1995-09-26
 description: Reading CH 6 of the linux programming interface book
 type: "post"
 tags: ["linux", "unix", "commands", "how-to", "technology", "explain-like-i'm-five", "hacks", "security", "LPI"]

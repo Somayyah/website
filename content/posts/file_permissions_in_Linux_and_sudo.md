@@ -1,6 +1,6 @@
 ---
 title: "Linux permissions for files and Directories"
-date: 1995-01-15
+date: 2025-12-21
 description:  
 type: "post"
 tags: ["linux", "unix", "commands", "how-to", "technology", "operating systems", "kernel"]
