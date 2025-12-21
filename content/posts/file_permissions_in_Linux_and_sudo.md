@@ -142,7 +142,7 @@ I can't run it right away because I don't have the execute permissions yet:
 
 After adding x permissions to the owner:
 
-```
+```bash
 ○ → chmod u+x test.py
 
 ○ → ./test.py
@@ -151,3 +151,69 @@ Hello, World!!
 ○ → ls -l test.py
 -rwxr--r-- 1 watari watari 48 Dec 21 10:36 test.py
 ```
+
+This is easy to understand, but what about executing a directory? Let's create a testing directory and remove the execute permissions from it:
+
+```bash
+○ → ls -l
+
+drw-r--r--  2 watari watari  4096 Dec 21 10:46 testdir
+```
+
+Let's now try some operations on this directory:
+
+```bash
+○ → cd testdir/
+-bash: cd: testdir/: Permission denied
+
+○ → touch testdir/file
+touch: cannot touch 'testdir/file': Permission denied
+
+○ → ls testdir/
+
+<Empty output because I didn't add any files here>
+```
+
+We notice how we can ls this directory, but we can't cd into it or create files in it. In general, permission bits affect directories as below:
+
+- Read "r" permissions are used to list the files within the directory.
+- Write "w" permissions are used to create, rename, or delete files within the directory.
+- Execute "x" permissions are used to change into the directory to access it.
+
+## What about default permissions?
+
+When I create a new file we see that it immediately has the below permissions which I didn't specify upon create:
+
+```bash
+○ → touch newfile
+
+○ → ls -l newfile
+-rw-r--r-- 1 watari watari 0 Dec 21 11:14 newfile
+```
+
+The owner has read and write bits, and everyone else only have read permissions. Why is that? this is because of the [umask](https://www.man7.org/linux/man-pages/man2/umask.2.html) value which sets the file mode during creation. And we can print it's value as below:
+
+```
+○ → umask
+0022
+```
+
+But wait, why isn't it saying 644 instead? this is because it shows us the mask not the permission bits themselves. For now we will ignore the first digit in the umask output, and let's look on how to calculate the default permissions with the umask value as follows:
+
+- For files we subtract each digit in the umask from 6, so for our test file 666 - 022 = 644, which is rw-r--r--. 
+- For directories we subtract each digit in the umask from 7, so a new directory will have the permissions 777 - 022 == 755 which means rwxr-xr-x:
+
+```bash
+○ → mkdir test_dir
+mkdir: created directory 'test_dir'
+
+○ → ls -l | grep test_dir/
+
+○ → ls -l | grep test_dir
+drwxr-xr-x  2 watari watari  4096 Dec 21 12:19 test_dir
+```
+
+- 0 for the user means there are no permission bits disabled, so all permissions are enabled.
+- 2 for the group and other users means 
+
+By controlling the umask you can set default permissions for users so you don't have to do it again later.
