@@ -12,8 +12,12 @@ tags: ["linux", "unix", "commands", "ffmpeg-how-to", "technology", "ffmpeg", "co
 
 The ```ffmpeg``` command follows a simple format:
 
-```
+```bash
 ffmpeg [global_options] {[input_file_options] -i input_url} ... {[output_file_options] output_url}
 ```
 
+The command I generally use is as below:
 
+```bash
+ffmpeg -i video.mp4 -i audio.wav -vf subtitles=file.srt output.mp4
+```
