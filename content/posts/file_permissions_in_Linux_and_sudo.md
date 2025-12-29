@@ -39,6 +39,8 @@ so "rwx" means that the file has read, write and execute, meanwhile "r-x" means 
 - group permissions are "--x", only execute.
 - other users permissions are "rw-", read and write.
 
+>> Note : the "x" permission bit can sometimes show as "s" or "t", for now let's focus on "x" in the execution bit
+
 ### How To Change Linux Permissions
 
 We change the permissions using the command [chmod](https://linuxize.com/post/chmod-command-in-linux/) which uses two types of notations:
