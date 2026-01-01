@@ -21,4 +21,8 @@ The tutorial seems to be written for Windows so no Linux today but that's alrigh
 
 ## Installing the Firmware
 
-Since my phone model is SM-A515F/DSN, I searched for it on https://samfrew.com/firmware and I didn't find it!! My region isn't listed in the site, so what's going on?
+Since my phone model is SM-A515F/DSN, I searched for it on https://samfrew.com/firmware and I didn't find it!! The region isn't listed in the site, so what's going on? I checked further, and found that by dailing `*#1234#` I get the CSC value **A515FOJM8HWI2**. So DSN isn't the CSC code, as per this forum the CSC should be WI2 but it's not listed. I didn't find a firmware with the CSC **WI2** or **OJM** or **OXM** so why don't I just select a firmware closest to my country? It's a child's play thing, nothing is serious anyways.
+
+I selected **KSA-A515FXXU8HWI1-20231030121221.zip** for now which is 5.2 Gigs. We'll see..
+
+## 
