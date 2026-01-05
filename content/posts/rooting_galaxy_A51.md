@@ -59,3 +59,11 @@ Then we get a warning that our device will be bricked which is what we want, the
 
 ### To root Our device
 
+In the document we get a warning that Saumsung Knox will be affected but I'm not worried right now so will proceed with below:
+
+- Download the latest stock firmware for your Samsung Galaxy A51 with Samfirm/Frija app (faster) or Samfrew/Sam-mobile website (way slower).
+
+This step confused me because I entered the phone model and region on Samfirm after running it as admin and it failed to check updates or downloads. Also, didn't we already download the firmware? I also tried using Odin which was straight forward but I failed. This is where the educational guesses part come in.
+
+I guess this is happening becuase I'm no longer in DOWNLOAD mode, so I will try to reboot my phone again as explained in the Unlocking OEM section.
+
