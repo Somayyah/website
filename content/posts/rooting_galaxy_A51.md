@@ -23,7 +23,7 @@ The tutorial seems to be written for Windows so no Linux today but that's alrigh
 
 The instructions say to hunt the firmware based on the CSC (country code), Since my phone model is SM-A515F/DSN, I searched for it on https://samfrew.com/firmware and I didn't find it!! The region isn't listed in the site, so what's going on? I checked further, and found that by dailing `*#1234#` I get the CSC value **A515FOJM8HWI2**. So DSN isn't the CSC code, as per this forum the CSC should be WI2 but it's not listed. I didn't find a firmware with the CSC **WI2** or **OJM** or **OXM** so why don't I just select a firmware closest to my country? It's a child's play thing, nothing is serious anyways.
 <br><br>
-Wait, the model of my phone after dialing *#1234#* is A515FXXU8HWI1, and this one does exist! So I installed the one with CSC of BTE, let's see..
+Wait, the model of my phone after dialing *#1234#* is A515FXXU8HWI1, and this one does exist! So I installed the one with CSC of BTE and extracted it, let's see..
 <br><br>
 Find the list of Samsung CSC [here](https://technastic.com/samsung-csc-codes-list/)
 
@@ -37,4 +37,9 @@ First, I need to install the [Samsung Latest USB Driver](https://developer.samsu
 - Enable USB 2 on VBox machine settings.
 - Use a proper USB, and verify that the phone is connected to the host using the command "adb devices"
 - Reloading the host after previous changes.
+
+Since now we have everything ready, will proceed with the actual steps.
+
+## Proceed..
+
 
