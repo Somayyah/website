@@ -44,6 +44,8 @@ Since now we have everything ready, will proceed with the actual steps.
 
 We follow the below steps on our android phone to unlock bootloader:
 
+### Unlocking OEM 
+
 - Go to Settings then to About phone > System insformation and find your build number.
 - Tap on your build number 6 times until you see “You’re now a developer”.
 - Go in Developer options > enable OEM unlocking.
@@ -53,4 +55,7 @@ We follow the below steps on our android phone to unlock bootloader:
 
 Then we get a warning that our device will be bricked which is what we want, the warning not the bricking.
 
-- Long press volume UP to unlock the bootloader. This will wipe your data and automatically reboot your device!
+- Long press volume UP to unlock the bootloader. This will wipe your data and automatically reboot your device. This step took a LOOOOOOOOOOOOOOOOONG time I thought it's gonna fail, the screen displayed SAMSUNG logo for a while before anything. So we need to be patient.
+
+### To root Our device
+
