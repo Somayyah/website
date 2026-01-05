@@ -42,4 +42,15 @@ Since now we have everything ready, will proceed with the actual steps.
 
 ## Proceed..
 
+We follow the below steps on our android phone to unlock bootloader:
 
+- Go to Settings then to About phone > System insformation and find your build number.
+- Tap on your build number 6 times until you see “You’re now a developer”.
+- Go in Developer options > enable OEM unlocking.
+- Connect the device to your PC.
+- Power off your device with POWER and volume DOWN and directly hold volume UP and DOWN together!
+- Device will boot in DOWNLOAD MODE.
+
+Then we get a warning that our device will be bricked which is what we want, the warning not the bricking.
+
+- Long press volume UP to unlock the bootloader. This will wipe your data and automatically reboot your device!
