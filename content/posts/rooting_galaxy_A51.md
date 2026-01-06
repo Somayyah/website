@@ -63,7 +63,8 @@ In the document we get a warning that Saumsung Knox will be affected but I'm not
 
 - Download the latest stock firmware for your Samsung Galaxy A51 with Samfirm/Frija app (faster) or Samfrew/Sam-mobile website (way slower).
 
-This step confused me because I entered the phone model and region on Samfirm after running it as admin and it failed to check updates or downloads. Also, didn't we already download the firmware? I also tried using Odin which was straight forward but I failed. This is where the educational guesses part come in.
+This step confused me because I entered the phone model and region on Samfirm after running it as admin and it failed to check updates or downloads. Also, didn't we already download the firmware? I also tried using Odin which was straight forward but I failed. Anyways I tested Frija instead and it seems to do the trick:
 
-I guess this is happening becuase I'm no longer in DOWNLOAD mode, so I will try to reboot my phone again as explained in the Unlocking OEM section.
+![A screenshot of Frija, after entering the Samsung model, region and IMEI it detected the stock firmware successfully](image.png)
 
+It takes a while for the firmware to download. 
