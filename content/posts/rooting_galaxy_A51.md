@@ -8,7 +8,9 @@ tags: ["android", "linux", "mobile phone security", "how-to"]
 
 My old android phone is no longer serving me, and I replaced it's broken screen so many times I could have saved for a new one by now, so I decided to turn this zombie into my own guinea pig. It's model is [Samsung Galaxy A51](https://www.gsmarena.com/samsung_galaxy_a51-9963.php), and I found this [guide](https://xdaforums.com/t/galaxy-a51-root-unlock-bootloader-flash-official-firmware-binary-3-may.4053065/) which I will be following today.
 
-Disclaimer : This is my first time ever unlocking an android phone, so expect some inaccuracies and educational guesses along the way.
+**Disclaimer #1:** This is my first time ever unlocking an android phone, so expect some inaccuracies and educational guesses along the way.
+
+**Disclaimer #2:** I bricked my device multiple times throughout this process but it's ok becuase my phone is no longer in use, in this post I only show the successful and final result, however you may need to exercise caution so you don't lose your phone.
 
 ## What we need
 
@@ -21,9 +23,12 @@ The tutorial seems to be written for Windows so no Linux today but that's alrigh
 
 ## Installing the Firmware
 
-The instructions say to hunt the firmware based on the CSC (country code), Since my phone model is SM-A515F/DSN, I searched for it on https://samfrew.com/firmware and I didn't find it!! The region isn't listed in the site, so what's going on? I checked further, and found that by dailing `*#1234#` I get the CSC value **A515FOJM8HWI2**. So DSN isn't the CSC code, as per this forum the CSC should be WI2 but it's not listed. I didn't find a firmware with the CSC **WI2** or **OJM** or **OXM** so why don't I just select a firmware closest to my country? It's a child's play thing, nothing is serious anyways.
-<br><br>
-Wait, the model of my phone after dialing *#1234#* is A515FXXU8HWI1, and this one does exist! So I installed the one with CSC of BTE and extracted it, let's see..
+I used Frija to install the firmware like below:
+
+![A screenshot of Frija, after entering the Samsung model, region and IMEI it detected the stock firmware successfully](image.png)
+
+It takes a while for the firmware to download. 
+
 <br><br>
 Find the list of Samsung CSC [here](https://technastic.com/samsung-csc-codes-list/)
 
@@ -62,9 +67,20 @@ Then we get a warning that our device will be bricked which is what we want, the
 In the document we get a warning that Saumsung Knox will be affected but I'm not worried right now so will proceed with below:
 
 - Download the latest stock firmware for your Samsung Galaxy A51 with Samfirm/Frija app (faster) or Samfrew/Sam-mobile website (way slower).
+- Extract the SM-A515XX_1_EXAMPLE_0000000000_fac.zip file with 7zip or any other unzipper.
+- Copy the (AP_A515XXXXU1XXXX_CL00000000_QB00000000_REV00_user_low_ship_MULTI_CERT_meta_OS10.tar.md5) file and transfer it to your internal storage. 
+- Download and install [Magisk Manager APK](https://github.com/topjohnwu/Magisk/releases/download/manager-v7.5.1/MagiskManager-v7.5.1.apk)
+- Open Magisk Manager and go to Install > Install > Select and Patch a file.
+- Navigate through the storage and select the extracted AP file. The firmware will be patched and will be found in Internal Storage/Download/magisk_patched.tar
+- Transfer the patched file to your PC.
+- Turn OFF your device and boot into DOWNLOAD MODE.
+- In Odin, click on AP and select the patched tar file, Uncheck “Auto Reboot” and click on Install.
 
-This step confused me because I entered the phone model and region on Samfirm after running it as admin and it failed to check updates or downloads. Also, didn't we already download the firmware? I also tried using Odin which was straight forward but I failed. Anyways I tested Frija instead and it seems to do the trick:
+The tool will flash Magisk V20 on your Samsung Galaxy A51.
 
-![A screenshot of Frija, after entering the Samsung model, region and IMEI it detected the stock firmware successfully](image.png)
+To boot in recovery or boot the system with Magisk installed:
 
-It takes a while for the firmware to download. 
+1. Powering up normally → System without Magisk
+2. Power + Volume Up → Bootloader warning → Release all buttons → System with Magisk
+3. Power + Volume Up → Bootloader warning → Keep holding volume up → Actual recovery
+
