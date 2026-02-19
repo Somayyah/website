@@ -1,6 +1,6 @@
 ---
 title: "Linux Hardening, Part 1: Understanding the Attack Surface"
-date: 2025-11-20
+date: 1995-01-01
 description:
 type: "post"
 tags: ["linux", "how-to", "linux-security", "cybersecurity", "recon", "enumeration"]
